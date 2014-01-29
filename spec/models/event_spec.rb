@@ -2,34 +2,36 @@ require "spec_helper"
 
 describe "An Event" do
 
-  xit "checks if there is a image" do
-    event = Event.create(event_attributes(image_file_name: nil))
+  it "name cannot be blank" do
+    event = Event.create(event_attributes(name: nil))
 
-    expect(event.image_blank?).to eq(true)
+    expect(event.valid?).to be_false
+    expect(event.errors[:name].any?).to be_true
   end
 
-  xit "is only returning upcoming events" do
-  w event = Event.create(event_attributes)
+  it "description cannot be shorter than 25 characters" do
+    event = Event.create(event_attributes(description: "jadfjsdfjakjgdgs"))
+
+    expect(event.valid?).to be_false
+    expect(event.errors[:description].any?).to be_true
+  end
+
+  it "is only returning upcoming events" do
+    Event.create(event_attributes)
     expect(Event.count).to eq(1)
     Event.upcoming.first.starts_at >= Time.now
+  end
+
+  it "does not show events in the past" do
+    event = Event.create(event_attributes(starts_at: 1.month.ago))
+
+    expect(Event.upcoming).not_to include(event)
   end
 
   it "is only returning events in the future" do
     event = Event.create(event_attributes)
 
     expect(Event.upcoming).to include(event)
-  end
-
-  it "has a default value for spots" do
-    event = Event.create(event_attributes)
-
-    expect(Event.first.capacity).to eq(1)
-  end
-
-  xit "does not show events in the past" do
-    event = Event.create(event_attributes(starts_at: 1.month.ago))
-
-    expect(Event.upcoming).not_to include(event)
   end
 
   it "is ordered by the nearest starts at date" do
@@ -40,11 +42,16 @@ describe "An Event" do
     expect(Event.upcoming).to eq([event1, event2, event3])
   end
 
-  it "name cannot be blank" do
-    event = Event.create(event_attributes(name: nil))
+  xit "checks if there is a image" do
+    Event.create(event_attributes(image_file_name: nil))
 
-    expect(event.valid?).to be_false
-    expect(event.errors[:name].any?).to be_true
+    expect(event.image_blank?).to eq(true)
   end
 
+  xit "has a default value for spots" do
+    Event.create(event_attributes)
+
+    expect(Event.first.capacity).to eq(1)
+  end
 end
+
