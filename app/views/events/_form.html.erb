@@ -1,3 +1,9 @@
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+</script>
+
 <%= form_for(@event) do |f| %>
   <%= render "shared/errors", object: @event %>
   <fieldset>
@@ -19,7 +25,10 @@
       <li class="required">
         <%= f.label :starts_at %>
         <%= f.datetime_select :starts_at %>
+        <br />
+        <%= f.text_field :starts_at, :id => 'datepicker' %>
       </li>
+
     </ol>
     <p>
       <%= f.submit 'Create Playdate' %>
