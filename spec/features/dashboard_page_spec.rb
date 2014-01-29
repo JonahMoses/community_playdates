@@ -10,7 +10,7 @@ describe "dashboard page" do
   it "has a link to create a playdate" do
     login
     within('.create-playdate') do
-      expect(page).to have_link('Create a Playdate', href: new_playdate_path)
+      expect(page).to have_link('Create a Playdate', href: new_event_path)
     end
   end
 
