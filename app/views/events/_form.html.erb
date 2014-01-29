@@ -1,0 +1,30 @@
+<%= form_for(@event) do |f| %>
+  <%= render "shared/errors", object: @event %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :description %>
+        <%= f.text_area :description, cols: 40, rows: 7 %>
+      </li>
+
+      <li class="required">
+        <%= f.label :location %>
+        <%= f.text_field :location, size: 30 %>
+      </li>
+
+      <li class="required">
+        <%= f.label :starts_at %>
+        <%= f.datetime_select :starts_at %>
+      </li>
+    </ol>
+    <p>
+      <%= f.submit %>
+      <%= link_to "Cancel", events_path, class: 'button' %>
+    </p>
+  </fieldset>
+<% end %>
+

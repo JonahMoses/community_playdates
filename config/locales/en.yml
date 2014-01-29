@@ -18,8 +18,5 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
-I18n.enforce_available_locales = false
-
 en:
   hello: "Hello world"
