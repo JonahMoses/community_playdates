@@ -8,6 +8,6 @@ CommunityPlaydates::Application.routes.draw do
 
   get "/welcome" => "landing#index"
   root :to => "dashboard#index"
-  resources :playdates
+  resources :events
 
 end
