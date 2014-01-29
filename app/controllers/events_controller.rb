@@ -4,11 +4,15 @@ class EventsController < ApplicationController
     @location = Location.new
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def create
     @location = Location.create(location_params)
     @event = @location.events.create(event_params)
     if @event.save
-      redirect_to @event, notice: "Event successfully created!"
+      redirect_to @event, notice: "Playdate successfully created!"
     else
       render :new
     end
