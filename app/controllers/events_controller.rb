@@ -9,9 +9,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    @location = Location.create(location_params)
-    @event = @location.events.create(event_params)
-    if @event.save
+    @event = Event.new(event_params)
+    @location = Location.new(location_params)
+    if @event.valid? && @location.valid?
+      @event.save
+      @location.save
+      @event.update_attributes(location_id: @location.id)
       redirect_to @event, notice: "Playdate successfully created!"
     else
       render :new
