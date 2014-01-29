@@ -1,5 +1,6 @@
 <%= form_for(@event) do |f| %>
   <%= render "shared/errors", object: @event %>
+  <%= render "shared/errors", object: @location %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -65,5 +66,3 @@
     end.max("7:30 AM");
   });
 </script>
-
-

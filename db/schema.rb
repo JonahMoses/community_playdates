@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140129232628) do
+=======
+ActiveRecord::Schema.define(version: 20140129200828) do
+>>>>>>> staging
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.string   "location"
     t.string   "description"
     t.string   "capacity"
     t.datetime "created_at"
@@ -26,6 +29,19 @@ ActiveRecord::Schema.define(version: 20140129232628) do
     t.date     "date"
     t.time     "start_time"
     t.time     "end_time"
+    t.integer  "location_id"
+  end
+
+  add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
+
+  create_table "locations", force: true do |t|
+    t.string   "venue"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
