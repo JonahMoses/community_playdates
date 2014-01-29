@@ -6,6 +6,7 @@ CommunityPlaydates::Application.routes.draw do
                    controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   
+  get "/welcome" => "landing#index"
   root :to => "landing#index"
 
 end
