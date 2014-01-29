@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140129232628) do
-=======
-ActiveRecord::Schema.define(version: 20140129200828) do
->>>>>>> staging
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +23,9 @@ ActiveRecord::Schema.define(version: 20140129200828) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
+    t.integer  "location_id"
     t.time     "start_time"
     t.time     "end_time"
-    t.integer  "location_id"
   end
 
   add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
