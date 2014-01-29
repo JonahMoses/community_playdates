@@ -17,10 +17,32 @@
         <%= f.text_area :description, cols: 40, rows: 7 %>
       </li>
 
-      <li class="required">
-        <%= f.label :location %>
-        <%= f.text_field :location, size: 30 %>
-      </li>
+      <%= fields_for :location, @event.location do |k| %>
+        <li class="required">
+          <%= k.label :venue %>
+          <%= k.text_field :venue, size: 30 %>
+        </li>
+
+        <li class="required">
+          <%= k.label :street_address %>
+          <%= k.text_field :street_address, size: 30 %>
+        </li>
+
+        <li class="required">
+          <%= k.label :city %>
+          <%= k.text_field :city, size: 30 %>
+        </li>
+
+        <li class="required">
+          <%= k.label :state%>
+          <%= k.text_field :state, size: 2 %>
+        </li>
+
+        <li class="required">
+          <%= k.label :zipcode %>
+          <%= k.text_field :zipcode, size: 10 %>
+        </li>
+      <% end %>
 
       <li class="required">
         <%= f.label :starts_at %>
