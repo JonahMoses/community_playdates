@@ -1,11 +1,16 @@
 class EventsController < ApplicationController
-  def new
-    @event = Event.new
-    @location = Location.new
+
+  def index
+    @events = Event.all
   end
 
   def show
     @event = Event.find(params[:id])
+  end
+
+  def new
+    @event = Event.new
+    @location = Location.new
   end
 
   def create
@@ -20,6 +25,18 @@ class EventsController < ApplicationController
       render :new
     end
   end
+
+  # def edit
+
+  # end
+
+  # def update
+
+  # end
+
+  # def destroy
+
+  # end
 
   private
 
