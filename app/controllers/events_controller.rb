@@ -1,11 +1,10 @@
 class EventsController < ApplicationController
   def new
     @event = Event.new
+    @location = Location.new
   end
 
   def create
-    # @event = Event.create(event_params)
-    # @event.location.create(location_params)
     @location = Location.create(location_params)
     @event = @location.events.create(event_params)
     if @event.save

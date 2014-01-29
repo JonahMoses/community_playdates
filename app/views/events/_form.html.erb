@@ -17,7 +17,7 @@
         <%= f.text_area :description, cols: 40, rows: 7 %>
       </li>
 
-      <%= fields_for :location, @event.location do |k| %>
+      <%= fields_for :location, @location do |k| %>
         <li class="required">
           <%= k.label :venue %>
           <%= k.text_field :venue, size: 30 %>
