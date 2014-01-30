@@ -3,9 +3,9 @@ require 'spec_helper'
 describe "view all events page" do
 
   it "shows all active events" do
-    location = Location.create(location_attributes)
+    location = FactoryGirl.create(:location)
     4.times do |n|
-      Event.create(event_attributes(name: "event:#{n}", location_id: location.id))
+      FactoryGirl.create(:event, name: "event:#{n}", location_id: location.id)
     end
     expect(Event.count).to eq 4
     login
