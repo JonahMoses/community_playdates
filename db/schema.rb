@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20140129232628) do
     t.string   "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "date"
     t.integer  "location_id"
+    t.date     "date"
     t.time     "start_time"
     t.time     "end_time"
   end
