@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   belongs_to :location
 
   def self.upcoming
-    where("starts_at >= ?", Time.now).order("starts_at")
+    where("start_time >= ?", Time.now).order("start_time")
   end
 
 
