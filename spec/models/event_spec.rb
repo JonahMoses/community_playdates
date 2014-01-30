@@ -16,24 +16,6 @@ describe "An Event" do
     expect(event.errors[:description].any?).to be_true
   end
 
-  it "is only returning upcoming events" do
-    Event.create(event_attributes)
-    expect(Event.count).to eq(1)
-    Event.upcoming.first.start_time >= Time.now
-  end
-
-  it "does not show events in the past" do
-    event = Event.create(event_attributes(date: 1.month.ago))
-
-    expect(Event.upcoming).not_to include(event)
-  end
-
-  it "is only returning events in the future" do
-    event = Event.create(event_attributes)
-
-    expect(Event.upcoming).to include(event)
-  end
-
   xit "is ordered by the nearest starts at date" do
     event1 = Event.create(event_attributes(date: 1.month.from_now))
     event2 = Event.create(event_attributes(date: 2.month.from_now))

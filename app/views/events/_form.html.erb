@@ -2,28 +2,65 @@
   <%= render "shared/errors", object: @event %>
   <%= render "shared/errors", object: @location %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br />
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <br />
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <br />
-  <%= f.label :date %>
-  <%= f.text_field :date, id: 'datepicker', value: Date.today %>
-  <br />
-  <%= f.label :start_time %>
-  <%= f.text_field :start_time, id: 'start' %>
-  <br />
-  <%= f.label :end_time %>
-  <%= f.text_field :end_time, id: 'end' %>
-  <br />
-  <%= f.button :submit %>
-  <%= link_to "Cancel", events_path, class: 'button' %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :playdate_name %>
+        <%= f.text_field :name, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :description %>
+        <%= f.text_area :description, cols: 40, rows: 7 %>
+      </li>
 
-<% end %>
+      <%= fields_for :location, @location do |k| %>
+        <li class="required">
+          <%= k.label :venue %>
+          <%= k.text_field :venue, size: 30 %>
+        </li>
+
+        <li class="required">
+          <%= k.label :street_address %>
+          <%= k.text_field :street_address, size: 30 %>
+        </li>
+
+        <li class="required">
+          <%= k.label :city %>
+          <%= k.text_field :city, size: 30 %>
+        </li>
+
+        <li class="required">
+          <%= k.label :state%>
+          <%= k.text_field :state, size: 2 %>
+        </li>
+
+        <li class="required">
+          <%= k.label :zipcode %>
+          <%= k.text_field :zipcode, size: 10 %>
+        </li>
+      <% end %>
+
+      <li class="required">
+        <%= f.label :date %>
+        <%= f.text_field :date, id: 'datepicker', value: Date.today %>
+      </li>
+
+      <li class="required">
+        <%= f.label :start_time %>
+        <%= f.text_field :start_time, id: 'start'  %>
+      </li>
+
+      <li class="required">
+        <%= f.label :end_time %>
+        <%= f.text_field :end_time, id: 'end'  %>
+      </li>
+      </ol>
+      <p>
+        <%= f.submit 'Create Playdate' %>
+        <%= link_to "Cancel", events_path, class: 'button' %>
+      </p>
+    </fieldset>
+  <% end %>
 
 <script>
   $(document).ready(function() {
