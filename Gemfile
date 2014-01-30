@@ -14,8 +14,10 @@ gem 'devise'
 gem 'figaro'
 gem 'omniauth-facebook'
 gem 'pg'
-gem 'rails_12factor'
 
+group :production do
+  gem 'rails_12factor'
+end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -28,6 +30,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'vcr'
   gem 'webmock'
