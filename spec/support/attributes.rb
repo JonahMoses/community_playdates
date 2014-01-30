@@ -4,7 +4,8 @@ def event_attributes(overrides = {})
     description: "A fun evening of playing together yeah",
     start_time: "10:00AM",
     end_time: "12:00PM",
-    location_id: 1
+    location_id: 1,
+    id: 1
   }.merge(overrides)
 end
 
