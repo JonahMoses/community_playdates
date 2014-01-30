@@ -27,6 +27,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 group :test do

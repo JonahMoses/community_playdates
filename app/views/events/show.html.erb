@@ -1,12 +1,5 @@
-<h2>Details for '<%= @event.name %>'</h2>
+<header id="content-header">
+  <h2>Details for '<%= @event.name %>'</h2>
+</header>
 
-Description: <%= @event.description %></br>
-Starts At: <%= @event.date %></br>
-           <%= @event.start_time %>
-Ends At:   <%= @event.end_time %>
-
-Venue: <%= @event.location.venue %></br>
-Street Address: <%= @event.location.street_address %></br>
-City: <%= @event.location.city %></br>
-State: <%= @event.location.state %></br>
-Zipcode: <%= @event.location.zipcode %></br>
+<%= render partial: 'event', :locals => { event: @event} %>
