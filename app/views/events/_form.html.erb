@@ -54,13 +54,13 @@
         <%= f.label :end_time %>
         <%= f.text_field :end_time, id: 'end'  %>
       </li>
-    </ol>
-    <p>
-      <%= f.submit 'Create Playdate' %>
-      <%= link_to "Cancel", events_path, class: 'button' %>
-    </p>
-  </fieldset>
-<% end %>
+      </ol>
+      <p>
+        <%= f.submit 'Create Playdate' %>
+        <%= link_to "Cancel", events_path, class: 'button' %>
+      </p>
+    </fieldset>
+  <% end %>
 
 <script>
   $(document).ready(function() {

@@ -2,7 +2,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-
   end
 
   def show
@@ -47,9 +46,5 @@ class EventsController < ApplicationController
 
   def location_params
     params.require(:location).permit(:venue, :street_address, :city, :state, :zipcode )
-  end
-
-  def create
-    fail
   end
 end
