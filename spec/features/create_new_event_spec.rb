@@ -8,19 +8,17 @@ describe "Event" do
     click_on "Create A New Playdate"
 
     expect(current_path).to eq(new_event_path)
-    expect(page).to have_content("Make a New PlayDate")
-    fill_in "Name", with: "Soccer with kids"
+    expect(page).to have_content("Make a New Playdate")
+    fill_in "event_name", with: "Soccer with kids"
     fill_in "Description", with: "fun " * 10
     fill_in "Venue", with: "gSchool"
     fill_in "Street address", with: "1062 Delaware st"
     fill_in "City", with: "Denver"
     fill_in "State", with: "CO"
     fill_in "Zipcode", with: "80204"
-    select "2013", from: "event[starts_at(1i)]"
-    select "June", from: "event[starts_at(2i)]"
-    select "24",   from: "event[starts_at(3i)]"
-    select "08",   from: "event[starts_at(4i)]"
-    select "12",   from: "event[starts_at(5i)]"
+    fill_in "event[date]", with: "2/28/2014"
+    fill_in "event[start_time]", with: "9:00 AM"
+    fill_in "event[end_time]", with: "9:30 AM"
     click_on "Create Playdate"
 
     expect(Location.count).to eq(1)
