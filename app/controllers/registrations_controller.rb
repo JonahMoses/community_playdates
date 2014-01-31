@@ -2,7 +2,7 @@ class RegistrationsController < ApplicationController
 
   def create
     event = Event.find(params[:event_id])
-    enlisted = event.registrations.find {|r| r.is_enlisted?}
+    enlisted = event.registrations.find {|r| r.is_enlisted?(r)}
     role = Role.find_by(identity: "attendee")
     if current_user == event.creator || (enlisted)
       redirect_to events_path, notice: "You are already registered for this event"

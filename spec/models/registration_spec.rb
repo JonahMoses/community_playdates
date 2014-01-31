@@ -6,13 +6,15 @@ describe Registration do
     role = FactoryGirl.create(:role)
     user = FactoryGirl.create(:user)
     registration = FactoryGirl.create(:registration, user_id: user.id, event_id: event.id, role_id: role.id)
+    reg = FactoryGirl.create(:registration, user_id: user.id, event_id: event.id, role_id: role.id)
 
-    expect(registration.is_enlisted?).to be_true
+    expect(registration.is_enlisted?(reg)).to be_true
   end
 
-  it "returns false if a user does not exist" do
-    registration = FactoryGirl.create(:registration, user_id: nil)
+  it "returns false if a user is not registered" do
+    registration = FactoryGirl.create(:registration, user_id: 1)
+    reg = FactoryGirl.create(:registration, user_id: 2 )
 
-    expect(registration.is_enlisted?).to be_false
+    expect(registration.is_enlisted?(reg)).to be_false
   end
 end
