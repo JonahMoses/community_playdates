@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require kendo.all.min
+//= require jasny-bootstrap
+//= require datetime
 //= require turbolinks
 //= require_tree .
