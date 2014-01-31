@@ -1,6 +1,6 @@
 form.new_event {
   li {
-    > input[type="text, text-field"] {
+    > input[type="text"], > textarea {
       display: block;
       border: none;
       border-radius: 20px;
