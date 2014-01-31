@@ -7,9 +7,9 @@ describe "dashboard page" do
     expect(current_path).to eq('/')
   end
 
-  xit "has a link to create a playdate" do
+  it "has a link to create a playdate" do
     login
-    within('.create-playdate') do
+    within('.navbar') do
       expect(page).to have_content('Create A New Playdate')
     end
   end
