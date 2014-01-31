@@ -1,11 +1,18 @@
-<h3>Details for '<%= event.name %>'</h3>
+<div id="event_<%= event.id %>">
+  <h3>Details for '<%= event.name %>'</h3>
+  <h5>Created by <%= current_user.name %></h5>
 
-Description: <%= event.description %></br>
-Date: <%= event.date %></br>
-Starts At: <%= event.start_time %></br>
-Ends At: <%= event.end_time %></br>
-Venue: <%= event.location.venue %></br>
-Street Address: <%= event.location.street_address %></br>
-City: <%= event.location.city %></br>
-State: <%= event.location.state %></br>
-Zipcode: <%= event.location.zipcode %></br>
+  Description: <%= event.description %></br>
+  Date: <%= event.date %></br>
+  Starts At: <%= event.start_time %></br>
+  Ends At: <%= event.end_time %></br>
+  Venue: <%= event.location.venue %></br>
+  Street Address: <%= event.location.street_address %></br>
+  City: <%= event.location.city %></br>
+  State: <%= event.location.state %></br>
+  Zipcode: <%= event.location.zipcode %></br>
+
+  <%= link_to "Join Playdate", registrations_path(event_id: event.id), method: "post" %>
+
+</div>
+

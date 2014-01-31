@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "Event" do
 
   it "allows me to make a new event" do
+    role = FactoryGirl.create(:role,  identity: "creator")
     visit root_path
     login
     click_on "Create A New Playdate"
@@ -24,5 +25,10 @@ describe "Event" do
     expect(Location.count).to eq(1)
     expect(page).to have_text("Playdate successfully created!")
     expect(page).to have_content("Soccer with kids")
+
+    current_user = User.last
+    event = Event.last
+    expect(event.creator).to eq current_user
+    expect(page).to have_content "Created by #{current_user.name}"
   end
 end

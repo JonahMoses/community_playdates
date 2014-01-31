@@ -1,13 +1,5 @@
-<% @events.each do |event| %>
-<h2>Details for '<%= event.name %>'</h2>
+<header id="content-header">
+  <h2>Playdates</h2>
+</header>
 
-Description: <%= event.description %></br>
-Date: <%= event.date %></br>
-Starts At: <%= event.start_time %></br>
-Ends At: <%= event.end_time %></br>
-Venue: <%= event.location.venue %></br>
-Street Address: <%= event.location.street_address %></br>
-City: <%= event.location.city %></br>
-State: <%= event.location.state %></br>
-Zipcode: <%= event.location.zipcode %></br>
-<% end %>
+<%= render partial: 'event', collection: @events %>
