@@ -1,6 +1,5 @@
 class Event < ActiveRecord::Base
   validates :name, presence: true
-  validates :description 
   belongs_to :location
   has_many :registrations
 
