@@ -16,4 +16,8 @@ FactoryGirl.define do
     state "CO"
     zipcode "80204"
   end
+
+  factory :role do
+    identity "attendee"
+  end
 end

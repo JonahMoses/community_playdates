@@ -16,8 +16,14 @@ describe "An Event" do
     expect(event.errors[:description].any?).to be_true
   end
 
+  xit "returns all of its attendees" do
+    event = FactoryGirl.build(:event)
+
+    expect(event.attendees.count).to eq 1
+  end
+
   xit "has a default value for spots" do
-    Event.create(event_attributes)
+    event = FactoryGirl.build(:event)
 
     expect(Event.first.capacity).to eq(1)
   end

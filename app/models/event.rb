@@ -18,11 +18,9 @@ class Event < ActiveRecord::Base
   end
 
   def creator
-    role = Role.where(type: "creator")
-    reg = registrations.where(role_id: role.id)
-    reg.map do |r|
-      r.user
-    end
+    role = Role.find_by(identity: "creator")
+    reg = registrations.select {|r| r.role_id == role.id}
+    reg.first.user
   end
 
 end
