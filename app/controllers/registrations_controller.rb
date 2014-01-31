@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
       Registration.create(role_id: role.id, user_id: current_user.id, event_id: event.id)
       redirect_to event_path(event)
     else
-      redirect_to events_path, notice: "This is your playdate"
+      redirect_to events_path, notice: "You cannot register for your own playdates"
     end
   end
 end
