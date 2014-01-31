@@ -22,10 +22,5 @@ describe "An Event" do
     expect(event.attendees.count).to eq 1
   end
 
-  xit "has a default value for spots" do
-    event = FactoryGirl.build(:event)
-
-    expect(Event.first.capacity).to eq(1)
-  end
 end
 
