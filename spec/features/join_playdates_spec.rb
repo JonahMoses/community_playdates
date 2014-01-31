@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "join a playdate page" do
 
-  it "is possible to join a playdate" do
+  it "is possible to join same playdate once" do
     location = FactoryGirl.create(:location)
     user = FactoryGirl.create(:user)
     role = FactoryGirl.create(:role, identity: "creator")
@@ -14,6 +14,13 @@ describe "join a playdate page" do
     FactoryGirl.create(:role, identity: "attendee")
 
     click_on "View All Playdates"
+    within("#event_#{event.id}") do
+      expect(page).to have_link("Join Playdate")
+      click_on "Join Playdate"
+    end
+
+    expect(event.attendees.count).to eq 1
+
     within("#event_#{event.id}") do
       expect(page).to have_link("Join Playdate")
       click_on "Join Playdate"
