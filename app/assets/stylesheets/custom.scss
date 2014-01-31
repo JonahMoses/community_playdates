@@ -1,6 +1,6 @@
 form.new_event {
   li {
-    > input[type="text"] {
+    > input[type="text, text-field"] {
       display: block;
       border: none;
       border-radius: 20px;
@@ -17,6 +17,6 @@ form.new_event {
           0 0 5px 1px #51CBEE;
       }
     }
-  }  
+  }
 }
 
