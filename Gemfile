@@ -14,6 +14,7 @@ gem 'devise'
 gem 'figaro'
 gem 'omniauth-facebook'
 gem 'pg'
+gem 'i18n'
 
 group :production do
   gem 'rails_12factor'
