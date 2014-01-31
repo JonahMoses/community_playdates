@@ -20,4 +20,16 @@ FactoryGirl.define do
   factory :role do
     identity "attendee"
   end
+
+  factory :user do
+    name "Adam"
+    username "Adam89"
+    email "Adam.dev89@gmail.com"
+  end
+
+  factory :registration do
+    user_id 1
+    role_id 1
+    event_id 1
+  end
 end
