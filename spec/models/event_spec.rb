@@ -9,16 +9,22 @@ describe "An Event" do
     expect(event.errors[:name].any?).to be_true
   end
 
-  xit "returns all of its attendees" do
-    event = FactoryGirl.build(:event)
+  it "returns all of its attendees" do
+    event = FactoryGirl.create(:event)
+    role = FactoryGirl.create(:role, identity: "attendee")
+    FactoryGirl.create(:registration, event_id: event.id, role_id: role.id)
 
     expect(event.attendees.count).to eq 1
   end
 
-  xit "has a default value for spots" do
-    event = FactoryGirl.build(:event)
+  it "returns the creator" do
+    event = FactoryGirl.create(:event)
+    role = FactoryGirl.create(:role, identity: "creator")
+    user = FactoryGirl.create(:user)
+    FactoryGirl.create(:registration, user_id: user.id, event_id: event.id, role_id: role.id)
 
-    expect(Event.first.capacity).to eq(1)
+    expect(event.creator.name).to eq "Adam"
   end
+
 end
 
