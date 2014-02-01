@@ -1,7 +1,13 @@
 var google;
 function initialize() {
+  if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(function (position) {
+         initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+         map.setCenter(initialLocation);
+     });
+ }
   var mapOptions = {
-    center: new google.maps.LatLng(39.7391667, -104.984167),
+    // center: new google.maps.LatLng(39.7391667, -104.984167),
     zoom: 8
   };
   var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -52,18 +58,31 @@ function initialize() {
     var eventCity = '';
     var eventState= '';
     var eventZipcode= '';
-    if (place.address_components) {
-      address = [
-        (place.address_components[0] && place.address_components[0].short_name || ''),
-        (place.address_components[1] && place.address_components[1].short_name || '')
-      ].join(' ');
-      streetAddress = address;
-      eventCity = place.address_components[4].short_name;
-      eventState = place.address_components[5].short_name;
-      eventZipcode = place.address_components[7].short_name;
-      console.log(place.address_components);
+    var venue = '';
+    if (place.address_components.length <= 8) {
+      address = place["formatted_address"].split(', ')
+      streetAddress = address[0];
+      eventCity = address[1];
+      var stateAndZip = address[2].split(' ');
+      eventState = stateAndZip[0];
+      eventZipcode = stateAndZip[1];
+    } else if (place.address_components.length == 12) {
+      address = place["formatted_address"].split(', ')
+      streetAddress = address[0];
+      eventCity = address[1];
+      var stateAndZip = address[2].split(' ');
+      eventState = stateAndZip[0];
+      eventZipcode = place.address_components[5].short_name;
+      venue = $('#pac-input').val().split(',')[0];
+      console.log(place)
+    } else {
+      address = place["formatted_address"].split(',')
+      streetAddress = address[0];
+      eventCity = place.address_components[3].short_name;
+      eventState = place.address_components[4].short_name;
+      eventZipcode = place.address_components[6].short_name;
+      venue = $('#pac-input').val().split(',')[0];
     }
-
     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
     infowindow.open(map, marker);
     
@@ -71,6 +90,7 @@ function initialize() {
     $('#event-city').val(eventCity);
     $('#event-state').val(eventState);
     $('#event-zipcode').val(eventZipcode);
+    $('#venue-name').val(venue);
   });
 
   // Sets a listener on a radio button to change the filter type on Places
@@ -87,5 +107,5 @@ function initialize() {
   setupClickListener('changetype-geocode', ['geocode']);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize());
 
