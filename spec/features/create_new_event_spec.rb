@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe "Event" do
 
+  before(:each) do
+    Role.create(identity: 'creator')
+    Role.create(identity: 'attendee')
+  end
+
   it "allows me to make a new event" do
 
     visit root_path
