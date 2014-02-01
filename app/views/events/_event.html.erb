@@ -12,6 +12,6 @@
   State: <%= event.location.state %></br>
   Zipcode: <%= event.location.zipcode %></br>
 
-  <%= link_to "Join Playdate", registrations_path(event_id: event.id), method: "post" %>
+  <%= link_visible_to_attendees(event) %>
 </div>
 
