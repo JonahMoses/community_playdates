@@ -1,4 +1,3 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
@@ -25,6 +24,7 @@ RSpec.configure do |config|
   config.after :each do
     DatabaseCleaner.clean
   end
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -67,12 +67,12 @@ RSpec.configure do |config|
       :urls => { :Facebook => 'http://www.facebook.com/jbloggs' },
       :location => 'Denver, Colorado',
       :verified => true
-      },
+    },
     :credentials => {
       :token => 'ABCDEF...', # OAuth 2.0 access_token, which you may wish to store
       :expires_at => 1521747205, # when the access token expires (it always will)
       :expires => true # this will always be true
-      },
+    },
     :extra => {
       :raw_info => {
         :id => '1234567',
@@ -88,9 +88,9 @@ RSpec.configure do |config|
         :locale => 'en_US',
         :verified => true,
         :updated_time => '2011-11-11T06:21:03+0000'
-        }
       }
-    })
+    }
+  })
 end
 
 def login

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :omniauthable, :rememberable, :trackable
-
+  has_many :registrations
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -16,15 +16,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def facebook
-    @facebook ||= Koala::Facebook::API.new(oauth_token)
-  end
-
-  def find_avatar
-    avatar_path = facebook.get_picture( uid, type: 'square' )
-    self.update_attributes( avatar: avatar_path )
-  end
-
   def self.new_with_session(params, session)
     if session["devise.user_attributes"]
       new(session["devise.user_attributes"], without_protection: true) do |user|
@@ -34,6 +25,33 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end
+
+  def find_avatar
+    avatar_path = facebook.get_picture( uid, type: 'square' )
+    self.update_attributes( avatar: avatar_path )
+  end
+
+  def find_large_avatar
+    avatar_path = facebook.get_picture( uid, :type => 'large')
+  end
+
+  def events
+    registrations.map(&:event)
+  end
+
+  def created_events
+    role = Role.find_by(identity: 'creator')
+    registrations.select { |r| r.role == role}.map(&:event)
+  end
+
+  def attending_events
+    role = Role.find_by(identity: 'attendee')
+    registrations.select { |r| r.role == role}.map(&:event)
   end
 
   def password_required?

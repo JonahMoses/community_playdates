@@ -3,3 +3,12 @@
 </header>
 
 <%= render 'form' %>
+    
+  <div class='map-search'>
+    <h3>Search for your venue</h3>
+    <input id="pac-input" class="controls" type="text"
+          placeholder="Enter a location">
+    <div id="map-canvas"></div>
+  </div>
+
+<%= javascript_include_tag "address-search" %>

@@ -1,6 +1,6 @@
 <div id="event_<%= event.id %>">
   <h3>Details for '<%= event.name %>'</h3>
-  <h5>Created by <%= current_user.name %></h5>
+  <h4>Created by <%= event.creator.name %></h4>
 
   Description: <%= event.description %></br>
   Date: <%= event.date %></br>
@@ -12,7 +12,6 @@
   State: <%= event.location.state %></br>
   Zipcode: <%= event.location.zipcode %></br>
 
-  <%= link_to "Join Playdate", registrations_path(event_id: event.id), method: "post" %>
-
+  <%= link_visible_to_attendees(event) %>
 </div>
 
