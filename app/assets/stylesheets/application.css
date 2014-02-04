@@ -21,6 +21,7 @@ body
   background-repeat:repeat-y;
   background-attachment:fixed;
   background-color:#e4f3f8;
+  background-size: cover;
 }
 
  .event
