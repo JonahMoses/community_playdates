@@ -29,8 +29,10 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
-    @location = Location.find(@event.location_id)
+    if Event.find(params[:id]).creator == current_user
+      @event = Event.find(params[:id])
+      @location = Location.find(@event.location_id)
+    end
   end
 
   def update

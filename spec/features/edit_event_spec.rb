@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Event do
+describe "Editing Event" do
   before(:each) do
     Role.create(identity: 'creator')
     Role.create(identity: 'attendee')
