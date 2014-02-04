@@ -33,7 +33,7 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
       @location = Location.find(@event.location_id)
     else
-      redirect_to events_path, notice: "Not your event"
+      redirect_to events_path, alert: "Not your event"
     end
   end
 
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @location = Location.find(@event.location_id)
     if @event.update(event_params) && @location.update(location_params)
-      redirect_to event_path(@event), notice: "Playdate successfully created"
+      redirect_to event_path(@event), notice: "Playdate successfully updated"
     else
       render :edit
     end
