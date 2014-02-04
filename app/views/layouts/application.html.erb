@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDx7l_9-AWHPjcC_NLVIWl4lh20urxbCks&libraries=places&sensor=false"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API'] %>&libraries=places&sensor=false"></script>
 
   </head>
   <body>
