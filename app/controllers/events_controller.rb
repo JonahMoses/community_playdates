@@ -32,6 +32,8 @@ class EventsController < ApplicationController
     if Event.find(params[:id]).creator == current_user
       @event = Event.find(params[:id])
       @location = Location.find(@event.location_id)
+    else
+      redirect_to events_path, notice: "Not your event"
     end
   end
 
