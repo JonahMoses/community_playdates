@@ -18,6 +18,7 @@ gem 'i18n'
 
 group :production do
   gem 'rails_12factor'
+  gem 'thin'
 end
 
 group :development do
