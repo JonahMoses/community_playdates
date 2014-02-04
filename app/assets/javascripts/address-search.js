@@ -1,5 +1,5 @@
-
-function initialize() {
+var setup;
+setup = function() {
   
   var mapOptions = {
     center: new google.maps.LatLng(39.7391667, -104.984167),
@@ -103,3 +103,6 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize());
 
+$(document).ready(setup);
+// page:load is for turbolinks
+$(document).on('page:load', setup);
