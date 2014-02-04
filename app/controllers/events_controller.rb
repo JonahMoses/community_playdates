@@ -28,13 +28,20 @@ class EventsController < ApplicationController
     end
   end
 
-  # def edit
+  def edit
+    @event = Event.find(params[:id])
+    @location = Location.find(@event.location_id)
+  end
 
-  # end
-
-  # def update
-
-  # end
+  def update
+    @event = Event.find(params[:id])
+    @location = Location.find(@event.location_id)
+    if @event.update(event_params) && @location.update(location_params)
+      redirect_to event_path(@event), notice: "Playdate successfully created"
+    else
+      render :edit
+    end
+  end
 
   # def destroy
 

@@ -27,7 +27,7 @@ describe "Event" do
     fill_in "event[date]", with: "2/28/2014"
     fill_in "event[start_time]", with: "9:00 AM"
     fill_in "event[end_time]", with: "9:30 AM"
-    click_on "Create Playdate"
+    click_on "Submit Playdate"
 
     expect(Location.count).to eq(1)
     expect(page).to have_text("Playdate successfully created!")
@@ -36,6 +36,6 @@ describe "Event" do
     current_user = User.last
     event = Event.last
     expect(event.creator).to eq current_user
-    #expect(page).to have_content "Created by #{current_user.name}"
+    expect(page).to have_content "Created by #{current_user.name}"
   end
 end
