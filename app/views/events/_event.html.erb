@@ -1,11 +1,15 @@
 <div id="event_<%= event.id %>">
   <h3>Details for '<%= event.name %>'</h3>
-  <h4>Created by <%= event.creator.name %></h4>
+  <h4>Created by <%= link_to event.creator.name, user_path(event.creator) %></h4>
 
   Description: <%= event.description %></br>
   Date: <%= event.date %></br>
-  Starts At: <%= event.start_time %></br>
-  Ends At: <%= event.end_time %></br>
+    <% unless event.start_time.nil? %>
+      Starts At: <%= event.start_time.strftime("%I:%M %p") %></br>
+    <% end %>
+    <% unless event.start_time.nil? %>
+      Ends At: <%= event.end_time.strftime(" %I:%M %p") %></br>
+    <% end %>
   Venue: <%= event.location.venue %></br>
   Street Address: <%= event.location.street_address %></br>
   City: <%= event.location.city %></br>

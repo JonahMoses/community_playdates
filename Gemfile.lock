@@ -215,9 +215,15 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+<<<<<<< HEAD
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
+=======
+    thin (1.6.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+>>>>>>> 31778aedc10d74babeaa2d842948e2990bb36b6a
       rack (>= 1.0.0)
     thor (0.18.1)
     thread_safe (0.1.3)

@@ -28,13 +28,24 @@ class EventsController < ApplicationController
     end
   end
 
-  # def edit
+  def edit
+    if Event.find(params[:id]).creator == current_user
+      @event = Event.find(params[:id])
+      @location = Location.find(@event.location_id)
+    else
+      redirect_to events_path, alert: "Not your event"
+    end
+  end
 
-  # end
-
-  # def update
-
-  # end
+  def update
+    @event = Event.find(params[:id])
+    @location = Location.find(@event.location_id)
+    if @event.update(event_params) && @location.update(location_params)
+      redirect_to event_path(@event), notice: "Playdate successfully updated"
+    else
+      render :edit
+    end
+  end
 
   # def destroy
 
@@ -43,7 +54,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:description, :name, :location, :start_time, :end_time )
+    params.require(:event).permit(:description, :name, :location, :start_time, :end_time, :date )
   end
 
   def location_params
