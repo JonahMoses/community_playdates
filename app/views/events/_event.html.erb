@@ -1,6 +1,6 @@
 <div id="event_<%= event.id %>">
   <h3>Details for '<%= event.name %>'</h3>
-  <h4>Created by <%= event.creator.name %></h4>
+  <h4>Created by <%= link_to event.creator.name, user_path(event.creator) %></h4>
 
   Description: <%= event.description %></br>
   Date: <%= event.date %></br>

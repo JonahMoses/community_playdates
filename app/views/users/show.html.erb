@@ -4,11 +4,13 @@
   <div class= "profile-image">
     <%= image_tag @large_avatar, :height => '150', :width => '150'  %>
   </div>
+
   <div>
-    <div id="user-info" class='span3'> 
+    <div id="user-info" class='span3'>
       <h5><strong>Joined on: </strong><%= @user.created_at.strftime("%m/%d/%Y") %></h5>
     </div>
   </div>
+
   <% unless @user.created_events.empty? %>
     <div id='created-events'>
       <h4>Created Events</h4>
