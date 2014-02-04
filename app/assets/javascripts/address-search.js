@@ -1,4 +1,3 @@
-
 function initialize() {
   
   var mapOptions = {
@@ -102,4 +101,3 @@ function initialize() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize());
-
