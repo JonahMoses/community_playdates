@@ -1,4 +1,6 @@
 ENV["RAILS_ENV"] ||= 'test'
+require 'simplecov'
+SimpleCov.start
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
@@ -95,6 +97,7 @@ end
 
 def login
   Koala::Facebook::API.any_instance.stub(:get_picture).and_return('/')
+  Koala::Facebook::API.any_instance.stub(:get_connection).and_return('/')
   visit root_path
   click_on "Sign in with Facebook"
 end

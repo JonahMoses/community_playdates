@@ -24,7 +24,7 @@ FactoryGirl.define do
   factory :user do
     name "Adam"
     username "Adam89"
-    email "Adam.dev89@gmail.com"
+    sequence(:email) {|n| "Adam#{n}@factory.com" }
   end
 
   factory :registration do

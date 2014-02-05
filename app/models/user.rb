@@ -27,6 +27,32 @@ class User < ActiveRecord::Base
     end
   end
 
+  def all_friends
+    @friend_data = facebook.get_connection("me", "friends")
+    @friend_data.collect do |friend|
+      Friend.new(friend["name"], friend["id"], @facebook)
+    end
+  end
+
+  def friends_on_community_playdates
+    all_friend_ids = all_friends.map {|f| f.id}
+    User.all.select{ |user| all_friend_ids.include?(user.uid) }
+  end
+
+  def friend_events
+    return [] if friends_on_community_playdates.empty?
+    friends_on_community_playdates.collect do |user|
+      user.events
+    end.first.sort_by{|s| s.start_time}.reverse
+  end
+
+  def friends_of_friends
+    people = friends_on_community_playdates.collect do |friend|
+      friend.friends_on_community_playdates
+    end.flatten
+    people.reject {|p| p == self}
+  end
+
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end
@@ -40,18 +66,26 @@ class User < ActiveRecord::Base
     avatar_path = facebook.get_picture( uid, :type => 'large')
   end
 
-  def events
+  def current_registrations
+    registrations.select {|r| r.event.start_time <= Time.current }
+  end
+
+  def all_events
     registrations.map(&:event)
+  end
+
+  def events
+    current_registrations.map(&:event)
   end
 
   def created_events
     role = Role.find_by(identity: 'creator')
-    registrations.select { |r| r.role == role}.map(&:event)
+    current_registrations.select { |r| r.role == role}.map(&:event)
   end
 
   def attending_events
     role = Role.find_by(identity: 'attendee')
-    registrations.select { |r| r.role == role}.map(&:event)
+    current_registrations.select { |r| r.role == role}.map(&:event)
   end
 
   def password_required?

@@ -20,7 +20,7 @@ class EventsController < ApplicationController
       @event.save
       @location.save
       role = Role.find_by(identity: "creator")
-      Registration.create(role_id: role.id, user_id: current_user.id, event_id: @event.id)
+      RegistrationClient.create(role.id, current_user.id, @event.id)
       @event.update_attributes(location_id: @location.id)
       redirect_to @event, notice: "Playdate successfully created!"
     else
