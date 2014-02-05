@@ -1,0 +1,2222 @@
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRegistrations (20140205031923)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" ADD "user_id" integer[0m
+SQLite3::SQLException: no such table: registrations: ALTER TABLE "registrations" ADD "user_id" integer
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (11.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRegistrations (20140205031923)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140205031923"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mRegistration Load (0.9ms)[0m  [1mSELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1[0m
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:33:57 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 12ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.0.2) lib/action_controller/metal/request_forgery_protection.rb:163:in `handle_unverified_request'
+  actionpack (4.0.2) lib/action_controller/metal/request_forgery_protection.rb:170:in `handle_unverified_request'
+  actionpack (4.0.2) lib/action_controller/metal/request_forgery_protection.rb:177:in `verify_authenticity_token'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:377:in `_run__391831354461959716__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2916742870712103935__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.9ms)
+  [1m[35mRegistration Load (0.7ms)[0m  SELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:36:27 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+Completed 400 Bad Request in 15ms
+
+ActionController::ParameterMissing (param not found: registration):
+  app/controllers/registrations_controller.rb:8:in `registration_params'
+  app/controllers/registrations_controller.rb:4:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.1ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:37:33 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (28.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 03:37:33 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:37:33 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 500 Internal Server Error in 49ms
+
+ActionView::MissingTemplate (Missing template registrations/create, application/create with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/benhorne/Ruby/rails/registration_client/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__809357681983645776__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1113614090258993602__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:44:22 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 03:44:22 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:44:22 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 16ms
+
+ActionView::MissingTemplate (Missing template registrations/create, application/create with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/benhorne/Ruby/rails/registration_client/app/views"
+):
+  app/controllers/registrations_controller.rb:6:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:44:36 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 03:44:36 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:44:36 UTC +00:00], ["user_id", 1]]
+  [1m[35m (70.9ms)[0m  COMMIT
+Completed 500 Internal Server Error in 106ms
+
+ActionView::MissingTemplate (Missing template registrations/create, application/create with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/benhorne/Ruby/rails/registration_client/app/views"
+):
+  app/controllers/registrations_controller.rb:6:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.0ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:46:15 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 03:46:15 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:46:15 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:46:58 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 03:46:58 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:46:58 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 500 Internal Server Error in 19ms
+
+ActionView::MissingTemplate (Missing template registrations/create, application/create with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/benhorne/Ruby/rails/registration_client/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__4267079229391163269__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__3343156337843935783__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:47:26 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 03:47:26 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:47:26 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 15ms
+
+NoMethodError (undefined method `registration_url' for #<RegistrationsController:0x007f9003f708d8>):
+  app/controllers/registrations_controller.rb:9:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.4ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:48:08 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 03:48:08 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:48:08 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 500 Internal Server Error in 19ms
+
+NoMethodError (undefined method `registration_url' for #<RegistrationsController:0x007f90055801f0>):
+  app/controllers/registrations_controller.rb:9:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (25.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.8ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:48:22 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 03:48:22 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:48:22 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 6ms
+
+NoMethodError (undefined method `registration_url' for #<RegistrationsController:0x007f9003913378>):
+  app/controllers/registrations_controller.rb:9:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.7ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:48:46 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 03:48:46 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:48:46 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 500 Internal Server Error in 8ms
+
+NoMethodError (undefined method `registration_url' for #<RegistrationsController:0x007f9005500bf8>):
+  app/controllers/registrations_controller.rb:9:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:48:53 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 03:48:53 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:48:53 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 41ms
+
+NoMethodError (undefined method `{"id":10,"user_id":1,"role_id":1,"event_id":1,"created_at":"2014-02-05T03:48:53.405Z","updated_at":"2014-02-05T03:48:53.405Z"}_url' for #<RegistrationsController:0x007f9003eba948>):
+  app/controllers/registrations_controller.rb:9:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:50:13 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 03:50:13 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:50:13 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 500 Internal Server Error in 12ms
+
+ArgumentError (Nil location provided. Can't build URI.):
+  app/controllers/registrations_controller.rb:9:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.5ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:50:36 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 03:50:36 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:50:36 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 38ms
+
+NoMethodError (undefined method `registration_url' for #<RegistrationsController:0x007f9003ee8fc8>):
+  app/controllers/registrations_controller.rb:9:in `create'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:52:09 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 03:52:09 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:52:09 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:52:56 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 03:52:56 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:52:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 3.1ms)
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "registrations"
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 20:58:43 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 03:58:43 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 03:58:43 UTC +00:00], ["user_id", 1]]
+  [1m[35m (19.1ms)[0m  COMMIT
+Completed 201 Created in 29ms (Views: 0.4ms | ActiveRecord: 21.5ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 21:00:00 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 04:00:00 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 04:00:00 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 10ms (Views: 0.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/registrations?event_id=a&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 21:02:03 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"a", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 04:02:03 UTC +00:00], ["event_id", 0], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 04:02:03 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/registrations?event_id=a&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-04 21:02:41 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"a", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 04:02:41 UTC +00:00], ["event_id", 0], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 04:02:41 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 16ms (Views: 0.1ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/registrations?event_id=8&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-05 12:06:19 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"8", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 19:06:19 UTC +00:00], ["event_id", 8], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 19:06:19 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 201 Created in 30ms (Views: 0.5ms | ActiveRecord: 8.0ms)
+  [1m[36mRegistration Load (0.8ms)[0m  [1mSELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1[0m
+
+
+Started POST "/registrations?event_id=9&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-05 12:09:12 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"9", "role_id"=>"1", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 19:09:12 UTC +00:00], ["event_id", 9], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 19:09:12 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/registrations?event_id=9&role_id=2&user_id=1" for 127.0.0.1 at 2014-02-05 12:09:54 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"9", "role_id"=>"2", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 19:09:54 UTC +00:00], ["event_id", 9], ["role_id", 2], ["updated_at", Wed, 05 Feb 2014 19:09:54 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/registrations?event_id=9&role_id=2&user_id=1" for 127.0.0.1 at 2014-02-05 12:10:47 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"9", "role_id"=>"2", "user_id"=>"1"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 19:10:47 UTC +00:00], ["event_id", 9], ["role_id", 2], ["updated_at", Wed, 05 Feb 2014 19:10:47 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:40:50 -0700
+
+ActionController::RoutingError (No route matches [GET] "/registrations/roles/1"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (21.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:41:45 -0700
+
+AbstractController::ActionNotFound (The action 'roles' could not be found for RegistrationsController):
+  actionpack (4.0.2) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1966301625005652165__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.6ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:43:15 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 7ms
+
+ActionView::MissingTemplate (Missing template registrations/role_registrations, application/role_registrations with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/benhorne/Ruby/rails/registration_client/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__3268151784119684324__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1966301625005652165__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:46:21 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `by_event_role' for #<Class:0x007fa1074a1e60>):
+  app/controllers/registrations_controller.rb:14:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.3ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:48:48 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `by_event_role' for #<Class:0x007fa107578578>):
+  app/controllers/registrations_controller.rb:14:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:49:03 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `by_event_role' for #<Class:0x007fa1049ce350>):
+  app/controllers/registrations_controller.rb:14:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:49:18 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.8ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 500 Internal Server Error in 17ms
+
+ActionView::MissingTemplate (Missing template registrations/role_registrations, application/role_registrations with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/benhorne/Ruby/rails/registration_client/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__3268151784119684324__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1966301625005652165__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.3ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:50:13 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:50:22 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 201 Created in 9ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:51:27 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 500 Internal Server Error in 9ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+  [1m[36mRegistration Load (0.9ms)[0m  [1mSELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" ASC LIMIT 1[0m
+  [1m[35mRegistration Load (0.8ms)[0m  SELECT "registrations".* FROM "registrations"
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:53:10 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 500 Internal Server Error in 10ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:53:16 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:53:43 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 201 Created in 10ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:54:03 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "registrations"[0m
+Completed 500 Internal Server Error in 5ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:54:14 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.7ms)[0m  SELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 10ms
+
+NoMethodError (undefined method `empty?' for #<Registration:0x007fa107411900>):
+  app/controllers/registrations_controller.rb:15:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:54:44 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.2ms)[0m  [1mSELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 9ms
+
+NoMethodError (undefined method `length' for #<Registration:0x007fa107528fa0>):
+  app/controllers/registrations_controller.rb:15:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.1ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:55:11 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.3ms)[0m  SELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" ASC LIMIT 1
+Completed 201 Created in 10ms (Views: 0.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:55:21 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.3ms)[0m  [1mSELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" ASC LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:55:56 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 201 Created in 12ms (Views: 8.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:56:07 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 200 OK in 12ms (Views: 8.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:56:19 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:56:35 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:57:02 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.6ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 200 OK in 14ms (Views: 3.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:57:10 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:57:37 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:57:43 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 200 OK in 12ms (Views: 3.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:58:15 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 200 OK in 11ms (Views: 2.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:58:35 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 200 OK in 37ms (Views: 3.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:58:46 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms
+
+SyntaxError (/Users/benhorne/Ruby/rails/registration_client/app/models/registration.rb:4: syntax error, unexpected ')', expecting '}'
+...id && reg.event_id == event_id) }
+...                               ^):
+  app/controllers/registrations_controller.rb:14:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:59:00 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:59:17 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 13:59:30 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations"
+Completed 200 OK in 12ms (Views: 2.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/registrations/roles/2?event_id=1" for 127.0.0.1 at 2014-02-05 14:11:37 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"2"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/registrations?event_id=1&role_id=2&user_id=1" for 127.0.0.1 at 2014-02-05 14:16:02 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"2", "user_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 21:16:02 UTC +00:00], ["event_id", 1], ["role_id", 2], ["updated_at", Wed, 05 Feb 2014 21:16:02 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/registrations?event_id=1&role_id=2&user_id=1" for 127.0.0.1 at 2014-02-05 14:16:41 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"2", "user_id"=>"1"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 21:16:41 UTC +00:00], ["event_id", 1], ["role_id", 2], ["updated_at", Wed, 05 Feb 2014 21:16:41 UTC +00:00], ["user_id", 1]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=2" for 127.0.0.1 at 2014-02-05 14:17:08 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"2"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 21:17:08 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 21:17:08 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+  [1m[36mRegistration Load (0.8ms)[0m  [1mSELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1[0m
+
+
+Started POST "/registrations?event_id=2&role_id=2&user_id=2" for 127.0.0.1 at 2014-02-05 14:19:28 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"2", "role_id"=>"2", "user_id"=>"2"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 21:19:28 UTC +00:00], ["event_id", 2], ["role_id", 2], ["updated_at", Wed, 05 Feb 2014 21:19:28 UTC +00:00], ["user_id", 2]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+  [1m[35mRegistration Load (0.3ms)[0m  SELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 14:28:17 -0700
+
+ActionController::RoutingError (No route matches [GET] "/registrations/users/1"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (14.8ms)
+
+
+Started GET "/registrations/users/1/current" for 127.0.0.1 at 2014-02-05 14:30:55 -0700
+
+AbstractController::ActionNotFound (The action 'user_re' could not be found for RegistrationsController):
+  actionpack (4.0.2) lib/abstract_controller/base.rb:131:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1966301625005652165__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 14:34:47 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 4ms
+
+NameError (undefined local variable or method `reg' for #<Class:0x007fa1050b8828>):
+  app/models/registration.rb:4:in `by_event_role'
+  app/controllers/registrations_controller.rb:14:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.2ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 14:35:09 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.7ms)[0m  SELECT "registrations".* FROM "registrations" WHERE ('t')
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/registrations/users/1/current" for 127.0.0.1 at 2014-02-05 14:37:02 -0700
+Processing by RegistrationsController#current_registrations as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 5ms
+
+NameError (undefined local variable or method `user_id' for #<Class:0x007fa1049c3158>):
+  app/models/registration.rb:8:in `current_registrations'
+  app/controllers/registrations_controller.rb:23:in `current_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.1ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 14:37:37 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.8ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE ('t')[0m
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/registrations/users/1/current" for 127.0.0.1 at 2014-02-05 14:37:56 -0700
+Processing by RegistrationsController#current_registrations as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms
+
+NameError (undefined local variable or method `user_id' for #<Class:0x007fa104941d10>):
+  app/models/registration.rb:8:in `current_registrations'
+  app/controllers/registrations_controller.rb:23:in `current_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 14:40:23 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms
+
+NameError (undefined local variable or method `user_id' for #<Class:0x007fa1074806e8>):
+  app/models/registration.rb:8:in `for_user'
+  app/controllers/registrations_controller.rb:23:in `user_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 14:42:06 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 4ms
+
+NameError (undefined local variable or method `role_id' for #<Class:0x007fa107573eb0>):
+  app/models/registration.rb:4:in `by_event_role'
+  app/controllers/registrations_controller.rb:14:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.0ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 14:43:17 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms
+
+SyntaxError (/Users/benhorne/Ruby/rails/registration_client/app/models/registration.rb:4: syntax error, unexpected tLABEL
+    where(role_id: role && event_id: event)
+                                    ^
+/Users/benhorne/Ruby/rails/registration_client/app/models/registration.rb:11: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/registrations_controller.rb:14:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 14:43:41 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms
+
+SyntaxError (/Users/benhorne/Ruby/rails/registration_client/app/models/registration.rb:4: syntax error, unexpected tLABEL
+    where((role_id: role) && (event_id: event))
+                   ^
+/Users/benhorne/Ruby/rails/registration_client/app/models/registration.rb:4: syntax error, unexpected tLABEL
+    where((role_id: role) && (event_id: event))
+                                       ^):
+  app/controllers/registrations_controller.rb:14:in `role_registrations'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 14:44:37 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.6ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 14:44:46 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 8ms
+
+ActionView::MissingTemplate (Missing template registrations/user_registrations, application/user_registrations with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/benhorne/Ruby/rails/registration_client/app/views"
+):
+  actionpack (4.0.2) lib/action_view/path_set.rb:46:in `find'
+  actionpack (4.0.2) lib/action_view/lookup_context.rb:122:in `find'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:393:in `_run__3268151784119684324__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1966301625005652165__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/benhorne/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 14:45:26 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.7ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 15ms (Views: 9.5ms | ActiveRecord: 2.6ms)
+  [1m[36mRegistration Load (0.7ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.5ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 1]]
+  [1m[35m (554.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 4]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 6]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 8]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 10]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 11]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 12]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 14]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 15]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 16]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 17]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 18]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 19]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 20]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 21]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 22]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 23]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 24]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 25]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 26]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 14:46:06 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRegistration Load (0.7ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 14:48:00 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 14:48:04 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 14:51:21 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=2" for 127.0.0.1 at 2014-02-05 15:03:40 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"2"}
+Completed 200 OK in 38ms (Views: 0.3ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/registrations?event_id=3&role_id=2&user_id=2" for 127.0.0.1 at 2014-02-05 15:04:03 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"3", "role_id"=>"2", "user_id"=>"2"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 15:04:11 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:04:16 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:04:36 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+  [1m[35mRegistration Load (0.3ms)[0m  SELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=2" for 127.0.0.1 at 2014-02-05 15:06:16 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"2"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 05 Feb 2014 22:06:16 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 05 Feb 2014 22:06:16 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Completed 200 OK in 30ms (Views: 0.4ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:06:40 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.7ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:07:10 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.6ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:07:51 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:07:55 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:08:16 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:08:45 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:09:31 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:09:50 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:10:30 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:10:58 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:11:22 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:12:20 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:12:55 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:12:57 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:13:17 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:14:02 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:14:17 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:14:37 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:14:45 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:14:59 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:15:03 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:15:11 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:15:17 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:15:22 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:15:40 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:15:51 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.6ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:21:19 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:21:50 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:21:56 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:22:29 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:22:39 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:23:07 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:23:15 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:23:20 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:23:43 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:23:56 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:24:08 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:24:50 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:25:11 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:25:17 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:25:20 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:25:46 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:25:59 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:26:56 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:26:59 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:27:02 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:28:29 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:28:37 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:30:33 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:30:55 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 15:30:55 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1[0m
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 15:38:07 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 15:38:43 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:38:47 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:39:09 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 15:39:09 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-05 15:40:06 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:40:12 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:40:19 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:40:51 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:41:07 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:41:30 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 15:41:30 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:41:40 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:41:52 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 15:41:52 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:44:38 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 15:44:38 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:44:44 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=1" for 127.0.0.1 at 2014-02-05 15:44:44 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:44:51 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/roles/2?event_id=1" for 127.0.0.1 at 2014-02-05 15:44:51 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 2 AND "registrations"."event_id" = 1
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/registrations?event_id=4&role_id=2&user_id=2" for 127.0.0.1 at 2014-02-05 15:45:19 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"4", "role_id"=>"2", "user_id"=>"2"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 05 Feb 2014 22:45:19 UTC +00:00], ["event_id", 4], ["role_id", 2], ["updated_at", Wed, 05 Feb 2014 22:45:19 UTC +00:00], ["user_id", 2]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-05 15:45:26 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.6ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/roles/2?event_id=1" for 127.0.0.1 at 2014-02-05 15:45:26 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"1", "id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 2 AND "registrations"."event_id" = 1[0m
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/roles/2?event_id=4" for 127.0.0.1 at 2014-02-05 15:45:26 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"4", "id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 2 AND "registrations"."event_id" = 4
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
