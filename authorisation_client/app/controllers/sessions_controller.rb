@@ -1,19 +1,12 @@
 class SessionsController < ApplicationController
-  def index
-    @cookies = cookies[:name]
-  end
-
-  def new
-
-  end
 
   def create
-    cookies[:name] = {
-      value: 'a yummy cookie',
-      expires: 1.year.from_now
-    }
-
-    @cookies = cookies[:name]
-    redirect_to index
+    auth = env["omniauth.auth"]
+    cookies.signed[:provider] = auth.provider
+    cookies.signed[:uid] = auth.uid
+    cookies.signed[:name] = auth.info.name
+    cookies.signed[:oauth_token] = auth.credentials.token
+    cookies.signed[:oauth_expires_at] = Time.at(auth.credentials.expires_at)
+    redirect_to "http://localhost:3000"
   end
 end
