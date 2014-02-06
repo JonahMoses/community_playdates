@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
     cookies.signed[:name] = auth.info.name
     cookies.signed[:oauth_token] = auth.credentials.token
     cookies.signed[:oauth_expires_at] = Time.at(auth.credentials.expires_at)
-    redirect_to "http://localhost:3000"
+    redirect_to root_url
+    fail
+    # redirect_to "http://localhost:3000"
   end
 end

@@ -17578,3 +17578,14 @@ ActionController::RoutingError (No route matches [GET] "/assets/kendo.all.min.js
   bin/rails:4:in `<main>'
 
 
+
+
+Started GET "/auth/facebook/callback?code=AQDnxPCxLXmXUKgNVBa82I9o42n3qFlL825aFoRT7FhtQx9XHNPrEbcjIV6IaiCYqtufdit45N1KOl58VN_0ivRAIaVAVabBWmFqwR9SzPHm_xL3YPoBueSI8PZWRh4roDu_2j8pSDCyfrK-bFGEOatVEx8M52azffoNr_SULVTKl_m547YVBiDa5vTl-A0ZMNTgFk3qSRGYlADrTM4g5TPQteEB8vkOoDXM9WtabEk1V4UKqh6yDe1gogRGeIDvEh3bhSSZo4sNWMdvCqFP_vblSRQzGCQMmnPXIegKiol3d29vQf0ScO9Y_wW-j-2JpTI&state=d09735633497c54ad7a5b8d1eb97608f135f7645ac05e83b" for 127.0.0.1 at 2014-02-06 10:51:45 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LandingController#index as HTML
+  Parameters: {"code"=>"AQDnxPCxLXmXUKgNVBa82I9o42n3qFlL825aFoRT7FhtQx9XHNPrEbcjIV6IaiCYqtufdit45N1KOl58VN_0ivRAIaVAVabBWmFqwR9SzPHm_xL3YPoBueSI8PZWRh4roDu_2j8pSDCyfrK-bFGEOatVEx8M52azffoNr_SULVTKl_m547YVBiDa5vTl-A0ZMNTgFk3qSRGYlADrTM4g5TPQteEB8vkOoDXM9WtabEk1V4UKqh6yDe1gogRGeIDvEh3bhSSZo4sNWMdvCqFP_vblSRQzGCQMmnPXIegKiol3d29vQf0ScO9Y_wW-j-2JpTI", "state"=>"d09735633497c54ad7a5b8d1eb97608f135f7645ac05e83b"}
+  Rendered landing/index.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (3.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered dashboard/_navbar.html.erb (20.6ms)
+  Rendered layouts/_flashes.html.erb (0.3ms)
+Completed 200 OK in 258ms (Views: 233.4ms | ActiveRecord: 5.7ms)

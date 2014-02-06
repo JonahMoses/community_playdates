@@ -1,5 +1,5 @@
 OmniAuth.config.logger = Rails.logger
-OmniAuth.config.full_host = "http://localhost:3000"
+
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET']#, {:provider_ignores_state => true}
+  provider :facebook, '226856227502795', 'c30262ea2c0c950e6e92e7a295fe1b68'
 end
