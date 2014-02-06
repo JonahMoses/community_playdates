@@ -10,7 +10,6 @@ gem 'font-awesome-rails', git: 'https://github.com/blairanderson/font-awesome-ra
 gem 'simple_form'
 gem 'turbolinks'
 gem "koala", "~> 1.8.0rc1"
-gem 'devise'
 gem 'figaro'
 gem 'omniauth-facebook'
 gem 'pg'

@@ -20703,3 +20703,118 @@ Processing by EventsController#show as HTML
   Rendered dashboard/_navbar.html.erb (0.4ms)
   Rendered layouts/_flashes.html.erb (0.1ms)
 Completed 200 OK in 221ms (Views: 18.1ms | ActiveRecord: 1.7ms)
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20140128213329)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140128213329"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to AddUsernameToUsers (20140128213654)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD COLUMN "username" character varying(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140128213654"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to AddOmniauthToUsers (20140128213908)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD COLUMN "provider" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD COLUMN "uid" character varying(255)[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140128213908"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddFacebookThingsToUser (20140128214346)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD COLUMN "name" character varying(255)[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD COLUMN "oauth_token" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD COLUMN "oauth_expires_at" timestamp[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD COLUMN "avatar" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140128214346"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to CreateEvents (20140129050605)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "events" ("id" serial primary key, "name" character varying(255), "location" character varying(255), "description" character varying(255), "capacity" character varying(255), "starts_at" timestamp, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140129050605"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateLocations (20140129182813)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "locations" ("id" serial primary key, "venue" character varying(255), "street_address" character varying(255), "city" character varying(255), "state" character varying(255), "zipcode" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140129182813"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to RemoveLocationFromEvents (20140129200726)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "events" DROP "location"
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140129200726"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to AddLocationToEvents (20140129200828)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "events" ADD COLUMN "location_id" integer
+  [1m[36m (0.8ms)[0m  [1mCREATE INDEX "index_events_on_location_id" ON "events" ("location_id")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140129200828"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeDateTimeOnEvents (20140129223847)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" DROP "starts_at"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "events" ADD COLUMN "date" date
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ADD COLUMN "time" time[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140129223847"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeTimeOnEventsToStartTimeAndEndTime (20140129232628)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "events" DROP "time"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "events" ADD COLUMN "start_time" time
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ADD COLUMN "end_time" time[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140129232628"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRegistrations (20140130210552)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "registrations" ("id" serial primary key, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140130210552"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddReferenceForUsersAndEventsToRegistration (20140130210908)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "registrations" ADD COLUMN "user_id" integer[0m
+  [1m[35m (0.6ms)[0m  CREATE INDEX "index_registrations_on_user_id" ON "registrations" ("user_id")
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "registrations" ADD COLUMN "event_id" integer[0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_registrations_on_event_id" ON "registrations" ("event_id")
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "registrations" ADD COLUMN "role_id" integer[0m
+  [1m[35m (0.8ms)[0m  CREATE INDEX "index_registrations_on_role_id" ON "registrations" ("role_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140130210908"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Migrating to CreateRoles (20140130220218)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "roles" ("id" serial primary key, "identity" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140130220218"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to CreateFriends (20140205003617)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "friends" ("id" serial primary key, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140205003617"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Migrating to RemoveDeviseFromUser (20140206224552)
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" DROP "encrypted_password"
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" DROP "sign_in_count"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" DROP "remember_created_at"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" DROP "current_sign_in_at"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" DROP "last_sign_in_at"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" DROP "current_sign_in_ip"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" DROP "last_sign_in_ip"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140206224552"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-06 15:50:17 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3002
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 302 Found in 45ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-06 15:50:18 -0700
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3002
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)

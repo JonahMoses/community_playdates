@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :omniauthable, :rememberable, :trackable
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -12,17 +9,6 @@ class User < ActiveRecord::Base
       user.oauth_token      = auth[:oauth_token]
       user.oauth_expires_at = auth[:oauth_expires_at]
       user.save!
-    end
-  end
-
-  def self.new_with_session(params, session)
-    if session["devise.user_attributes"]
-      new(session["devise.user_attributes"], without_protection: true) do |user|
-        user.attributes = params
-        user.valid?
-      end
-    else
-      super
     end
   end
 
@@ -62,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def find_large_avatar
-    avatar_path = facebook.get_picture( uid, :type => 'large')
+    facebook.get_picture( uid, :type => 'large')
   end
 
   def registrations

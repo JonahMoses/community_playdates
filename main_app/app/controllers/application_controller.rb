@@ -36,10 +36,9 @@ private
     if user.persisted?
       user.find_avatar
       flash.notice      = "Signed in!"
-      session[:user_id] = user.id
+      cookies.signed[:user_id] = user.id
       @current_user = user
     else
-      session["devise.user_attributes"] = user.attributes
       redirect_to "http://localhost:3002"
     end
   end
