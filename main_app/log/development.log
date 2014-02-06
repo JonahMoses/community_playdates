@@ -17412,3 +17412,84 @@ Started GET "/" for 127.0.0.1 at 2014-02-06 09:53:11 -0700
 Processing by DashboardController#index as HTML
 Redirected to http://localhost:3000/welcome
 Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-06 09:59:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (3.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (1.1ms)
+  Rendered dashboard/_navbar.html.erb (1.8ms)
+  Rendered layouts/_flashes.html.erb (0.5ms)
+Completed 200 OK in 633ms (Views: 598.6ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/auth/facebook/callback?code=AQCULUwMtEMUAbi_jBMRlVJobA7PRYC0BM2RKO9ZUZJ9elF3GSgatqYDTWyiz4vdFVmHsEu8Y9UTWc2_8cmXoUSOSRKXhOLRkpxVhNd55ScceNxMC-wK_FiAVXBKqRmEJEaHSkOiU4WMoO4XOavSOz2BjI1GdZTmuR89imuz2MePFmr3PRMboRW1SoJkOn5Sz_PA6l8Qyb64pnbzjoEW5-CANXPdO6Q8ubb1r0lM2aP3BEFOQuOwralAire2hDfwF3L-yblXIPJEznp1SRJTgfEbYlN3BK7FEBpM3lqdGg7LjpyS2Ojf0PWZ2j4mydeZGg8&state=44b06f23eb6bddd990416f8b239adae2f679185b94a14770" for 127.0.0.1 at 2014-02-06 10:00:03 -0700
+
+ActionController::RoutingError (No route matches [GET] "/auth/facebook/callback"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.0.2) lib/rails/commands/server.rb:84:in `start'
+  railties (4.0.2) lib/rails/commands.rb:76:in `block in <top (required)>'
+  railties (4.0.2) lib/rails/commands.rb:71:in `tap'
+  railties (4.0.2) lib/rails/commands.rb:71:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (34.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (63.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-06 10:02:12 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at 2014-02-06 10:02:12 -0700
+Processing by LandingController#index as HTML
+  Rendered landing/index.html.erb within layouts/application (1.2ms)
+  Rendered dashboard/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flashes.html.erb (0.3ms)
+Completed 200 OK in 208ms (Views: 201.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBg1tF2pa2R1Yry_DbWa-Cbq2VQefhxrx_SaeKdl0DC6X1LJW2XuwbbNv_JVwALQWbrUg2CBcFrf_Y67ccayFyAVk1qfwwQ5RXi8oPR4JJ437i_sfyS4ztBxF65nGNEJ8y_Yx6VBTJLjpLANUyP3soTj5xpbAgwY7bKEn-O4mENqMCxIthl63lmDGc04KsDdHb1gZG2GdPyvgUWbkC35ZWJ4bIS4UVsccRfctxGiwvZOxdv0hzzjmS1bWe2V4WJYOvtQumGMxYkWkcos1D_4_TPSsJxhJIjeabSIjYsRh7FwL-Vy2T59XVexw65V0jTg8I&state=06d6326928d1767c2c2560c066071cf0410aa5bb244c6c0c" for 127.0.0.1 at 2014-02-06 10:02:22 -0700
+Processing by LandingController#index as HTML
+  Parameters: {"code"=>"AQBg1tF2pa2R1Yry_DbWa-Cbq2VQefhxrx_SaeKdl0DC6X1LJW2XuwbbNv_JVwALQWbrUg2CBcFrf_Y67ccayFyAVk1qfwwQ5RXi8oPR4JJ437i_sfyS4ztBxF65nGNEJ8y_Yx6VBTJLjpLANUyP3soTj5xpbAgwY7bKEn-O4mENqMCxIthl63lmDGc04KsDdHb1gZG2GdPyvgUWbkC35ZWJ4bIS4UVsccRfctxGiwvZOxdv0hzzjmS1bWe2V4WJYOvtQumGMxYkWkcos1D_4_TPSsJxhJIjeabSIjYsRh7FwL-Vy2T59XVexw65V0jTg8I", "state"=>"06d6326928d1767c2c2560c066071cf0410aa5bb244c6c0c"}
+  Rendered landing/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
