@@ -17493,3 +17493,88 @@ Processing by LandingController#index as HTML
   Rendered dashboard/_navbar.html.erb (0.4ms)
   Rendered layouts/_flashes.html.erb (0.0ms)
 Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQCQHd6BpULgzugI_RUfuM9xtp8KMdQL2IO2MU3lvdffhtw4m74u70ffSckpXwlLzwWGsf1wm7YPonA2ZwcO_49DEIuZGk80835a-CZ1OyW5-Tmob2JMLCX-vDa3worK5OStEaKacgVaOfwjOj4EvlJ8Pv0Yr9oIFyyKNzrhRxBZUEhasJAkR6taDFF2sFGRaOp1fmyKTdECNfqjOUGfOb3sFQQy6CMvNud1kn8NPS6IMRn-9r8OrZqI6fuFxqmuxCvog5GmPAhMkoZ2Wy1dLgp75wMeFfv42QaBMm80P83-F__27BXLIhM5mU6Gs18BssE&state=0bdbc0e94124ce18df866d3d8deba84bf01a886dc09aff68" for 127.0.0.1 at 2014-02-06 10:14:24 -0700
+Processing by LandingController#index as HTML
+  Parameters: {"code"=>"AQCQHd6BpULgzugI_RUfuM9xtp8KMdQL2IO2MU3lvdffhtw4m74u70ffSckpXwlLzwWGsf1wm7YPonA2ZwcO_49DEIuZGk80835a-CZ1OyW5-Tmob2JMLCX-vDa3worK5OStEaKacgVaOfwjOj4EvlJ8Pv0Yr9oIFyyKNzrhRxBZUEhasJAkR6taDFF2sFGRaOp1fmyKTdECNfqjOUGfOb3sFQQy6CMvNud1kn8NPS6IMRn-9r8OrZqI6fuFxqmuxCvog5GmPAhMkoZ2Wy1dLgp75wMeFfv42QaBMm80P83-F__27BXLIhM5mU6Gs18BssE", "state"=>"0bdbc0e94124ce18df866d3d8deba84bf01a886dc09aff68"}
+  Rendered landing/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQCQHd6BpULgzugI_RUfuM9xtp8KMdQL2IO2MU3lvdffhtw4m74u70ffSckpXwlLzwWGsf1wm7YPonA2ZwcO_49DEIuZGk80835a-CZ1OyW5-Tmob2JMLCX-vDa3worK5OStEaKacgVaOfwjOj4EvlJ8Pv0Yr9oIFyyKNzrhRxBZUEhasJAkR6taDFF2sFGRaOp1fmyKTdECNfqjOUGfOb3sFQQy6CMvNud1kn8NPS6IMRn-9r8OrZqI6fuFxqmuxCvog5GmPAhMkoZ2Wy1dLgp75wMeFfv42QaBMm80P83-F__27BXLIhM5mU6Gs18BssE&state=0bdbc0e94124ce18df866d3d8deba84bf01a886dc09aff68" for 127.0.0.1 at 2014-02-06 10:14:27 -0700
+Processing by LandingController#index as HTML
+  Parameters: {"code"=>"AQCQHd6BpULgzugI_RUfuM9xtp8KMdQL2IO2MU3lvdffhtw4m74u70ffSckpXwlLzwWGsf1wm7YPonA2ZwcO_49DEIuZGk80835a-CZ1OyW5-Tmob2JMLCX-vDa3worK5OStEaKacgVaOfwjOj4EvlJ8Pv0Yr9oIFyyKNzrhRxBZUEhasJAkR6taDFF2sFGRaOp1fmyKTdECNfqjOUGfOb3sFQQy6CMvNud1kn8NPS6IMRn-9r8OrZqI6fuFxqmuxCvog5GmPAhMkoZ2Wy1dLgp75wMeFfv42QaBMm80P83-F__27BXLIhM5mU6Gs18BssE", "state"=>"0bdbc0e94124ce18df866d3d8deba84bf01a886dc09aff68"}
+  Rendered landing/index.html.erb within layouts/application (0.5ms)
+  Rendered dashboard/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flashes.html.erb (0.4ms)
+Completed 200 OK in 60ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQCEqMFOXyxltFVP37fp_Ki4RFYN6Bh6HypvaX1qJUdiUan4QtqE_VhD8Wwi67a9ul-CUFLZf7WLy882szLjwPgdPnQrAvasdgKx8-1flKzH1rQxULarNOuX6hbazTUI84xxrqcRVzgdU-E7TdP8teiVGGbo0vH-ao9d_S2xNQWbK4sHyMqU5xoixqKQF9pigEEeWWlpZXusOJvYqrBgPjH0EcvX3930PqGVSyA0WuNTF1z3NRVY0XQZLfqtMGxkgiWQ87UylJ5CMaCZ_OMvdv-BaM-OPPmBrSNk9LxsaMZyinVJED9Oc1TmSXDT8SlkZyo&state=b85266b76ac3ba95733e748079e21d3f674d4230f5b9f3a8" for 127.0.0.1 at 2014-02-06 10:16:34 -0700
+Processing by LandingController#index as HTML
+  Parameters: {"code"=>"AQCEqMFOXyxltFVP37fp_Ki4RFYN6Bh6HypvaX1qJUdiUan4QtqE_VhD8Wwi67a9ul-CUFLZf7WLy882szLjwPgdPnQrAvasdgKx8-1flKzH1rQxULarNOuX6hbazTUI84xxrqcRVzgdU-E7TdP8teiVGGbo0vH-ao9d_S2xNQWbK4sHyMqU5xoixqKQF9pigEEeWWlpZXusOJvYqrBgPjH0EcvX3930PqGVSyA0WuNTF1z3NRVY0XQZLfqtMGxkgiWQ87UylJ5CMaCZ_OMvdv-BaM-OPPmBrSNk9LxsaMZyinVJED9Oc1TmSXDT8SlkZyo", "state"=>"b85266b76ac3ba95733e748079e21d3f674d4230f5b9f3a8"}
+  Rendered landing/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQCEqMFOXyxltFVP37fp_Ki4RFYN6Bh6HypvaX1qJUdiUan4QtqE_VhD8Wwi67a9ul-CUFLZf7WLy882szLjwPgdPnQrAvasdgKx8-1flKzH1rQxULarNOuX6hbazTUI84xxrqcRVzgdU-E7TdP8teiVGGbo0vH-ao9d_S2xNQWbK4sHyMqU5xoixqKQF9pigEEeWWlpZXusOJvYqrBgPjH0EcvX3930PqGVSyA0WuNTF1z3NRVY0XQZLfqtMGxkgiWQ87UylJ5CMaCZ_OMvdv-BaM-OPPmBrSNk9LxsaMZyinVJED9Oc1TmSXDT8SlkZyo&state=b85266b76ac3ba95733e748079e21d3f674d4230f5b9f3a8" for 127.0.0.1 at 2014-02-06 10:17:08 -0700
+Processing by LandingController#index as HTML
+  Parameters: {"code"=>"AQCEqMFOXyxltFVP37fp_Ki4RFYN6Bh6HypvaX1qJUdiUan4QtqE_VhD8Wwi67a9ul-CUFLZf7WLy882szLjwPgdPnQrAvasdgKx8-1flKzH1rQxULarNOuX6hbazTUI84xxrqcRVzgdU-E7TdP8teiVGGbo0vH-ao9d_S2xNQWbK4sHyMqU5xoixqKQF9pigEEeWWlpZXusOJvYqrBgPjH0EcvX3930PqGVSyA0WuNTF1z3NRVY0XQZLfqtMGxkgiWQ87UylJ5CMaCZ_OMvdv-BaM-OPPmBrSNk9LxsaMZyinVJED9Oc1TmSXDT8SlkZyo", "state"=>"b85266b76ac3ba95733e748079e21d3f674d4230f5b9f3a8"}
+  Rendered landing/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.5ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 57ms (Views: 56.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAQeoncnEar5F9JIf7dONwzWSLeVL_pqodc-tz9TsZs7hE8UmiKDiBAAkBpSQvPTweNVL_M_72wN56qMFcVMCtFbeFOBs3zCaQh5dO_rPfiEKSrVj8TLTLfu8y-cAFMaxBnRQtzeeicEFuRUxuddvGLxM495jkZQexAuOZ43DCou9ZmTdZNvcvRMaH4C0UynxbSLQMy75A5KppOQvHhklguqLR6ouhRZULH_WDsQ7gfvRjuIdJy3g_GaoFxX7H-KKsAoRzpbTB9ic2LAah1X5CcOoD26LH8ihf5v5bJ3zCFnt9_cUH9MwTRit3ADLJjP0I&state=a040a1e8f0ea0da90cfa953f474f61f24b9e27e1c354cc4b" for 127.0.0.1 at 2014-02-06 10:18:54 -0700
+Processing by LandingController#index as HTML
+  Parameters: {"code"=>"AQAQeoncnEar5F9JIf7dONwzWSLeVL_pqodc-tz9TsZs7hE8UmiKDiBAAkBpSQvPTweNVL_M_72wN56qMFcVMCtFbeFOBs3zCaQh5dO_rPfiEKSrVj8TLTLfu8y-cAFMaxBnRQtzeeicEFuRUxuddvGLxM495jkZQexAuOZ43DCou9ZmTdZNvcvRMaH4C0UynxbSLQMy75A5KppOQvHhklguqLR6ouhRZULH_WDsQ7gfvRjuIdJy3g_GaoFxX7H-KKsAoRzpbTB9ic2LAah1X5CcOoD26LH8ihf5v5bJ3zCFnt9_cUH9MwTRit3ADLJjP0I", "state"=>"a040a1e8f0ea0da90cfa953f474f61f24b9e27e1c354cc4b"}
+  Rendered landing/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.3ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/kendo.all.min.js.map"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.1) lib/thin/connection.rb:82:in `block in pre_process'
+  thin (1.6.1) lib/thin/connection.rb:80:in `catch'
+  thin (1.6.1) lib/thin/connection.rb:80:in `pre_process'
+  thin (1.6.1) lib/thin/connection.rb:55:in `process'
+  thin (1.6.1) lib/thin/connection.rb:41:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.1) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.1) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.0.2) lib/rails/commands/server.rb:84:in `start'
+  railties (4.0.2) lib/rails/commands.rb:76:in `block in <top (required)>'
+  railties (4.0.2) lib/rails/commands.rb:71:in `tap'
+  railties (4.0.2) lib/rails/commands.rb:71:in `<top (required)>'
+  bin/rails:4:in `require'
+  bin/rails:4:in `<main>'
+
+
