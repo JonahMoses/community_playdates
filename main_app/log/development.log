@@ -16237,3 +16237,171 @@ Processing by DashboardController#index as HTML
   Rendered dashboard/_navbar.html.erb (1.1ms)
   Rendered layouts/_flashes.html.erb (0.3ms)
 Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 17:28:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (3.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (1.9ms)
+  Rendered dashboard/_navbar.html.erb (1.8ms)
+  Rendered layouts/_flashes.html.erb (0.4ms)
+Completed 200 OK in 778ms (Views: 723.3ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 17:28:33 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+Completed 200 OK in 26ms (Views: 22.3ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2014-02-05 17:28:37 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"J17ug6zJxXkwNGbpXgUnWnMlUOrl6KCSlT/CQAdI62M="}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 17:28:37 -0700
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at 2014-02-05 17:28:37 -0700
+Processing by LandingController#index as HTML
+  Rendered landing/index.html.erb within layouts/application (0.3ms)
+  Rendered dashboard/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at 2014-02-05 17:28:44 -0700
+Processing by LandingController#index as HTML
+  Rendered landing/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.0ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2014-02-05 17:28:48 -0700
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2014-02-05 17:28:48 -0700
+
+
+Started GET "/users/auth/facebook/callback?code=AQDPQEzmlNf0W6L8OX2Eo_WmUx2SKizRwEso_9oiA0BvZiu2B3tX1yg2yNLU6QozlJLZJscOOKJqMajqBysPn-TFysO_QjKmjPTvEJDdKzKUzfsIxkdGVrdLdQCXIdjessNbWVyVnrurVw-xra1wGiiC9PKA5knOeUYqCtrLJ06aKia8rb6dIYEdJIz_qz6zNo504Ze7jilAaPuUBCpjiEby0b_CxThRHsmUfCs_lnzEE6aoXgXJMUgLTlL7dB-zdEXmDWeJGjVPD-1oSKUVCBNItmKlNZD8j9C09K0uajqcTNNdZ2x6ilLoxhjrRL8v054&state=61ec570548ed3dd453f4223b6c5aac85254a914fdd843daa" for 127.0.0.1 at 2014-02-05 17:28:48 -0700
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDPQEzmlNf0W6L8OX2Eo_WmUx2SKizRwEso_9oiA0BvZiu2B3tX1yg2yNLU6QozlJLZJscOOKJqMajqBysPn-TFysO_QjKmjPTvEJDdKzKUzfsIxkdGVrdLdQCXIdjessNbWVyVnrurVw-xra1wGiiC9PKA5knOeUYqCtrLJ06aKia8rb6dIYEdJIz_qz6zNo504Ze7jilAaPuUBCpjiEby0b_CxThRHsmUfCs_lnzEE6aoXgXJMUgLTlL7dB-zdEXmDWeJGjVPD-1oSKUVCBNItmKlNZD8j9C09K0uajqcTNNdZ2x6ilLoxhjrRL8v054", "state"=>"61ec570548ed3dd453f4223b6c5aac85254a914fdd843daa"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."provider" = 'facebook' AND "users"."uid" = '100005554742099' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = 2[0m  [["oauth_token", "CAADOUxTaZBssBANG4DkVCSYOOq1CqvsxbaIjaZChYTqx9ziu0pQ52Ta226utQbIZAeMUkrzZAOEgFTqUGSZCQvIFioyqzr8Un3ijpcyofMLG8POcJZCOAMGHDSpbaQZCrGA9PAIz5QMUFbiXXrujjSNdq8B7ZCslakJRjhK0VRZB0ZCZBlPdskjzxfE9YtDkkuOw0kZD"], ["oauth_expires_at", Sun, 06 Apr 2014 23:41:26 UTC +00:00], ["updated_at", Thu, 06 Feb 2014 00:28:49 UTC +00:00]]
+  [1m[35m (112.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 2  [["current_sign_in_at", Thu, 06 Feb 2014 00:28:50 UTC +00:00], ["sign_in_count", 2], ["updated_at", Thu, 06 Feb 2014 00:28:50 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 339ms (ActiveRecord: 116.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 17:28:50 -0700
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.5ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.5ms)
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (5.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 2]]
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 17:30:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 22ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at 2014-02-05 17:30:38 -0700
+Processing by LandingController#index as HTML
+  Rendered landing/index.html.erb within layouts/application (1.2ms)
+  Rendered dashboard/_navbar.html.erb (1.1ms)
+  Rendered layouts/_flashes.html.erb (0.5ms)
+Completed 200 OK in 236ms (Views: 235.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2014-02-05 17:30:46 -0700
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2014-02-05 17:30:47 -0700
+
+
+Started GET "/users/auth/facebook/callback?code=AQBxveqwCezcXjg3UkUjEDCIHFTqNUvWOZxFncndmOKb1AN6JuTPF4DkUbBvLBUHuF7KzATTd2zvhIpezMr2I15IED04xqyCpv_6c41bIaV_BritNJyqhHgZ9fFNUyzqT2v6ddgrMp_-zmyP89BHHUmGntrGJruGeCoN7iF9-p19Ze5rJrClxWEsJjYHrHKDHK9pUvqBRhGw1WqccrjA-aSC4b4i-mloY7Rjpp_n15bkAJBBxrSpX0cj-MvBrYEC9ZWTuRpuGh26s3Qx6gi78ke3ylSbOTrS-ij0TeP6AkKgVp-G3gE4X-O1LB9rAzJYFGs&state=0f97b8fdeb29017336b2f75b85e3df673a7aff6ec1a4c24a" for 127.0.0.1 at 2014-02-05 17:30:47 -0700
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBxveqwCezcXjg3UkUjEDCIHFTqNUvWOZxFncndmOKb1AN6JuTPF4DkUbBvLBUHuF7KzATTd2zvhIpezMr2I15IED04xqyCpv_6c41bIaV_BritNJyqhHgZ9fFNUyzqT2v6ddgrMp_-zmyP89BHHUmGntrGJruGeCoN7iF9-p19Ze5rJrClxWEsJjYHrHKDHK9pUvqBRhGw1WqccrjA-aSC4b4i-mloY7Rjpp_n15bkAJBBxrSpX0cj-MvBrYEC9ZWTuRpuGh26s3Qx6gi78ke3ylSbOTrS-ij0TeP6AkKgVp-G3gE4X-O1LB9rAzJYFGs", "state"=>"0f97b8fdeb29017336b2f75b85e3df673a7aff6ec1a4c24a"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."provider" = 'facebook' AND "users"."uid" = '100005554742099' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "oauth_expires_at", "oauth_token", "provider", "uid", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 06 Feb 2014 00:30:48 UTC +00:00], ["email", "adamm1@aston.ac.uk"], ["name", "Magan Adam"], ["oauth_expires_at", Sun, 06 Apr 2014 23:41:26 UTC +00:00], ["oauth_token", "CAADOUxTaZBssBAAkFZANrg7drNQhyluNFch2XTQ7Abtf8NsNmhZBpydEwPHITYdbiQ5fnMZAmYZBZAA6ncvx8ZAGhMe7o7aIBRCpo2VzbBRbVpz9MonaPoUYe7lJWLrqYGnxCCASFB77KXR7YD6MARUs0AdDcjBZAWQLFFF3cJfmeArgYViv6P4ok4VFH3OlkzMZD"], ["provider", "facebook"], ["uid", "100005554742099"], ["updated_at", Thu, 06 Feb 2014 00:30:48 UTC +00:00]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "avatar" = $1, "updated_at" = $2 WHERE "users"."id" = 3[0m  [["avatar", "https://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif"], ["updated_at", Thu, 06 Feb 2014 00:30:48 UTC +00:00]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 3  [["last_sign_in_at", Thu, 06 Feb 2014 00:30:48 UTC +00:00], ["current_sign_in_at", Thu, 06 Feb 2014 00:30:48 UTC +00:00], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", Thu, 06 Feb 2014 00:30:48 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 258ms (ActiveRecord: 14.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 17:30:48 -0700
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (0.3ms)
+  Rendered dashboard/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 70ms (Views: 67.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 17:35:20 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+  Rendered dashboard/_navbar.html.erb (0.5ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 25ms (Views: 22.5ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2014-02-05 17:35:23 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"w9EqhXg9QAB+VoEJWY+kkxTbriCcA++OIcQJkU+DnvQ="}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 17:35:23 -0700
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at 2014-02-05 17:35:23 -0700
+Processing by LandingController#index as HTML
+  Rendered landing/index.html.erb within layouts/application (0.0ms)
+  Rendered dashboard/_navbar.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)

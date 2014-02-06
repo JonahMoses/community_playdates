@@ -14,10 +14,3 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
-.DS_Store
-
-# Ignore application configuration
-/config/application.yml
-/main/
-/main_app/tmp/cache/assets/development/sprockets
