@@ -16,7 +16,7 @@ private
         cookies.signed[:email])
       set_user
     else
-      cookies.destroy
+      # cookies.delete
       redirect_to "http://localhost:3002"
     end
   end

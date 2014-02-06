@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RegistrationClient::Application.config.secret_key_base = '7ddacfaa6c05123b402d3f30c3ba8ab2bd25dfc2fde4e36564a5ed6ccff81e87f97701d5a041fe22efaf47d56ce0e2e9fd1ce452f84edb4cd42948872f20bee4'
+RegistrationClient::Application.config.secret_key_base = '0cf9520e7195d24cb1b21e0bfadeaa76860361031531eaceded86bc7a311fdc15e4c6a219f381d994e4a6d046805d0f34a819e23b3e1e5bde40c64ad107395a5'

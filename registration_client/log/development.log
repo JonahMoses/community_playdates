@@ -2220,3 +2220,94 @@ Processing by RegistrationsController#role_registrations as */*
   Parameters: {"event_id"=>"4", "id"=>"2"}
   [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 2 AND "registrations"."event_id" = 4
 Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=3" for 127.0.0.1 at 2014-02-06 14:36:25 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"3"}
+Completed 500 Internal Server Error in 24ms
+
+NoMethodError (undefined method `destroy' for #<ActionDispatch::Cookies::CookieJar:0x007fe65d0590d8>):
+  app/controllers/application_controller.rb:17:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.7ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=3" for 127.0.0.1 at 2014-02-06 14:38:20 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"3"}
+Completed 500 Internal Server Error in 19ms
+
+ArgumentError (wrong number of arguments (0 for 1..2)):
+  app/controllers/application_controller.rb:17:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.5ms)
+  [1m[36mRegistration Load (1.0ms)[0m  [1mSELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1[0m
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=3" for 127.0.0.1 at 2014-02-06 14:40:52 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"3"}
+Completed 500 Internal Server Error in 13ms
+
+RuntimeError ():
+  app/controllers/application_controller.rb:9:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=3" for 127.0.0.1 at 2014-02-06 14:41:50 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"3"}
+Completed 500 Internal Server Error in 6ms
+
+ArgumentError (wrong number of arguments (0 for 1..2)):
+  app/controllers/application_controller.rb:17:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=3" for 127.0.0.1 at 2014-02-06 14:42:20 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"3"}
+Redirected to http://localhost:3002
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=3" for 127.0.0.1 at 2014-02-06 14:43:40 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"3"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (4.1ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Thu, 06 Feb 2014 21:43:40 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Thu, 06 Feb 2014 21:43:40 UTC +00:00], ["user_id", 3]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 7.3ms)
+  [1m[35mRegistration Load (0.6ms)[0m  SELECT "registrations".* FROM "registrations" ORDER BY "registrations"."id" DESC LIMIT 1
+
+
+Started POST "/registrations?event_id=2&role_id=1&user_id=3" for 127.0.0.1 at 2014-02-06 14:44:36 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"2", "role_id"=>"1", "user_id"=>"3"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 06 Feb 2014 21:44:36 UTC +00:00], ["event_id", 2], ["role_id", 1], ["updated_at", Thu, 06 Feb 2014 21:44:36 UTC +00:00], ["user_id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 3.1ms)
