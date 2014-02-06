@@ -6,8 +6,11 @@ CommunityPlaydates::Application.routes.draw do
              path_names: {sign_in: "login", sign_out: "logout"},
              controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
+
   get "/welcome" => "landing#index"
   root :to => "dashboard#index"
+  # get '/auth/facebook/callback' => root_path
+
   resources :users, only: [:index, :show]
   resources :events
 

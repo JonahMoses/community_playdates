@@ -19,3 +19,6 @@
 
 # Ignore application configuration
 /config/application.yml
+/main/
+/main_app/tmp/cache/assets/development/sprockets
+/main_app/tmp/pids
