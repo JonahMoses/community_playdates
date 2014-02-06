@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-AuthorisationClient::Application.config.secret_key_base = 'fafa6e74dc24fe045374d20c3486cdea41503010fe7d068b11051778b5b1a0f568399926cc325174d8a6478ad62f603980d2e678d9c857f7391af0a6eaf41ae4'
+AuthorisationClient::Application.config.secret_key_base = '0cf9520e7195d24cb1b21e0bfadeaa76860361031531eaceded86bc7a311fdc15e4c6a219f381d994e4a6d046805d0f34a819e23b3e1e5bde40c64ad107395a5'

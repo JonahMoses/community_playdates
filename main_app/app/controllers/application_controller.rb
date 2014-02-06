@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 private
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= set_user
+  end
+
+  def set_user
+    User.find_by(uid: cookies.signed[:uid])
   end
 
   helper_method :current_user
