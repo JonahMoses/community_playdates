@@ -32,9 +32,7 @@ private
             oauth_token:      cookies.signed[:oauth_token],
             oauth_expires_at: cookies.signed[:oauth_expires_at],
             email:            cookies.signed[:email]}
-    user = User.from_omniauth(auth)
-    if user.persisted?
-      user.find_avatar
+    if user = UserClient.login(auth)
       flash.notice      = "Signed in!"
       cookies.signed[:user_id] = user.id
       @current_user = user
