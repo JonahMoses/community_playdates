@@ -26,12 +26,15 @@ private
   end
 
   def set_user
-    auth = {provider:         cookies.signed[:provider],
+    auth = {
+            provider:         cookies.signed[:provider],
             uid:              cookies.signed[:uid],
             name:             cookies.signed[:name],
             oauth_token:      cookies.signed[:oauth_token],
             oauth_expires_at: cookies.signed[:oauth_expires_at],
-            email:            cookies.signed[:email]}
+            email:            cookies.signed[:email]
+    }
+
     if user = UserClient.login(auth)
       flash.notice      = "Signed in!"
       cookies.signed[:user_id] = user.id
@@ -39,6 +42,7 @@ private
     else
       redirect_to "http://localhost:3002"
     end
+
   end
 
   helper_method :current_user

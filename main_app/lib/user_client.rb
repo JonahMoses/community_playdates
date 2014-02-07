@@ -15,8 +15,8 @@ class UserClient
 
   end
 
-  def connection
-    Faraday.new(:url => 'http://localhost:3004') do |faraday|
+  def self.connection
+    Faraday.new(:url => 'http://localhost:3004/users') do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
       faraday.response :logger                  # log requests to STDOUT
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
