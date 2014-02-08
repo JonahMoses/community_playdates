@@ -17,6 +17,6 @@ class Registration
   end
 
   def user
-    User.all.select { |user| user.id == user_id }.first
+    UserClient.get_user(user_id)
   end
 end
