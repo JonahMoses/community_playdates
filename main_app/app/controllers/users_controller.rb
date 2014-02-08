@@ -4,4 +4,5 @@ class UsersController < ApplicationController
     @user = current_user
     @large_avatar = @user.large_avatar
   end
+
 end

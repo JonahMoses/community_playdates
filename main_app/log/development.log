@@ -27955,3 +27955,87 @@ NoMethodError - undefined method `creator' for nil:NilClass:
 
 
 Started POST "/__better_errors/2169294560/variables" for 127.0.0.1 at 2014-02-08 14:13:41 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-08 15:27:27 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3002
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 302 Found in 442ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-08 15:27:32 -0700
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3002
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 302 Found in 86ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-08 15:29:46 -0700
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (2.4ms)
+  Rendered dashboard/_navbar.html.erb (2.7ms)
+  Rendered layouts/_flashes.html.erb (1.0ms)
+Completed 200 OK in 1813ms (Views: 957.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/%23%3CUser:0x007fb79e902a60%3E" for 127.0.0.1 at 2014-02-08 15:29:59 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"#<User:0x007fb79e902a60>"}
+  Rendered users/show.html.erb within layouts/application (382.3ms)
+  Rendered dashboard/_navbar.html.erb (1.3ms)
+  Rendered layouts/_flashes.html.erb (0.5ms)
+Completed 200 OK in 965ms (Views: 414.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/%23%3CUser:0x007fb79e902a60%3E" for 127.0.0.1 at 2014-02-08 15:31:57 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"#<User:0x007fb79e902a60>"}
+  Rendered users/show.html.erb within layouts/application (19.3ms)
+  Rendered dashboard/_navbar.html.erb (1.2ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 540ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-02-08 15:32:05 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered users/show.html.erb within layouts/application (16.4ms)
+  Rendered dashboard/_navbar.html.erb (1.1ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 585ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-02-08 15:32:13 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered users/show.html.erb within layouts/application (15.6ms)
+  Rendered dashboard/_navbar.html.erb (0.5ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 554ms (Views: 89.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-02-08 15:32:14 -0700
+Processing by EventsController#new as HTML
+  Rendered shared/_errors.html.erb (4.0ms)
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered events/_form.html.erb (48.4ms)
+  Rendered events/new.html.erb within layouts/application (50.8ms)
+  Rendered dashboard/_navbar.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 607ms (Views: 118.4ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2014-02-08 15:32:20 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (4.2ms)[0m  SELECT "events".* FROM "events"
+  [1m[36mLocation Load (6.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 ORDER BY "locations"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 ORDER BY "locations"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered events/_event.html.erb (39.1ms)
+  Rendered events/index.html.erb within layouts/application (47.7ms)
+  Rendered dashboard/_navbar.html.erb (0.4ms)
+  Rendered layouts/_flashes.html.erb (0.1ms)
+Completed 200 OK in 619ms (Views: 64.6ms | ActiveRecord: 11.1ms)

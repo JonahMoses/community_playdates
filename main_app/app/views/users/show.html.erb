@@ -1,34 +1,34 @@
 <div id='user-profile'>
- <div class="span7"  >
-  <h2><%= @user.name %>'s Profile</h2></br>
-  <div class= "profile-image">
-    <%= image_tag @large_avatar, :height => '150', :width => '150'  %>
-  </div>
-
-  <div>
-    <div id="user-info" class='span3'>
-      <h5><strong>Joined on: </strong><%= @user.created_at.strftime("%m/%d/%Y") %></h5>
+  <div class="span7"  >
+    <h2><%= @user.name %>'s Profile</h2></br>
+    <div class= "profile-image">
+      <%= image_tag @large_avatar, :height => '150', :width => '150'  %>
     </div>
-  </div>
 
-  <% unless @user.created_events.empty? %>
+    <div>
+      <div id="user-info" class='span3'>
+        <h5><strong>Joined on: </strong><%= @user.created_at.strftime("%m/%d/%Y") %></h5>
+      </div>
+    </div>
+
+    <% unless @user.created_events.empty? %>
     <div id='created-events'>
       <h4>Created Events</h4>
       <% @user.created_events.each do |event| %>
-        <%= link_to event.name, event_path(event) %>
-        <%= event.date %>
-        <%= event.start_time.strftime("%I:%M %p") %> to <%= event.end_time.strftime(" %I:%M %p") %>
+      <%= link_to event.name, event_path(event) %>
+      <%= event.date %>
+      <%= event.start_time.strftime("%I:%M %p") %> to <%= event.end_time.strftime(" %I:%M %p") %>
       <% end %>
     </div>
-  <% end %>
+    <% end %>
 
-  <% unless @user.attending_events.empty? %>
+    <% unless @user.attending_events.empty? %>
     <div id='attending-events'>
       <h4>Attending</h4>
       <% @user.attending_events.each do |event| %>
-        <%= link_to event.name, event_path(event) %>
-        <%= event.start_time.strftime("%I:%M %p") %> to <%= event.end_time.strftime(" %I:%M %p") %>
+      <%= link_to event.name, event_path(event) %>
+      <%= event.start_time.strftime("%I:%M %p") %> to <%= event.end_time.strftime(" %I:%M %p") %>
       <% end %>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>

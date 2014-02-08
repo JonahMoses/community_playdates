@@ -62,8 +62,13 @@ ActiveRecord::Schema.define(version: 20140208200156) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "avatar"
+    t.integer  "gender_cd"
+    t.integer  "age_range_cd"
+    t.text     "description"
   end
 
+  add_index "users", ["age_range_cd"], name: "index_users_on_age_range_cd", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["gender_cd"], name: "index_users_on_gender_cd", using: :btree
 
 end
