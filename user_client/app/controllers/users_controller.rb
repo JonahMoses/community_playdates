@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   def create
     user = User.from_omniauth(user_params)
     if user.persisted?
-      user.find_avatar
+      #user.find_avatar
     end
+
     send_json(user, 201)
   end
 
