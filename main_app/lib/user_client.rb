@@ -23,4 +23,8 @@ class UserClient
     end
   end
 
+  def self.find
+
+  end
+
 end
