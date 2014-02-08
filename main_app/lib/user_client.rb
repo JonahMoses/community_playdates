@@ -15,6 +15,12 @@ class UserClient
     end
   end
 
+  def self.get_friends(id)
+    connection.get do |req|
+      req.url("/users/#{id}/friends")
+    end
+  end
+
   def self.connection
     Faraday.new(:url => 'http://localhost:3004') do |faraday|
       faraday.request  :url_encoded             # form-encode POST params

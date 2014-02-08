@@ -39,4 +39,8 @@ class User
   def attending_events
     events.select { |event| event.attendees.include? self}
   end
+
+  def friends
+    UserClient.get_friends(id)
+  end
 end

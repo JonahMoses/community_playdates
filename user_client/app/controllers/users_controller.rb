@@ -5,7 +5,6 @@ class UsersController < ApplicationController
       user.find_avatar
       user.find_large_avatar
     end
-
     send_json(user, 201)
   end
 
@@ -20,6 +19,11 @@ class UsersController < ApplicationController
     else
       render json: {}, :status => 500
     end
+  end
+
+  def friends
+    user = User.find(params[:id])
+    send_json(user.friends_on_community_playdates)
   end
 
   private

@@ -20,4 +20,11 @@ class Event < ActiveRecord::Base
     RegistrationClient.event_role_registrations(role_id, self.id)
   end
 
+#  def friend_events
+#    return [] if User.friends.empty?
+#    friends_on_community_playdates.collect do |user|
+#      user.events
+#    end.first.sort_by{|s| s.start_time}.reverse
+#  end
+
 end

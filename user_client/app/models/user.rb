@@ -17,18 +17,11 @@ class User < ActiveRecord::Base
     @friend_data.collect do |friend|
       Friend.new(friend["name"], friend["id"], @facebook)
     end
-  end
+ end
 
   def friends_on_community_playdates
     all_friend_ids = all_friends.map {|f| f.id}
     User.all.select{ |user| all_friend_ids.include?(user.uid) }
-  end
-
-  def friend_events
-    return [] if friends_on_community_playdates.empty?
-    friends_on_community_playdates.collect do |user|
-      user.events
-    end.first.sort_by{|s| s.start_time}.reverse
   end
 
   def friends_of_friends
