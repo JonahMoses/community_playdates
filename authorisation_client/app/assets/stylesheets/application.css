@@ -40,3 +40,22 @@ body
   background-color:rgba(255,255,255,0.5);
 }
 
+.site_description
+{
+  margin-top: 34.75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 8px;
+  color: #333;
+  box-shadow:
+    inset 0 2px 0 rgba(0,0,0,.2),
+        0 0 4px rgba(0,0,0,0.1),
+        0 0 5px 1px #51CBEE;
+  width: 60%;
+
+  background-color:rgba(255,255,255,0.5);
+}
+
