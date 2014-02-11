@@ -70,4 +70,19 @@ class RegistrationsTest < ActionDispatch::IntegrationTest
     assert_equal 3, response_json["event_id"]
   end
 
+  test "delete '/registrations/:id' destroys a existing registration" do
+
+    #set fake values for cookies
+    login
+
+    #create a registration to be destroyed
+    id = 1
+    Registration.create!(id: id, role_id: 2, user_id: 2, event_id: 3)
+
+
+    delete "/registrations/#{id}"
+    assert_response :no_content
+
+    assert_empty response.body
+  end
 end
