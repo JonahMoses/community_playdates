@@ -24,4 +24,9 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def destroy
+   registration =  Registration.destroy(params[:id])
+   send_json(registration, 204)
+  end
+
 end
