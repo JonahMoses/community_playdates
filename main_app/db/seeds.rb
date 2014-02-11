@@ -11,8 +11,8 @@
           provider: "facebook",
           uid: "536753365",
           name: "Antony Siegert",
-          oauth_token: "CAADOUxTaZBssBAEZBrs08IVr4d8XwhtfZAOB4J9sy6lguXRryd...",
-          oauth_expires_at: "2014-03-31 17:49:46",
+          oauth_token: "CAADOUxTaZBssBAEbIatemoZBC8WnBkbD6QiZA6hHrK0gFYZCp6s99oVXou6QgNgrP4kWZBepngLU6ugfkZBlhB1anVLOBecvApHEcEL3kZBA43JEitpqMiZCkdNLAUSmm5Jfg2Airb11NvnSKvC0BdVVt8vlDZBzlZBre5Q6F3MfNLZCyKfEncgPZBANzvjugCMFE5IZD",
+          oauth_expires_at: "2014-04-12 04:18:51",
           avatar: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/t5/186388_536753365_1031627958_q.jpg"
           })
 
