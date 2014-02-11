@@ -23,6 +23,10 @@ group :development, :test do
   gem "vcr", "~> 2.8.0"
   gem 'minitest-rails'
   gem 'webmock', "~> 1.8.0"
+  gem 'pry'
 end
 
+group :development do
+  gem 'guard-minitest'
+end
 
