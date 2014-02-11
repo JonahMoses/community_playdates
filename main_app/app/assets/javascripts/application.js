@@ -15,5 +15,6 @@
 //= require kendo.all.min
 //= require jasny-bootstrap
 //= require datetime
+//= require dashboard
 //= require turbolinks
 //= require_tree .
