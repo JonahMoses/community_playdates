@@ -28858,3 +28858,4 @@ Started GET "/logout" for 127.0.0.1 at 2014-02-10 14:15:45 -0700
 Processing by SessionsController#destroy as HTML
 Redirected to http://localhost:3002/logout
 Completed 302 Found in 421ms (ActiveRecord: 0.0ms)
+  [1m[36mEvent Load (0.9ms)[0m  [1mSELECT "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT 1[0m

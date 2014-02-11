@@ -11,6 +11,10 @@ class Event < ActiveRecord::Base
     registrations(role.id).map(&:user)
   end
 
+  def attendee_and_creator_count
+    attendees.count + 1
+  end
+
   def creator
     role = Role.find_by(identity: "creator")
     registrations(role.id).map(&:user)

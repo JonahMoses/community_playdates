@@ -35,18 +35,27 @@
 </div> 
 
 
-<div class="cbp_tmtimeline">
-  <% @events.each do |date, events| %>
+<% @events.each do |date, events| %>
+  <div class="cbp_tmtimeline">
     <li>
-      <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
       <div class="cbp_tmicon cbp_tmicon-phone"></div>
+      <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
       <% events.each do |event| %>
-      <time class="cbp_tmtime hour"><span><br><%= event.start_time.strftime("%I:%M%p") %></span></time> 
         <div class="cbp_tmlabel">
-          <h2><%= event.name %> - <%= event.start_time.strftime("%I:%M%p") %></h2>
-          <p>Winter purslane courgette pumpkin quandong komatsuna fennel green bean cucumber watercress. Pea sprouts wattle seed rutabaga okra yarrow cress avocado grape radish bush tomato ricebean black-eyed pea maize eggplant. Cabbage lentil cucumber chickpea sorrel gram garbanzo plantain lotus root bok choy squash cress potato summer purslane salsify fennel horseradish dulse. Winter purslane garbanzo artichoke broccoli lentil corn okra silver beet celery quandong. Plantain salad beetroot bunya nuts black-eyed pea collard greens radish water spinach gourd chicory prairie turnip avocado sierra leone bologi.</p>
+          <div class='hour'><%= event.start_time.strftime("%I:%M%p") %> - <%= event.end_time.strftime("%I:%M%p") %></div>
+        <span class='user-icon'><%= image_tag 'user_icon.png' %><%= event.attendee_and_creator_count %></span>
+        <br>
+          <h2><%= link_to event.name, event_path(event) %></h2>
+          <p><%= event.description %></p>
+
+          Location Name: <%= event.location.venue %></br>
+          Street Address: <%= event.location.street_address %></br>
+          City: <%= event.location.city %></br>
+          State: <%= event.location.state %></br>
+          Zipcode: <%= event.location.zipcode %></br>
         </div>
       <% end %>
-    </li>
-  <% end %>
-</div>  
+      </li>
+  </div>  
+<% end %>
+<br>
