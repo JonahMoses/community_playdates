@@ -1,0 +1,384 @@
+  [1m[36m (431.2ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (248.7ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:12:18', '2014-02-11 17:12:18', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:12:18', '2014-02-11 17:12:18', 298486374)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------------------
+RegistrationTest: test_it_creats_registration_with_valid_attritbutes
+--------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:12:18 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:12:18 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (111.8ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (245.5ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.7ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.7ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.7ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:12:34', '2014-02-11 17:12:34', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:12:34', '2014-02-11 17:12:34', 298486374)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------------------
+RegistrationTest: test_it_creats_registration_with_valid_attritbutes
+--------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:12:34 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:12:34 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (113.6ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (248.1ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:13:03', '2014-02-11 17:13:03', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:13:03', '2014-02-11 17:13:03', 298486374)[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------------------
+RegistrationTest: test_it_creats_registration_with_valid_attritbutes
+--------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:13:03 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:13:03 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (113.0ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (237.0ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.0ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:13:18', '2014-02-11 17:13:18', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:13:18', '2014-02-11 17:13:18', 298486374)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------------------
+RegistrationTest: test_it_creats_registration_with_valid_attritbutes
+--------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:13:18 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:13:18 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (112.5ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (241.9ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:13:47', '2014-02-11 17:13:47', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:13:47', '2014-02-11 17:13:47', 298486374)[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------------------
+RegistrationTest: test_it_creats_registration_with_valid_attritbutes
+--------------------------------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:13:47 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:13:47 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (111.2ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (248.7ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (0.9ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:14:05', '2014-02-11 17:14:05', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:14:05', '2014-02-11 17:14:05', 298486374)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------------------
+RegistrationTest: test_it_creats_registration_with_valid_attritbutes
+--------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:14:05 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:14:05 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (111.4ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (242.4ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (12.5ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:14:18', '2014-02-11 17:14:18', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:14:18', '2014-02-11 17:14:18', 298486374)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:14:18 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:14:18 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (110.8ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (253.2ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (14.9ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:16:05', '2014-02-11 17:16:05', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:16:05', '2014-02-11 17:16:05', 298486374)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:16:05 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:16:05 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:16:05 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:16:05 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (110.4ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (250.2ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.9ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.5ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:16:56', '2014-02-11 17:16:56', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:16:56', '2014-02-11 17:16:56', 298486374)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:16:56 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:16:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (2.7ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:16:56 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:16:56 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRegistration Load (0.7ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (110.8ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (239.3ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (27.5ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (2.0ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:17:55', '2014-02-11 17:17:55', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:17:55', '2014-02-11 17:17:55', 298486374)[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:17:55 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:17:55 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:17:55 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:17:55 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:17:55 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:17:55 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (113.7ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (241.1ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.8ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:18:08', '2014-02-11 17:18:08', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:18:08', '2014-02-11 17:18:08', 298486374)[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:18:08 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:18:08 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:18:08 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:18:08 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRegistration Load (0.8ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:18:08 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:18:08 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRegistration Load (0.3ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
