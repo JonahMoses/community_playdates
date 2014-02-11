@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#headline {
+  margin-left: 14%;
+  margin-top: 3%;
+  color: #75c46b;
+  text-shadow: 3px 3px 3px #bce2b3;
+  font-family: 'Concert One', serif;
+  font-size: 4em;
+}
+
 
 #bigHalfCircle {
   fill: #75c46b;
@@ -15,7 +24,7 @@
   text-align: center;
   color: white;
   font-size: 1.3em;
-  margin-top: 7%;
+  margin-top: 2%;
   margin-bottom: -16%;
   z-index: 1;
   position: relative;
@@ -480,4 +489,5 @@ section::after {
     margin: 50px auto 0;
   }
 }
+
 

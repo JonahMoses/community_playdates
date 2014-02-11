@@ -1,1 +1,22 @@
 Welcome to the Community Playdates Main Page
+<legend></legend>
+<br/>
+Friends:
+<% unless @friends.empty? %>
+  <%= render partial: "users/user", collection: @friends %>
+<% end %>
+<br/>
+<legend></legend>
+<br/>
+Friends of Friends:
+<% unless @friends_of_friends.empty? %>
+  <%= render partial: "users/user", collection: @friends_of_friends %>
+<% end %>
+
+<br/>
+<legend></legend>
+<br/>
+Who dat?:
+<% unless @general_public.empty? %>
+  <%= render partial: "users/user", collection: @general_public %>
+<% end %>
