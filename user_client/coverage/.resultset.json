@@ -1,0 +1,81 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/Agsiegert/Dropbox/Ruby Projects/Services_project/community_playdates/user_client/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Agsiegert/Dropbox/Ruby Projects/Services_project/community_playdates/user_client/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Agsiegert/Dropbox/Ruby Projects/Services_project/community_playdates/user_client/app/models/user.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        4,
+        4,
+        637,
+        null,
+        null,
+        null,
+        1,
+        609,
+        11,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        3,
+        null,
+        null,
+        1,
+        6,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/Agsiegert/Dropbox/Ruby Projects/Services_project/community_playdates/user_client/app/models/friend.rb": [
+        1,
+        1,
+        null,
+        1,
+        638,
+        638,
+        638,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1392144338
+  }
+}

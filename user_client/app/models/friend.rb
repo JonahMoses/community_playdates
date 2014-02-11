@@ -8,7 +8,7 @@ class Friend
   end
 
   def picture_url
-    token.get_picture(id)
+    Koala::Facebook::API.new(token).get_picture(id)
   end
 
 end

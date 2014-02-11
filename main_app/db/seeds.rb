@@ -5,16 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-  # user = User.create({
-  #         email: "agsiegert@hotmail.com",
-  #         username: nil,
-  #         provider: "facebook",
-  #         uid: "536753365",
-  #         name: "Antony Siegert",
-  #         oauth_token: "CAADOUxTaZBssBAEZBrs08IVr4d8XwhtfZAOB4J9sy6lguXRryd...",
-  #         oauth_expires_at: "2014-03-31 17:49:46",
-  #         avatar: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/t5/186388_536753365_1031627958_q.jpg"
-  #         })
 
   Role.create([{ identity: 'attendee' },
                 { identity: 'creator'}])

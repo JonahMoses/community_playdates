@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/100000161048479/picture?access_token=CAADOUxTaZBssBAFceDXGewdq9DDP9vXldkZBeJjF1TK3snRDrZBhbA0KZA25V4OtVNAWaXfuJp9Kg1aQwKKdsH5RCDl1MGt235p0AdJwoZBDorUnwJXxrZCcwkVGTiO4d3hwjMDs9hH7trc4Ey2RZCzosRTnz53NlcoWsBKxYciDWZBf22XZCRAHwfAvEBmIcBlMZD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 302
+      message: forced.302
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - image/jpeg
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Location:
+      - https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash1/t5/368994_100000161048479_1464730155_q.jpg
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '1116978'
+      X-Fb-Debug:
+      - 2NKYtY90nLZjzlRX3qBhs8l6jnkq0wbthSfnjH275Js=
+      Date:
+      - Tue, 11 Feb 2014 18:45:37 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 11 Feb 2014 18:45:37 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/100000161048479/picture?access_token=CAADOUxTaZBssBAFceDXGewdq9DDP9vXldkZBeJjF1TK3snRDrZBhbA0KZA25V4OtVNAWaXfuJp9Kg1aQwKKdsH5RCDl1MGt235p0AdJwoZBDorUnwJXxrZCcwkVGTiO4d3hwjMDs9hH7trc4Ey2RZCzosRTnz53NlcoWsBKxYciDWZBf22XZCRAHwfAvEBmIcBlMZD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 302
+      message: forced.302
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - image/jpeg
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Location:
+      - https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash1/t5/368994_100000161048479_1464730155_q.jpg
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '1116978'
+      X-Fb-Debug:
+      - 8ok4M2jE1yFz/w6ZFJZ/NiT005Cwf6mel/wru6ez1KY=
+      Date:
+      - Tue, 11 Feb 2014 18:45:37 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 11 Feb 2014 18:45:37 GMT
+recorded_with: VCR 2.8.0
