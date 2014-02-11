@@ -5488,3 +5488,49 @@ Processing by RegistrationsController#create as HTML
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
 Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 1.0ms)
   [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 21:22:06', '2014-02-11 21:22:06', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 21:22:06', '2014-02-11 21:22:06', 298486374)
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------------------------------------
+RegistrationsTest: test_GET_/registrations/roles/:id/:event_id_returns_json_for_roles_registrations
+---------------------------------------------------------------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 21:22:06 UTC +00:00], ["event_id", 3], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 21:22:06 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/registrations/roles/1/3" for 127.0.0.1 at 2014-02-11 14:22:06 -0700
+Processing by RegistrationsController#role_registrations as HTML
+  Parameters: {"id"=>"1", "event_id"=>"3"}
+  [1m[36mRegistration Load (0.9ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 3[0m
+Completed 200 OK in 20ms (Views: 1.5ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------------------------------
+RegistrationsTest: test_GET_/users/registrations/:id_returns_json_for_the_user's_registrations
+----------------------------------------------------------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 21:22:06 UTC +00:00], ["event_id", 3], ["role_id", 2], ["updated_at", Tue, 11 Feb 2014 21:22:06 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 14:22:06 -0700
+Processing by RegistrationsController#user_registrations as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------------------------------------
+RegistrationsTest: test_post_'/registrations'_create_a_new_registration
+-----------------------------------------------------------------------
+Started POST "/registrations" for 127.0.0.1 at 2014-02-11 14:22:06 -0700
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user_id"=>"1", "role_id"=>"2", "event_id"=>"3"}
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 21:22:06 UTC +00:00], ["event_id", 3], ["role_id", 2], ["updated_at", Tue, 11 Feb 2014 21:22:06 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
