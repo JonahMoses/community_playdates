@@ -1,21 +1,10 @@
 class UsersController < ApplicationController
 
   def show
-    @user = current_user
+    @user = UserClient.get_user(params[:id])
     @large_avatar = @user.large_avatar
-    @date = current_user.events.map(&:date)
-    events = current_user.events.each_with_object({}) do |event, hash|
-      if hash[event.date]
-        hash[event.date] << event
-      else
-        hash[event.date] = [event]
-      end
-    end
-    h = {}
-    events.each do |key, value|
-      h[key] = value.sort_by { |e| e.start_time }
-    end
-    @events = h
+    @date = @user.events.map(&:date)
+    @events = Event.sorted_by_day(@user)
   end
 
   def friends

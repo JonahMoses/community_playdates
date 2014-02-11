@@ -1,5 +1,5 @@
 <div id='user-profile'>
-  <div class="span7"  >
+  <div class="col-lg-3 profile-info well"  >
     <h2><%= @user.name %>'s Profile</h2></br>
     <div class= "profile-image">
       <%= image_tag @large_avatar, :height => '150', :width => '150'  %>
@@ -8,54 +8,38 @@
     <div>
       <div id="user-info" class='span3'>
         <h5><strong>Joined on: </strong><%= @user.created_at.strftime("%m/%d/%Y") %></h5>
+        <h4>Playdates:</h4>
+        <h5><strong>Created: </strong><%= @user.created_events.count %></h5>
+        <h5><strong>Attending: </strong><%= @user.attending_events.count %></h5>
       </div>
     </div>
 
-    <% unless @user.created_events.empty? %>
-    <div id='created-events'>
-      <h4>Created Events</h4>
-      <% @user.created_events.each do |event| %>
-      <%= link_to event.name, event_path(event) %>
-      <%= event.date %>
-      <%= event.start_time.strftime("%I:%M %p") %> to <%= event.end_time.strftime(" %I:%M %p") %>
-      <% end %>
-    </div>
-    <% end %>
-
-    <% unless @user.attending_events.empty? %>
-    <div id='attending-events'>
-      <h4>Attending</h4>
-      <% @user.attending_events.each do |event| %>
-      <%= link_to event.name, event_path(event) %>
-      <%= event.start_time.strftime("%I:%M %p") %> to <%= event.end_time.strftime(" %I:%M %p") %>
-      <% end %>
-    </div>
-    <% end %>
   </div>
-</div> 
 
 
-<% @events.each do |date, events| %>
-  <div class="cbp_tmtimeline">
-    <li>
-      <div class="cbp_tmicon cbp_tmicon-phone"></div>
-      <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
-      <% events.each do |event| %>
-        <div class="cbp_tmlabel">
-          <div class='hour'><%= event.start_time.strftime("%I:%M%p") %> - <%= event.end_time.strftime("%I:%M%p") %></div>
-        <span class='user-icon'><%= image_tag 'user_icon.png' %><%= event.attendee_and_creator_count %></span>
-        <br>
-          <h2><%= link_to event.name, event_path(event) %></h2>
-          <p><%= event.description %></p>
+  <% @events.each do |date, events| %>
+    <div class="cbp_tmtimeline pull-right col-lg-8">
+      <li>
+        <div class="cbp_tmicon cbp_tmicon-phone"></div>
+        <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
+        <% events.each do |event| %>
+          <div class="cbp_tmlabel">
+            <div class='hour'><%= event.start_time.strftime("%I:%M%p") %> - <%= event.end_time.strftime("%I:%M%p") %></div>
+            <span class='user-icon'><%= image_tag 'user_icon.png' %><%= event.attendee_and_creator_count %></span>
+            <br>
+            <h2><%= link_to event.name, event_path(event), class:'event-name' %></h2>
+            <p><%= event.description %></p>
+            <p>Created By: <%= event.creator.first.name %></p>
 
-          Location Name: <%= event.location.venue %></br>
-          Street Address: <%= event.location.street_address %></br>
-          City: <%= event.location.city %></br>
-          State: <%= event.location.state %></br>
-          Zipcode: <%= event.location.zipcode %></br>
-        </div>
-      <% end %>
+            Location Name: <%= event.location.venue %></br>
+            Street Address: <%= event.location.street_address %></br>
+            City: <%= event.location.city %></br>
+            State: <%= event.location.state %></br>
+            Zipcode: <%= event.location.zipcode %></br>
+          </div>
+        <% end %>
       </li>
-  </div>  
-<% end %>
-<br>
+    </div>  
+  <% end %>
+
+</div> 

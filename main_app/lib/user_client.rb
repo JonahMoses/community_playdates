@@ -16,8 +16,17 @@ class UserClient
   end
 
   def self.get_friends(id)
-    connection.get do |req|
+    response = connection.get do |req|
       req.url("/users/#{id}/friends")
+    end
+
+    if response.status == 200
+      user_params = JSON.parse(response.body)
+      user_params.collect do |params|
+        User.new(params)
+      end
+    else
+      false
     end
   end
 

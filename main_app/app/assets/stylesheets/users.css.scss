@@ -15,13 +15,16 @@
 } /* Made with http://icomoon.io/ */
 
 .cbp_tmtimeline {
-  margin: 30px 0 0 0;
+  margin: 0 3% 0 0;
   padding: 0;
   list-style: none;
   position: relative;
-  width: 80%;
   margin-left: 6%;
 } 
+
+.event-name {
+  color: #ffffff;
+}
 
 /* The line */
 .cbp_tmtimeline:before {
@@ -55,7 +58,7 @@
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span:last-child {
-  font-size: 2.5em;
+  font-size: 2em;
   color: #3594cb;
 }
 
@@ -199,9 +202,9 @@
 
 .cbp_tmlabel a:hover, a:visited, 
             a:link, a:active {
-  color: white;
   text-decoration: none;
 }
+
 
 .hour {
   font-size: 1.6em;
@@ -220,4 +223,10 @@
   height: 30px;
   width: 30px;
   padding-right: 3px;
+}
+
+.profile-info {
+  display: inline-block;
+  margin-left: 3%;
+  position: fixed;
 }

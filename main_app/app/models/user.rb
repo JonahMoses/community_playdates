@@ -33,11 +33,15 @@ class User
   end
 
   def created_events
-    events.select { |event| event.creator.include? self}
+    role = Role.find_by(identity: "creator")
+    r = registrations.select {|registration| registration.role_id == role.id && registration.user_id == self.id}
+    r.map(&:event)
   end
 
   def attending_events
-    events.select { |event| event.attendees.include? self}
+    role = Role.find_by(identity: "attendee")
+    r = registrations.select {|registration| registration.role_id == role.id && registration.user_id == self.id}
+    r.map(&:event)
   end
 
   def friends
