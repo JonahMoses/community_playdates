@@ -31,10 +31,18 @@ class UserClient
   end
 
   def self.connection
-    Faraday.new(:url => 'http://localhost:3004') do |faraday|
+    Faraday.new(:url => domain) do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
       faraday.response :logger                  # log requests to STDOUT
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    end
+  end
+
+  def self.domain
+    if Rails.env.production?
+      return "http://communityplaydates.com:3004"
+    else
+      return "http://localhost:3004"
     end
   end
 

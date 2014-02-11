@@ -1,0 +1,13 @@
+
+---
+locations:
+  columns:
+  - id
+  - venue
+  - street_address
+  - city
+  - state
+  - zipcode
+  - created_at
+  - updated_at
+  records: 

@@ -9981,3 +9981,197 @@ Processing by RegistrationsController#role_registrations as */*
   Parameters: {"event_id"=>"4", "id"=>"2"}
   [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 2 AND "registrations"."event_id" = 4[0m
 Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/registrations?event_id=2&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-11 08:08:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"2", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 15:08:15 UTC +00:00], ["event_id", 2], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 15:08:15 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 201 Created in 30ms (Views: 0.5ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:08:19 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.8ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:08:20 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:08:35 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+  [1m[36mRegistration Load (1.2ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 28]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 29]]
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 30]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 38]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 39]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "registrations" WHERE "registrations"."id" = $1  [["id", 40]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 41]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:10:16 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRegistration Load (0.6ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:10:17 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:10:17 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:10:17 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.3ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/registrations?event_id=3&role_id=1&user_id=1" for 127.0.0.1 at 2014-02-11 08:10:36 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"3", "role_id"=>"1", "user_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 15:10:36 UTC +00:00], ["event_id", 3], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 15:10:36 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 201 Created in 15ms (Views: 0.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:10:44 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:10:44 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:10:44 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/users/1" for 127.0.0.1 at 2014-02-11 08:10:44 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/roles/2?event_id=3" for 127.0.0.1 at 2014-02-11 08:10:44 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"3", "id"=>"2"}
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 2 AND "registrations"."event_id" = 3[0m
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/roles/1?event_id=3" for 127.0.0.1 at 2014-02-11 08:10:44 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"3", "id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 3
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+  [1m[36mRegistration Load (1.5ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 42]]
+  [1m[35m (7.2ms)[0m  COMMIT
+
+
+Started POST "/registrations?event_id=4&role_id=1&user_id=2" for 127.0.0.1 at 2014-02-11 08:20:02 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"4", "role_id"=>"1", "user_id"=>"2"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 15:20:02 UTC +00:00], ["event_id", 4], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 15:20:02 UTC +00:00], ["user_id", 2]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 201 Created in 28ms (Views: 0.3ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-11 08:20:32 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.6ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-11 08:20:32 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-11 08:20:32 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRegistration Load (0.3ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/registrations/users/2" for 127.0.0.1 at 2014-02-11 08:20:32 -0700
+Processing by RegistrationsController#user_registrations as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/registrations/roles/2?event_id=4" for 127.0.0.1 at 2014-02-11 08:20:32 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"4", "id"=>"2"}
+  [1m[36mRegistration Load (0.4ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 2 AND "registrations"."event_id" = 4[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/registrations/roles/1?event_id=4" for 127.0.0.1 at 2014-02-11 08:20:32 -0700
+Processing by RegistrationsController#role_registrations as */*
+  Parameters: {"event_id"=>"4", "id"=>"1"}
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 4
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+  [1m[36mRegistration Load (1.1ms)[0m  [1mSELECT "registrations".* FROM "registrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.0ms)[0m  [1mDELETE FROM "registrations" WHERE "registrations"."id" = $1[0m  [["id", 43]]
+  [1m[35m (0.6ms)[0m  COMMIT
