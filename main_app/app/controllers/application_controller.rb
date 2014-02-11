@@ -17,7 +17,11 @@ private
       set_user
     else
       # cookies.delete
-      redirect_to "http://localhost:3002"
+      if Rails.env.production?
+        redirect_to "http://communityplaydates.com:3002"
+      else
+        redirect_to "http://localhost:3002"
+      end
     end
   end
 
@@ -40,7 +44,11 @@ private
       cookies.signed[:user_id] = user.id
       @current_user = user
     else
-      redirect_to "http://localhost:3002"
+      if Rails.env.production?
+        redirect_to "http://communityplaydates.com:3002"
+      else
+        redirect_to "http://localhost:3002"
+      end
     end
 
   end
