@@ -382,3 +382,838 @@ RegistrationTest: test_it_returns_for_users_registration
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36mRegistration Load (0.3ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (133.0ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (430.6ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (2.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (10.3ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "registrations"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:43:59', '2014-02-11 17:43:59', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:43:59', '2014-02-11 17:43:59', 298486374)[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRegistration Load (1.1ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRegistration Load (0.5ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_registrations_as_json
+----------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:43:59", updated_at: "2014-02-11 17:43:59">}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:43:59 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (6.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:45:39', '2014-02-11 17:45:39', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:45:39', '2014-02-11 17:45:39', 298486374)
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_registrations_as_jsosends_json
+-------------------------------------------------------------------------
+  [1m[35m (1.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:45:39 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:45:39 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190963, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:45:39", updated_at: "2014-02-11 17:45:39">}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:45:39 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:45:39 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (6.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:46:02', '2014-02-11 17:46:02', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:46:02', '2014-02-11 17:46:02', 298486374)
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_registrations_as_jsosends_json
+-------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:46:02 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:46:02 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190963, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:46:02", updated_at: "2014-02-11 17:46:02">}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:46:02 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:46:02 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:48:45', '2014-02-11 17:48:45', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:48:45', '2014-02-11 17:48:45', 298486374)
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:48:45 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:48:45 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190963, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:48:45", updated_at: "2014-02-11 17:48:45">}
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:48:45 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:48:45 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.6ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:52:39', '2014-02-11 17:52:39', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:52:39', '2014-02-11 17:52:39', 298486374)
+  [1m[36m (6.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (1.0ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:52:39", updated_at: "2014-02-11 17:52:39">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:52:39 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+  [1m[36m (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:52:47', '2014-02-11 17:52:47', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:52:47', '2014-02-11 17:52:47', 298486374)
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.9ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:52:47", updated_at: "2014-02-11 17:52:47">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:52:47 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:53:37', '2014-02-11 17:53:37', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:53:37', '2014-02-11 17:53:37', 298486374)
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.7ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.5ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:53:37", updated_at: "2014-02-11 17:53:37">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:53:37 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:54:20', '2014-02-11 17:54:20', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:54:20', '2014-02-11 17:54:20', 298486374)
+  [1m[36m (6.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (1.0ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.3ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:54:20", updated_at: "2014-02-11 17:54:20">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:54:20 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:54:55', '2014-02-11 17:54:55', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:54:55', '2014-02-11 17:54:55', 298486374)
+  [1m[36m (7.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (1.1ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.3ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:54:55", updated_at: "2014-02-11 17:54:55">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:54:55 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 4ms (Views: 0.6ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (113.7ms)[0m  [1mDROP DATABASE IF EXISTS "registration_test"[0m
+  [1m[35m (250.9ms)[0m  CREATE DATABASE "registration_test" ENCODING = 'utf8'
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.6ms)[0m  CREATE TABLE "registrations" ("id" serial primary key, "user_id" integer, "role_id" integer, "event_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140205031923')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (6.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:55:19', '2014-02-11 17:55:19', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:55:19', '2014-02-11 17:55:19', 298486374)
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:55:19 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:55:19 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:55:19 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:55:19 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.7ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:55:19 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:55:19 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.3ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:55:24', '2014-02-11 17:55:24', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:55:24', '2014-02-11 17:55:24', 298486374)
+  [1m[36m (6.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:55:24 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:55:24 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190963, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:55:24", updated_at: "2014-02-11 17:55:24">}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:55:24 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:55:24 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:56:01', '2014-02-11 17:56:01', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:56:01', '2014-02-11 17:56:01', 298486374)
+  [1m[36m (7.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.8ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:56:01", updated_at: "2014-02-11 17:56:01">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:56:01 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:56:23', '2014-02-11 17:56:23', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:56:23', '2014-02-11 17:56:23', 298486374)
+  [1m[36m (6.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.7ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:56:23", updated_at: "2014-02-11 17:56:23">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:56:23 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:57:03', '2014-02-11 17:57:03', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:57:03', '2014-02-11 17:57:03', 298486374)
+  [1m[36m (7.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.6ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:57:03", updated_at: "2014-02-11 17:57:03">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:57:03 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:57:56', '2014-02-11 17:57:56', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:57:56', '2014-02-11 17:57:56', 298486374)
+  [1m[36m (6.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.7ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:57:56", updated_at: "2014-02-11 17:57:56">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:57:56 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:59:42', '2014-02-11 17:59:42', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:59:42', '2014-02-11 17:59:42', 298486374)
+  [1m[36m (6.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.9ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:59:42", updated_at: "2014-02-11 17:59:42">}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:59:42 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 3ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:59:52', '2014-02-11 17:59:52', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 17:59:52', '2014-02-11 17:59:52', 298486374)
+  [1m[36m (7.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.8ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.3ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 17:59:52", updated_at: "2014-02-11 17:59:52">}
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 17:59:52 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 4ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "registrations"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 18:00:46', '2014-02-11 18:00:46', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "registrations" ("created_at", "updated_at", "id") VALUES ('2014-02-11 18:00:46', '2014-02-11 18:00:46', 298486374)
+  [1m[36m (6.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "registrations" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+---------------------------------------------------------------------
+RegistrationTest: test_it_creates_registration_with_valid_attritbutes
+---------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------
+RegistrationTest: test_it_exists
+--------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------------
+RegistrationTest: test_it_find_registration_by_event_role
+---------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (1.0ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."role_id" = 1 AND "registrations"."event_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------------
+RegistrationTest: test_it_returns_for_users_registration
+--------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRegistration Load (0.4ms)[0m  SELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 1 ORDER BY "registrations"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------------------------------
+RegistrationsControllerTest: test_it_sends_created_registrations_as_json
+------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by RegistrationsController#create as JSON
+  Parameters: {"input"=>#<Registration id: 980190966, user_id: 1, role_id: 1, event_id: 1, created_at: "2014-02-11 18:00:46", updated_at: "2014-02-11 18:00:46">}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "registrations" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00], ["updated_at", Tue, 11 Feb 2014 18:00:46 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 201 Created in 4ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
