@@ -26282,3 +26282,428 @@ Processing by RegistrationsController#user_registrations as */*
   Parameters: {"id"=>"2"}
   [1m[36mRegistration Load (0.3ms)[0m  [1mSELECT "registrations".* FROM "registrations" WHERE "registrations"."user_id" = 2[0m
 Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:01:17 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Completed 500 Internal Server Error in 12ms
+
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/application_controller.rb:9:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:02:14 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (41.8ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 12 Feb 2014 15:02:14 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:02:14 UTC +00:00], ["user_id", 100]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Completed 201 Created in 82ms (Views: 0.5ms | ActiveRecord: 45.8ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:02:43 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 12 Feb 2014 15:02:43 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:02:43 UTC +00:00], ["user_id", 100]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:03:21 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 12 Feb 2014 15:03:21 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:03:21 UTC +00:00], ["user_id", 100]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 201 Created in 29ms (Views: 0.4ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:03:54 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Completed 500 Internal Server Error in 10ms
+
+ActionView::MissingTemplate (Missing template registrations/create, application/create with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/benhorne/Ruby/rails/community_playdates/registration_client/app/views"
+):
+  app/controllers/application_controller.rb:16:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (1.7ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:04:25 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 407 Proxy Authentication Required in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:04:55 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 403 Forbidden in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:05:12 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Completed 500 Internal Server Error in 0ms
+
+TypeError (no implicit conversion of nil into String):
+  app/controllers/application_controller.rb:10:in `+'
+  app/controllers/application_controller.rb:10:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.6ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:05:20 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Completed 500 Internal Server Error in 0ms
+
+TypeError (no implicit conversion of nil into String):
+  app/controllers/application_controller.rb:10:in `+'
+  app/controllers/application_controller.rb:10:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:06:47 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Completed 500 Internal Server Error in 13ms
+
+TypeError (no implicit conversion of nil into String):
+  app/controllers/application_controller.rb:10:in `+'
+  app/controllers/application_controller.rb:10:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:08:49 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Completed 500 Internal Server Error in 13ms
+
+TypeError (no implicit conversion of nil into String):
+  app/controllers/application_controller.rb:10:in `+'
+  app/controllers/application_controller.rb:10:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:09:36 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Completed 500 Internal Server Error in 1ms
+
+NameError (uninitialized constant ApplicationController::BCrypt):
+  app/controllers/application_controller.rb:21:in `hash'
+  app/controllers/application_controller.rb:10:in `authenticate_user_info'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:10:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 403 Forbidden in 128ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:10:24 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 403 Forbidden in 119ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:12:29 -0700
+
+SyntaxError (/Users/benhorne/Ruby/rails/community_playdates/registration_client/app/controllers/application_controller.rb:12: syntax error, unexpected '}', expecting =>
+        render json: {"YAY"}, :status => 203
+                            ^
+/Users/benhorne/Ruby/rails/community_playdates/registration_client/app/controllers/application_controller.rb:14: syntax error, unexpected '}', expecting =>
+        render json: {params[:id]}, :status => 403
+                                  ^):
+  app/controllers/registrations_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (25.1ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.6ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:12:56 -0700
+
+SyntaxError (/Users/benhorne/Ruby/rails/community_playdates/registration_client/app/controllers/application_controller.rb:12: syntax error, unexpected '}', expecting =>
+        render json: {"YAY"}, :status => 203
+                            ^
+/Users/benhorne/Ruby/rails/community_playdates/registration_client/app/controllers/application_controller.rb:14: syntax error, unexpected '}', expecting =>
+        render json: {params[:id].to_s}, :status => 403
+                                       ^):
+  app/controllers/registrations_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.3ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:13:10 -0700
+
+SyntaxError (/Users/benhorne/Ruby/rails/community_playdates/registration_client/app/controllers/application_controller.rb:12: syntax error, unexpected '}', expecting =>
+        render json: {"YAY"}, :status => 203
+                            ^
+/Users/benhorne/Ruby/rails/community_playdates/registration_client/app/controllers/application_controller.rb:14: syntax error, unexpected '}', expecting =>
+        render json: {"NOOO"}, :status => 403
+                             ^):
+  app/controllers/registrations_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/benhorne/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.4ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:13:57 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 403 Forbidden in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:14:03 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:14:39 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 114ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:15:15 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 121ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:27:59 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:28:13 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:28:33 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 203 Non-Authoritative Information in 31ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:30:47 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 12 Feb 2014 15:30:47 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:30:47 UTC +00:00], ["user_id", 100]]
+  [1m[35m (680.1ms)[0m  COMMIT
+Completed 201 Created in 701ms (Views: 0.8ms | ActiveRecord: 686.3ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:40:42 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 12 Feb 2014 15:40:42 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:40:42 UTC +00:00], ["user_id", 100]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 127ms (Views: 0.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:41:59 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 12 Feb 2014 15:41:59 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:41:59 UTC +00:00], ["user_id", 100]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 201 Created in 144ms (Views: 0.5ms | ActiveRecord: 7.4ms)
+
+
+Started POST "/registrations?auth_id=hello&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:42:24 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"hello", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 117ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:42:46 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 12 Feb 2014 15:42:47 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:42:47 UTC +00:00], ["user_id", 100]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 129ms (Views: 0.4ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:43:15 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 117ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:43:28 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:43:36 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:43:51 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 12 Feb 2014 15:43:51 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:43:51 UTC +00:00], ["user_id", 100]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 201 Created in 126ms (Views: 0.3ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:45:56 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 12 Feb 2014 15:45:56 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:45:56 UTC +00:00], ["user_id", 100]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 201 Created in 31ms (Views: 0.4ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:46:08 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 12 Feb 2014 15:46:08 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:46:08 UTC +00:00], ["user_id", 100]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93e&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:46:12 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93e", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 12 Feb 2014 15:46:12 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:46:12 UTC +00:00], ["user_id", 100]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93e&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:46:17 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93e", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 116ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:46:23 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Wed, 12 Feb 2014 15:46:23 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:46:23 UTC +00:00], ["user_id", 100]]
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+Completed 201 Created in 130ms (Views: 0.4ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:49:27 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$zhSdbbRzJZnN.PRczLfPhOQXKmQgsAyW2y5.91roEdxxYUQmz93eq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 123ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:50:05 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 120ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:50:28 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 136ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%248NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:50:42 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$8NE5e2jvKu.NOMgP45Zd1uqoFKXKPtbacP4soIyDUNbxoFXruKwxu", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+Filter chain halted as :authenticate_user_info rendered or redirected
+Completed 401 Unauthorized in 115ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/registrations?auth_id=%242a%2410%24MBqCBiZe4Z6KAgAvGssevOEm45HbyLNVxKi2ai92YAAWqVGuUSRAq&event_id=1&role_id=1&user_id=100" for 127.0.0.1 at 2014-02-12 08:51:14 -0700
+Processing by RegistrationsController#create as */*
+  Parameters: {"auth_id"=>"$2a$10$MBqCBiZe4Z6KAgAvGssevOEm45HbyLNVxKi2ai92YAAWqVGuUSRAq", "event_id"=>"1", "role_id"=>"1", "user_id"=>"100"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "registrations" ("created_at", "event_id", "role_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Wed, 12 Feb 2014 15:51:14 UTC +00:00], ["event_id", 1], ["role_id", 1], ["updated_at", Wed, 12 Feb 2014 15:51:14 UTC +00:00], ["user_id", 100]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 201 Created in 134ms (Views: 0.4ms | ActiveRecord: 6.5ms)
