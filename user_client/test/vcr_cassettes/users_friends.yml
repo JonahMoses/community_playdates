@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/me/friends?access_token=CAADOUxTaZBssBAEbIatemoZBC8WnBkbD6QiZA6hHrK0gFYZCp6s99oVXou6QgNgrP4kWZBepngLU6ugfkZBlhB1anVLOBecvApHEcEL3kZBA43JEitpqMiZCkdNLAUSmm5Jfg2Airb11NvnSKvC0BdVVt8vlDZBzlZBre5Q6F3MfNLZCyKfEncgPZBANzvjugCMFE5IZD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json; charset=UTF-8
+      Etag:
+      - '"f3eae5f9d6a57e912ba069bed8750f515d4b6f0f"'
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '1116978'
+      X-Fb-Debug:
+      - 8MOLXySUR5wcH1yqD7Sa7/XQbpVGcxmgip5GVrisLkc=
+      Date:
+      - Tue, 11 Feb 2014 05:32:33 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '916'
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"name":"Kevin Morrison Powell","id":"503528568"},{"name":"Annette
+        Kathryn Shoemaker","id":"542223553"},{"name":"James Nuelle","id":"549945264"},{"name":"Michael
+        Pratt","id":"585063862"},{"name":"Glenn Kramer","id":"639083571"},{"name":"Chris
+        Sigo","id":"681305652"},{"name":"Jackson Emblin","id":"695000866"},{"name":"Jim
+        Scharff","id":"736763884"},{"name":"Crystal Quimby-Siegert","id":"1001353270"},{"name":"Chadwick
+        Von Trundlebum","id":"1049845281"},{"name":"Keisha McCarthy","id":"1052005092"},{"name":"Jennifer
+        Barnes","id":"1138442346"},{"name":"Ian Bogert","id":"1167499120"},{"name":"Rebecca
+        Schimpf Nelson","id":"1168402346"},{"name":"Joe Skopitz","id":"1210861807"},{"name":"Amanda
+        Siegert","id":"1224063453"},{"name":"Michelle Tiffany-Langley","id":"1251665650"},{"name":"Andrew
+        Osborn","id":"1271753690"},{"name":"Cindy Siegert","id":"1389050231"},{"name":"Mark
+        Dreher","id":"1444965174"},{"name":"Yvette Siegert Kreb","id":"1453360994"},{"name":"Jason
+        T. Siegert","id":"1502260942"},{"name":"Sarah Hunt Katoa","id":"1550592291"},{"name":"Kelly
+        Tan","id":"1588513254"},{"name":"Stephen Siegert","id":"100000091801622"},{"name":"Jonah
+        Moses","id":"100000161048479"},{"name":"Mark Harris","id":"100000728013877"},{"name":"Ali
+        Schmid Siegert","id":"100000920521778"},{"name":"Tristan Tak Kreb","id":"100002217803628"},{"name":"Jaclyn
+        Parry Bogert","id":"100002579116269"},{"name":"Kristina Siegert","id":"100004022605735"}],"paging":{"next":"https:\/\/graph.facebook.com\/536753365\/friends?access_token=CAADOUxTaZBssBAEbIatemoZBC8WnBkbD6QiZA6hHrK0gFYZCp6s99oVXou6QgNgrP4kWZBepngLU6ugfkZBlhB1anVLOBecvApHEcEL3kZBA43JEitpqMiZCkdNLAUSmm5Jfg2Airb11NvnSKvC0BdVVt8vlDZBzlZBre5Q6F3MfNLZCyKfEncgPZBANzvjugCMFE5IZD&limit=5000&offset=5000&__after_id=100004022605735"}}'
+    http_version: 
+  recorded_at: Tue, 11 Feb 2014 05:32:33 GMT
+recorded_with: VCR 2.8.0
