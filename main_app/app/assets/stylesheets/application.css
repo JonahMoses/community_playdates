@@ -13,15 +13,38 @@
  *= require_tree .
  */
 
+ .nav-bar-container {
+  width: 100%;
+  margin-bottom: 8px;
+  position: fixed;
+  background-color: #247cb1;
+  z-index: 10;
+  display: inline-block;
+ }
+
+ .nav-bar-container.navbar-header {
+  margin-top: 180px;
+  display: inline-block;
+  float: left;
+ }
+
+ .small-user-image img {
+  height: 55px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+ }
+
 .image-container {
   overflow: hidden;
+  margin-top: 12px;
   width: 170px;
   height: 170px;
   border-radius: 150px;
   -webkit-border-radius: 150px;
   -moz-border-radius: 150px;
   
-  margin-top: 5% 0 0 0;
+  margin: 13px auto 0 auto;
 }
 
 .circular {
@@ -40,6 +63,17 @@ body
   background-size: cover;
 }
 
+.navbar-link {
+  color: white;
+  margin: 0 0px 0 7px;
+}
+
+.navigation-links a {
+  color: white;
+  margin: 0 0px 0 7px;
+}
+
+
  .event
 {
   margin-bottom: 10px;
@@ -56,4 +90,5 @@ body
   height: 320px;
   background-color:rgba(255,255,255,0.5);
 }
+
 

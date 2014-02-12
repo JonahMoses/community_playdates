@@ -8,17 +8,17 @@
 /.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+*/db/*.sqlite3
+*/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+*/log/*.log
+*/tmp
 
 .DS_Store
 
 # Ignore application configuration
-/config/application.yml
-/main/
-/main_app/tmp/cache/assets/development/sprockets
-/main_app/tmp/pids
+*/config/application.yml
+*/main/
+*/main_app/tmp/cache/assets/development/sprockets
+*/main_app/tmp/pids

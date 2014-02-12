@@ -15,11 +15,10 @@
 } /* Made with http://icomoon.io/ */
 
 .cbp_tmtimeline {
-  margin: 0 3% 0 0;
+  margin: 3%;
   padding: 0;
   list-style: none;
   position: relative;
-  margin-left: 6%;
 } 
 
 .event-name {
@@ -203,8 +202,12 @@
 .cbp_tmlabel a:hover, a:visited, 
             a:link, a:active {
   text-decoration: none;
+  border-radius: 10px;
 }
 
+.view-profile-button {
+   margin: 0 0 12px 0;
+}
 
 .hour {
   font-size: 1.6em;
@@ -229,4 +232,64 @@
   display: inline-block;
   margin-left: 3%;
   position: fixed;
+}
+
+#user-profile {
+  margin-top: 14px;
+}
+
+#user-timeline {
+  border: 3px;
+  min-height: 75px;
+  float: right;
+  text-align: center;
+  z-index: 1;
+}
+
+#user-friend-icons {
+  border: 3px;
+  float: right;
+  margin: 2% 3% 3% 0;
+  border: 3px solid #47a3da;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.user-friend-image {
+  overflow: hidden;
+  height: 55px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+}
+
+.user-friend-image img {
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  
+  margin: 0 auto 10px auto;
+}
+
+.user-timeline-container {
+  border: 3px;
+  float: right;
+  margin: -.5% 3% 3% 0;
+  border: 3px solid #47a3da;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.user-timeline-container h3 {
+  text-align: center;
+  margin: 5%;
+  font-size: 2em;
+}
+
+.user-timeline-container h4 {
+  margin: -10px 0 25px 0;
+  text-align: center;
 }

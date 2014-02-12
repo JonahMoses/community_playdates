@@ -18,8 +18,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem "vcr", "~> 2.8.0"
-  gem 'webmock', "~> 1.8.0"
+  gem 'mocha'
 end
 
 group :production do
@@ -28,6 +27,8 @@ group :production do
 end
 
 group :test do
+  gem "vcr", "~> 2.8.0"
   gem "minitest-rails-capybara"
+  gem 'webmock', "~> 1.8.0"
   gem 'simplecov', :require => false
 end

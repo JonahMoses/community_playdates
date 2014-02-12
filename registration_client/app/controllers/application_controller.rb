@@ -6,17 +6,31 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user_info
 
   def authenticate_user_info
-    # if (cookies.signed[:provider] &&
-    #     cookies.signed[:uid] &&
-    #     cookies.signed[:name] &&
-    #     cookies.signed[:oauth_token] &&
-    #     cookies.signed[:oauth_expires_at] &&
-    #     cookies.signed[:email])
-    #   true
-    # else
-    #   # cookies.delete
-    #   redirect_to "http://localhost:3002"
-    # end
-    true
+    not_test_environment? ? process_request : test_request
+  end
+
+  def process_request
+    if params[:auth_id] && hash(params[:auth_id])
+      return true
+    else
+      render json: {}, :status => 403
+    end
+  end
+
+  def test_request
+    if params[:auth_id] == "hello"
+      return true
+    else
+      render json: {}, :status => 403
+    end
+    # true
+  end
+
+  def hash(input)
+    BCrypt::Password.create(ENV['APP_CONFIRMATION']) == input
+  end
+
+  def not_test_environment?
+    !Rails.env.test?
   end
 end
