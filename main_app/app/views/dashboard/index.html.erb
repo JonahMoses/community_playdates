@@ -1,55 +1,30 @@
-Welcome to the Community Playdates Main Page
-<legend></legend>
-<br/>
-Friends:
-<% unless @friends.empty? %>
-  <%= render partial: "users/user", collection: @friends %>
-<% end %>
-<br/>
-<legend></legend>
-<br/>
-Friends of Friends:
-<% unless @friends_of_friends.empty? %>
-  <%= render partial: "users/user", collection: @friends_of_friends %>
-<% end %>
+<div class='friend-portal col-lg-12'>
+  <div class='community friends'>
+    <h2>Friends</h2>
+    <% unless @friends.empty? %>
+      <%= render partial: "users/user", collection: @friends*3 %>
+    <% end %>
+  </div>
 
-<br/>
-<legend></legend>
-<br/>
-Who dat?:
-<% unless @general_public.empty? %>
-  <%= render partial: "users/user", collection: @general_public %>
-<% end %>
+  <br/>
+  <legend></legend>
+  <br/>
 
-<div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid cbp-vm-container">
-    <div class="cbp-vm-options">
-        <a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid">Grid View</a>
-        <a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list">List View</a>
-    </div>
-    <ul>
-        <li>
-            <a class="cbp-vm-image" href="#"><img src="images/1.png"></a>
-            <h3 class="cbp-vm-title">Silver beet</h3>
-            <div class="cbp-vm-price">$19.90</div>
-            <div class="cbp-vm-details">
-                Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
-            </div>
-            <a class="cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>
-        </li>
-        <li>
-            <a class="cbp-vm-image" href="#"><img src="images/1.png"></a>
-            <h3 class="cbp-vm-title">Silver beet</h3>
-            <div class="cbp-vm-price">$19.90</div>
-            <a class="cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>
-        </li>
-       <li>
-            <a class="cbp-vm-image" href="#"><img src="images/1.png"></a>
-            <h3 class="cbp-vm-title">Silver beet</h3>
-            <div class="cbp-vm-price">$19.90</div>
-            <div class="cbp-vm-details">
-                Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
-            </div>
-            <a class="cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>
-        </li>
-    </ul>
+  <div class='community-friends-of-friends'>
+    <h2>Friends of Friends</h2>
+    <% unless @friends_of_friends.empty? %>
+      <%= render partial: "users/user", collection: @friends_of_friends %>
+    <% end %>
+  </div>
+
+  <br/>
+  <legend></legend>
+  <br/>
+
+  <div class='community-public'>
+    <h2>Others in the Community</h2>
+    <% unless @general_public.empty? %>
+      <%= render partial: "users/user", collection: @general_public %>
+    <% end %>
+  </div>
 </div>

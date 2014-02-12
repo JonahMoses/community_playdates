@@ -8245,7 +8245,9 @@ td.visible-print {
 }
 .user-profile-well {
   background-color: white;
-  border: 3px solid #47a3da; }
+  border: 3px solid #47a3da;
+  margin: 0 3% 0 3%; 
+}
 
 @font-face {
   font-family: 'fontawesome';

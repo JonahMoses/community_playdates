@@ -1,8 +1,17 @@
 .user-profile-well {
     background-color: white;
     border: 3px solid #47a3da;
+    border-radius: 15px;
+    text-align: center;
+    margin: 0 1% 0 1%;
+}
+.friend-portal {
+  margin-left: 10%;
 }
 
+.community {
+    
+}
 
 @font-face {
     font-family: 'fontawesome';
@@ -41,6 +50,7 @@
 .cbp-vm-options a:hover,
 .cbp-vm-options a.cbp-vm-selected {
     color: #47a3da;
+   
 }
  
 .cbp-vm-options a:before {
@@ -87,7 +97,7 @@
 }
  
 .cbp-vm-title {
-    margin: 0;
+    margin: 8px 0 0 0;
     padding: 0;
 }
  
