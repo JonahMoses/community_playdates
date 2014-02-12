@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://graph.facebook.com/picture?type=square
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 302
+      message: forced.302
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - image/jpeg
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Location:
+      - http://static.ak.fbcdn.net/rsrc.php/v2/y6/r/_xS7LcbxKS4.gif
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '1118685'
+      X-Fb-Debug:
+      - 1BlMdSyIi2+wo2vrV1X2nYZ1ofdeZC1dbhVXp5kyFns=
+      Date:
+      - Wed, 12 Feb 2014 00:36:06 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 12 Feb 2014 00:36:06 GMT
+- request:
+    method: get
+    uri: http://graph.facebook.com/picture?type=large
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 302
+      message: forced.302
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - image/jpeg
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Location:
+      - http://static.ak.fbcdn.net/rsrc.php/v2/yA/r/gPCjrIGykBe.gif
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '1118685'
+      X-Fb-Debug:
+      - YNVMwjYbuhJU5hEsIFrRNyzwbh86yIxEoxHdiVYlQk0=
+      Date:
+      - Wed, 12 Feb 2014 00:36:07 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 12 Feb 2014 00:36:07 GMT
+recorded_with: VCR 2.8.0

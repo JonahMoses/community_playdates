@@ -1,0 +1,75 @@
+<div id='user-profile'>
+  <div class="col-lg-3 profile-info user-profile-well" >
+    <div class='span3'>
+      <div class='image-container'><%= image_tag @user.large_avatar, class:'cbp-vm-image circular'  %></div>
+      <h3 class="cbp-vm-title"><%= @user.name %></h3>
+      <div class="cbp-vm-price">Joined on: </strong><%= @user.created_at.strftime("%m/%d/%Y") %></div>
+         <h4>Playdates:</h4>
+         <h5><strong>Created: </strong><%= @user.created_events.count %></h5>
+         <h5><strong>Attending: </strong><%= @user.attending_events.count %></h5>
+     </div>
+
+  </div>
+
+
+  <div id='user-friend-icons' class='col-lg-8'>
+    <h4>Friends in the Community</h4>
+
+    <% if @friends.empty? %>
+      <h4><em>There are no friends currently enrolled for <%= @user.name %>.</em></h4>
+    <% else %>
+      <% @friends.each do |friend| %>
+        <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
+      <% end %>
+    <% end %>
+    
+    <h4>Friends of Friends in the Community</h4>
+    <% if @friends_of_friends.empty? %>
+      <h4><em>There are no friends of friends currently enrolled for <%= @user.name %>.</em></h4>
+    <% else %>
+      <% @friends_of_friends.flatten.each do |friend| %>
+        <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class='user-timeline-container col-lg-8'>
+
+    <h3>Playdate Timeline</h3>
+
+    <% if @events.empty? %>
+      <h4><em>There are no playdates currently scheduled for <%= @user.name %>.</em></h4>
+    <% else %>
+      <% @events.each do |date, events| %>
+        <div class="cbp_tmtimeline">
+          <li>
+            <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
+            <% events.each do |event| %>
+              <div class="cbp_tmlabel" >
+                <div class='hour'>
+                  <%= event.start_time.strftime("%I:%M%p") %> - <%= event.end_time.strftime("%I:%M%p") %>
+                </div>
+                <span class='user-icon'><%= image_tag 'user_icon.png' %><%= event.attendee_and_creator_count %></span>
+                <br>
+                <h2><%= link_to event.name, event_path(event), class:'event-name' %></h2>
+                <p><%= event.description %></p>
+                <p>Created By: <%= event.creator.first.name %></p>
+
+                Location Name: <%= event.location.venue %></br>
+                Street Address: <%= event.location.street_address %></br>
+                City: <%= event.location.city %></br>
+                State: <%= event.location.state %></br>
+                Zipcode: <%= event.location.zipcode %></br>
+                <% if !@user.id == current_user.id %>
+                  <%= link_to "Join Playdate", registrations_path(event_id: event.id), method: "post", class:"cbp-vm-icon cbp-vm-add join-playdate-button"  %>
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+        </div>  
+      <% end %>
+    <% end %>
+  </div> 
+</div> 
+
+

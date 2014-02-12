@@ -1,0 +1,45 @@
+<div class="event" id="event_<%= event.id %>">
+  <h3>Details for '<%= event.name %>'</h3>
+  <h4>Created by <%# link_to event.creator.name, user_path(event.creator) %></h4>
+
+  Description: <%= event.description %></br>
+  Date: <%= event.date %></br>
+    <% unless event.start_time.nil? %>
+      Starts At: <%= event.start_time.strftime("%I:%M %p") %></br>
+    <% end %>
+    <% unless event.start_time.nil? %>
+      Ends At: <%= event.end_time.strftime(" %I:%M %p") %></br>
+    <% end %>
+  Location Name: <%= event.location.venue %></br>
+  Street Address: <%= event.location.street_address %></br>
+  City: <%= event.location.city %></br>
+  State: <%= event.location.state %></br>
+  Zipcode: <%= event.location.zipcode %></br>
+
+  <%= link_visible_to_attendees(event) %>
+</div>
+
+<section class="post">
+  
+  <header>
+    <h2></h2>
+    <div class="meta">
+      <p class="date">
+        <label>Published on</label>
+        <time datetime="Fri Jan 31 2014 18:01:00 GMT+0000 (UTC)">01.31.14</time>
+      </p>
+      <p class="likes">
+        <span>2</span>
+        <label>Likes</label>
+      </p>
+    </div>
+      
+      <p class="preview">
+        This week, we have two new sticker packs making their way into the Shop.<br>
+        <a href="/blog/75165628964/ghostbusters-and-ari-milo-are-now-available-in-the">Read More</a>
+      </p>
+      
+    <p></p>
+  </header>
+</section>
+

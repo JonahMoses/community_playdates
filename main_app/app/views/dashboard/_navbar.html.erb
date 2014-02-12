@@ -1,0 +1,32 @@
+<div class="nav-bar-container" role="navigation">
+    <div class="navbar-header">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      <a class="navbar-brand" href="/">Community Playdates</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <% if current_user %>
+        <ul class="nav navbar-nav navbar-link navigation-links">
+          <li><%= link_to "Create A New Playdate", new_event_path %></li>
+          <li><%= link_to "View All Playdates", events_path %></li>
+        </ul>
+      <div class="pull-right">
+
+
+
+        <a href="<%= user_path(current_user.id)%>" >
+          <%= image_tag current_user.avatar, class:'user-friend-image' %>
+          <%= link_to current_user.name, user_path(current_user.id), class:'navbar-link' %>
+        </a>
+        <%= link_to "Logout", "/logout", class:'navbar-link' %>
+      </div>
+    <% else %>
+      <ul class="nav navbar-nav pull-right">
+        <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), id: "sign_in"  %></li>
+      </ul>
+    <% end %>
+
+  </div>
+</div>
