@@ -21,7 +21,7 @@ class RegistrationsTest < ActionDispatch::IntegrationTest
     Registration.create!(user_id: user_id, role_id: 2, event_id: 3)
 
     #make the get request
-    get "/registrations/users/#{user_id}?auth_id=hello"
+    get "/registrations/users/#{user_id}?auth_id=#{ENV['APP_CONFIRMATION']}"
 
     #parse json like client app would parse it
     response_json = JSON.parse(response.body)
@@ -44,7 +44,7 @@ class RegistrationsTest < ActionDispatch::IntegrationTest
     Registration.create!(role_id: role_id, user_id: 2, event_id: 3)
 
     #perform the get request
-    get "/registrations/roles/#{role_id}/#{3}?auth_id=hello"
+    get "/registrations/roles/#{role_id}/#{3}?auth_id=#{ENV['APP_CONFIRMATION']}"
 
     #parse the json like the client app would
     response_json = JSON.parse(response.body)
@@ -60,7 +60,7 @@ class RegistrationsTest < ActionDispatch::IntegrationTest
     #set fake values for cookies
     login
 
-    post '/registrations',  {user_id: 1, role_id: 2, event_id: 3, auth_id: "hello"}
+    post '/registrations',  {user_id: 1, role_id: 2, event_id: 3, auth_id: ENV['APP_CONFIRMATION']}
 
     response_json = JSON.parse(response.body)
 
@@ -80,7 +80,7 @@ class RegistrationsTest < ActionDispatch::IntegrationTest
     Registration.create!(id: id, role_id: 2, user_id: 2, event_id: 3)
 
 
-    delete "/registrations/#{id}?auth_id=hello"
+    delete "/registrations/#{id}?auth_id=#{ENV['APP_CONFIRMATION']}"
     assert_response :no_content
     assert_empty response.body
   end

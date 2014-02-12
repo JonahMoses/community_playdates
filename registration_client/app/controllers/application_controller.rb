@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user_info
 
   def authenticate_user_info
-    not_test_environment? ? process_request : test_request
+    process_request
   end
 
   def process_request
@@ -17,20 +17,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def test_request
-    if params[:auth_id] == "hello"
-      return true
-    else
-      render json: {}, :status => 403
-    end
-    # true
-  end
-
   def hash(input)
     BCrypt::Password.create(ENV['APP_CONFIRMATION']) == input
   end
 
-  def not_test_environment?
-    !Rails.env.test?
-  end
 end
