@@ -31,11 +31,11 @@ http_interactions:
       Pragma:
       - no-cache
       X-Fb-Rev:
-      - '1116978'
+      - '1118685'
       X-Fb-Debug:
-      - B+NSD0Fh8O6yOmctLUl8jyjhvKqL+bs7EVtcmNCrf3M=
+      - 1BlMdSyIi2+wo2vrV1X2nYZ1ofdeZC1dbhVXp5kyFns=
       Date:
-      - Tue, 11 Feb 2014 17:16:40 GMT
+      - Wed, 12 Feb 2014 00:36:06 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -44,7 +44,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 11 Feb 2014 17:16:40 GMT
+  recorded_at: Wed, 12 Feb 2014 00:36:06 GMT
 - request:
     method: get
     uri: http://graph.facebook.com/picture?type=large
@@ -76,11 +76,11 @@ http_interactions:
       Pragma:
       - no-cache
       X-Fb-Rev:
-      - '1116978'
+      - '1118685'
       X-Fb-Debug:
-      - Z5tgDXwbW7VVhcFRrIh9sQ4j2/EzLi+/QwkutIgI45M=
+      - YNVMwjYbuhJU5hEsIFrRNyzwbh86yIxEoxHdiVYlQk0=
       Date:
-      - Tue, 11 Feb 2014 17:16:41 GMT
+      - Wed, 12 Feb 2014 00:36:07 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -89,5 +89,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 11 Feb 2014 17:16:40 GMT
+  recorded_at: Wed, 12 Feb 2014 00:36:07 GMT
 recorded_with: VCR 2.8.0

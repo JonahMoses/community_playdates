@@ -5,7 +5,7 @@ class RegistrationClient
   end
 
   def self.event_role_registrations(role_id, event_id)
-    response = Faraday.get("#{domain}/registrations/roles/#{role_id}?event_id=#{event_id}")
+    response = Faraday.get("#{domain}/registrations/roles/#{role_id}/#{event_id}")
     create_registrations(response.body)
   end
 

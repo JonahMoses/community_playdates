@@ -42,11 +42,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-<<<<<<< HEAD
-=======
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
->>>>>>> 3b3776e5d65d4d5978f5aa86b45a74ca0524f989
     daemons (1.1.9)
     erubis (2.7.0)
     eventmachine (1.0.3)

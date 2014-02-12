@@ -202,6 +202,7 @@
 .cbp_tmlabel a:hover, a:visited, 
             a:link, a:active {
   text-decoration: none;
+  border-radius: 10px;
 }
 
 .view-profile-button {
@@ -248,7 +249,7 @@
 #user-friend-icons {
   border: 3px;
   float: right;
-  margin: 0 3% 3% 0;
+  margin: 2% 3% 3% 0;
   border: 3px solid #47a3da;
   background-color: white;
   border-radius: 15px;
