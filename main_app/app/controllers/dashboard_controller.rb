@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
       @friends = current_user.friends
 
       friends_of_friends = current_user.friends.map(&:friends).flatten
-      @friends_of_friends = friends_of_friends.reject {|friend| friend.id == current_user.id}
+      @friends_of_friends = current_user.friends_of_friends
       @general_public = []
     else
       if Rails.env.production?

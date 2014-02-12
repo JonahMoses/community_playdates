@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     @large_avatar = @user.large_avatar
     @date = @user.events.map(&:date)
     @events = Event.sorted_by_day(@user)
+    @friends = @user.friends
+    @friends_of_friends = @user.friends_of_friends
   end
 
   def friends

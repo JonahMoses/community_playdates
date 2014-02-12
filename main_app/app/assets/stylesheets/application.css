@@ -13,6 +13,45 @@
  *= require_tree .
  */
 
+ .nav-bar-container {
+  width: 100%;
+  margin-bottom: 8px;
+  position: fixed;
+  background-color: #247cb1;
+  z-index: 10;
+  display: inline-block;
+ }
+
+ .nav-bar-container.navbar-header {
+  margin-top: 180px;
+  display: inline-block;
+  float: left;
+ }
+
+ .small-user-image img {
+  height: 55px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+ }
+
+.image-container {
+  overflow: hidden;
+  margin-top: 12px;
+  width: 170px;
+  height: 170px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  
+  margin: 13px auto 0 auto;
+}
+
+.circular {
+  height: 100%;
+  background: url(http://link-to-your/image.jpg) no-repeat;
+}
+
 body
 {
   background-image:url('playground.jpg');
@@ -23,6 +62,15 @@ body
   background-color:#e4f3f8;
   background-size: cover;
 }
+
+.navbar-link {
+  display: inline-block;
+  color: white;
+  margin: 0 0px 0 7px;
+}
+
+
+
 
  .event
 {

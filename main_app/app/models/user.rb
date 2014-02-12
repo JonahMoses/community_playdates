@@ -47,4 +47,9 @@ class User
   def friends
     UserClient.get_friends(id)
   end
+
+  def friends_of_friends
+    friends_of_friends = friends.map(&:friends).flatten
+    # friends_of_friends.reject {|friend| friend.id == id}
+  end
 end

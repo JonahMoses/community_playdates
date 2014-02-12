@@ -12,8 +12,8 @@
       <h4>Playdates:</h4>
       <h5><strong>Created: </strong><%= user.created_events.count %></h5>
       <h5><strong>Attending: </strong><%= user.attending_events.count %></h5>
-    </div>
-    <%= link_to "View Profile", user_path(user.id) %>
+
+    <%= link_to "View Profile", user_path(user.id), class:"cbp-vm-icon cbp-vm-add view-profile-button"  %>
   </div>
 
 </div>

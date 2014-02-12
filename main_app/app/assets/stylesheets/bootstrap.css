@@ -262,6 +262,7 @@ table {
   }
   .navbar {
     display: none;
+    background-color: red;
   }
   .table td,
   .table th {
@@ -4479,6 +4480,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
+
   }
 }
 
@@ -4518,6 +4520,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 @media (min-width: 768px) {
   .navbar-collapse {
+    margin: .5% 0 .5%; 
     width: auto;
     border-top: 0;
     box-shadow: none;
@@ -4594,10 +4597,13 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-brand {
+  margin-top: 5px; 
   float: left;
   padding: 15px 15px;
-  font-size: 18px;
+  font-size: 1.8em;
   line-height: 20px;
+  color: white;
+
 }
 
 .navbar-brand:hover,
@@ -4650,6 +4656,15 @@ textarea.input-group-sm > .input-group-btn > .btn {
   line-height: 20px;
 }
 
+.navbar-nav  a:hover, a:visited, 
+            a:link, a:active {
+  text-decoration: none;
+}
+
+.nav
+
+.cbp_tmlabel 
+
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
@@ -4680,8 +4695,10 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
   .navbar-nav > li {
     float: left;
+    
   }
   .navbar-nav > li > a {
+    color: white;
     padding-top: 15px;
     padding-bottom: 15px;
   }
