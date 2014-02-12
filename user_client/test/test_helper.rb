@@ -45,11 +45,9 @@ class ActiveSupport::TestCase
   if ! defined? VCR
 
     module VCR
-
       def self.use_cassette(*args)
         yield
       end
-
     end
 
   end
