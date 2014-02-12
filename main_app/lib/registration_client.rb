@@ -22,6 +22,10 @@ class RegistrationClient
     end
   end
 
+  def self.destroy(event_id, user_id)
+    Faraday.delete("#{domain}/registrations?event_id=#{event_id}&user_id=#{user_id}&auth_id=#{ENV['APP_CONFIRMATION']}")
+  end
+
   def self.domain
     if Rails.env.production?
       return "http://communityplaydates.com:3001"

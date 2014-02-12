@@ -77,11 +77,12 @@ class RegistrationsTest < ActionDispatch::IntegrationTest
 
     #create a registration to be destroyed
     id = 1
-    Registration.create!(id: id, role_id: 2, user_id: 2, event_id: 3)
+    registration = Registration.create!(id: id, role_id: 2, user_id: 2, event_id: 3)
 
 
-    delete "/registrations/#{id}?auth_id=#{ENV['APP_CONFIRMATION']}"
+    delete "/registrations?event_id=3&user_id=2&auth_id=#{ENV['APP_CONFIRMATION']}"
     assert_response :no_content
+    refute Registration.find_by(id: registration.id)
     assert_empty response.body
   end
 end

@@ -9,8 +9,7 @@ CommunityPlaydates::Application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :events
-
+  delete '/registrations' => "registrations#destroy"
   resources :registrations
-
 
 end
