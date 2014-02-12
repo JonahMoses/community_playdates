@@ -11,7 +11,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   def test_it_shows_a_user
-    User.create!
+    User.create!(id: 1)
     get :show, :id => 1
     assert_response :success
   end

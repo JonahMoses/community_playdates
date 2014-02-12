@@ -31,11 +31,11 @@ http_interactions:
       Pragma:
       - no-cache
       X-Fb-Rev:
-      - '1116978'
+      - '1118685'
       X-Fb-Debug:
-      - onSEN4zMiZAX+GQtCyEL3JJ9E1JKyLulNd30mmLf54w=
+      - gy6TWnzuzz2az22irBbD8bcK3mndB8do05iRAvGd0lI=
       Date:
-      - Tue, 11 Feb 2014 18:11:19 GMT
+      - Wed, 12 Feb 2014 00:36:06 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -59,5 +59,5 @@ http_interactions:
         Schmid Siegert","id":"100000920521778"},{"name":"Tristan Tak Kreb","id":"100002217803628"},{"name":"Jaclyn
         Parry Bogert","id":"100002579116269"},{"name":"Kristina Siegert","id":"100004022605735"}],"paging":{"next":"https:\/\/graph.facebook.com\/536753365\/friends?access_token=CAADOUxTaZBssBAEbIatemoZBC8WnBkbD6QiZA6hHrK0gFYZCp6s99oVXou6QgNgrP4kWZBepngLU6ugfkZBlhB1anVLOBecvApHEcEL3kZBA43JEitpqMiZCkdNLAUSmm5Jfg2Airb11NvnSKvC0BdVVt8vlDZBzlZBre5Q6F3MfNLZCyKfEncgPZBANzvjugCMFE5IZD&limit=5000&offset=5000&__after_id=100004022605735"}}'
     http_version: 
-  recorded_at: Tue, 11 Feb 2014 18:11:19 GMT
+  recorded_at: Wed, 12 Feb 2014 00:36:06 GMT
 recorded_with: VCR 2.8.0
