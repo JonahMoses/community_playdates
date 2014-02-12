@@ -20,7 +20,7 @@ class UserCommTest < ActionDispatch::IntegrationTest
       uid: "536753365",
       oauth_token: "CAADOUxTaZBssBAEbIatemoZBC8",
       name: "Antony Siegert"
-    }}
+    }, auth_id: ENV['APP_CONFIRMATION']}
 
     user_json = JSON.parse(response.body)
 
@@ -38,7 +38,7 @@ class UserCommTest < ActionDispatch::IntegrationTest
 
     id = 1
     User.create(email: "agsiegert@hotmail.com", oauth_expires_at: "2014-04-12 04:18:51", provider: "facebook", uid: "536753365", oauth_token: "CAADOUxTaZBssBAEbIatemoZBC8", name: "Antony Siegert")
-    get "/users/#{id}"
+    get "/users/#{id}?auth_id=#{ENV['APP_CONFIRMATION']}"
 
     user_json = JSON.parse(response.body)
 

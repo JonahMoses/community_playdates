@@ -1,16 +1,16 @@
 class RegistrationClient
 
   def self.create(role_id, user_id, event_id)
-    Faraday.post("#{domain}/registrations?role_id=#{role_id}&user_id=#{user_id}&event_id=#{event_id}")
+    Faraday.post("#{domain}/registrations?role_id=#{role_id}&user_id=#{user_id}&event_id=#{event_id}&auth_id=#{ENV['APP_CONFIRMATION']}")
   end
 
   def self.event_role_registrations(role_id, event_id)
-    response = Faraday.get("#{domain}/registrations/roles/#{role_id}/#{event_id}")
+    response = Faraday.get("#{domain}/registrations/roles/#{role_id}/#{event_id}?auth_id=#{ENV['APP_CONFIRMATION']}")
     create_registrations(response.body)
   end
 
   def self.for_user(user_id)
-    response = Faraday.get("#{domain}/registrations/users/#{user_id}")
+    response = Faraday.get("#{domain}/registrations/users/#{user_id}?auth_id=#{ENV['APP_CONFIRMATION']}")
     create_registrations(response.body)
   end
 
@@ -20,6 +20,10 @@ class RegistrationClient
                        registration_params["user_id"],
                        registration_params["event_id"])
     end
+  end
+
+  def self.destroy(event_id, user_id)
+    Faraday.delete("#{domain}/registrations?event_id=#{event_id}&user_id=#{user_id}&auth_id=#{ENV['APP_CONFIRMATION']}")
   end
 
   def self.domain

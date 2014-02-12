@@ -4,5 +4,5 @@ RegistrationClient::Application.routes.draw do
   get '/registrations/roles/:id/:event_id' => "registrations#role_registrations"
   get '/registrations/users/:id' => "registrations#user_registrations"
 
-  delete "/registrations/:id" => "registrations#destroy"
+  delete "/registrations" => "registrations#destroy"
 end

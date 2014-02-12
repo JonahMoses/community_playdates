@@ -53,15 +53,15 @@
                 <br>
                 <h2><%= link_to event.name, event_path(event), class:'event-name' %></h2>
                 <p><%= event.description %></p>
-                <p>Created By: <%= event.creator.first.name %></p>
+                <p>Created By: <%= link_to event.creator.first.name, user_path(event.creator.first.id) %></p>
 
                 Location Name: <%= event.location.venue %></br>
                 Street Address: <%= event.location.street_address %></br>
                 City: <%= event.location.city %></br>
                 State: <%= event.location.state %></br>
                 Zipcode: <%= event.location.zipcode %></br>
-                <% if !@user.id == current_user.id %>
-                  <%= link_to "Join Playdate", registrations_path(event_id: event.id), method: "post", class:"cbp-vm-icon cbp-vm-add join-playdate-button"  %>
+                <% if @user.id != current_user.id %>
+                  <%= playdate_action_link(event, @user) %>
                 <% end %>
               </div>
             <% end %>

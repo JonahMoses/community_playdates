@@ -16,7 +16,7 @@
   State: <%= event.location.state %></br>
   Zipcode: <%= event.location.zipcode %></br>
 
-  <%= link_visible_to_attendees(event) %>
+  <%= playdate_action_link(event, current_user) %>
 </div>
 
 <section class="post">
