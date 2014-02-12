@@ -20,13 +20,14 @@ group :doc do
 end
 
 group :development, :test do
-  gem "vcr", "~> 2.8.0"
   gem 'minitest-rails'
-  gem 'webmock', "~> 1.8.0"
   gem 'pry'
 end
 
 group :development do
   gem 'guard-minitest'
 end
-
+group :test do
+  gem 'webmock', "~> 1.8.0"
+  gem "vcr", "~> 2.8.0"
+end

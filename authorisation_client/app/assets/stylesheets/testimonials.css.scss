@@ -156,8 +156,38 @@ Generate "lighting" using box shadows
 Posters and still images
 **************************************/
 
-.scene:nth-child(1) .movie .poster {
-  background-image: url(http://placekitten.com/g/260/400);
+.scene-one:nth-child(1) .movie .poster {
+  background-color: #418DD1;
+}
+
+.scene-two:nth-child(1) .movie .poster {
+  background-color: #6DDBBB;
+}
+
+.scene-three:nth-child(1) .movie .poster {
+  background-color: #DBD86D;
+}
+
+.scene-one:nth-child(1) .movie .poster p {
+  color: white;
+  margin-top: 50%;
+  font-size: 5em;
+}
+
+.scene-two:nth-child(1) .movie .poster p {
+  margin-top: 50%;
+  color: white;
+  font-size: 5em;
+}
+
+.scene-three:nth-child(1) .movie .poster p {
+  margin-top: 50%;
+  color: white;
+  font-size: 5em;
+}
+
+.scene:nth-child(2) .movie .poster {
+  background-image: url(http://placekitten.com/g/260/260);
 }
 
 .scene:nth-child(2) .poster {

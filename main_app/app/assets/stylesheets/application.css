@@ -64,12 +64,14 @@ body
 }
 
 .navbar-link {
-  display: inline-block;
   color: white;
   margin: 0 0px 0 7px;
 }
 
-
+.navigation-links a {
+  color: white;
+  margin: 0 0px 0 7px;
+}
 
 
  .event
@@ -88,4 +90,5 @@ body
   height: 320px;
   background-color:rgba(255,255,255,0.5);
 }
+
 
