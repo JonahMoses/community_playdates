@@ -60,7 +60,7 @@
                 City: <%= event.location.city %></br>
                 State: <%= event.location.state %></br>
                 Zipcode: <%= event.location.zipcode %></br>
-                <% if @user.id == current_user.id %>
+                <% if !@user.id == current_user.id %>
                   <%= link_to "Join Playdate", registrations_path(event_id: event.id), method: "post", class:"cbp-vm-icon cbp-vm-add join-playdate-button"  %>
                 <% end %>
               </div>

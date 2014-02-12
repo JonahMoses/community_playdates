@@ -3,7 +3,7 @@
   <div class='community friends'>
     <% unless @friends.empty? %>
       <h2>Friends</h2>
-      <%= render partial: "users/user", collection: @friends*3 %>
+      <%= render partial: "users/user", collection: @friends %>
     <% end %>
   </div>
 
