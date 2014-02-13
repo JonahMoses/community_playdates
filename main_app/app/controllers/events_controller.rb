@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
 
   def index
-
-    @events = Event.all.sort_by { |e| e.start_time}
+    # @events = Event.order(:start_time).page params[:page]
+    events = Event.all.sort_by {|event| event.start_time}
+    @events = Kaminari.paginate_array(events).page(params[:page]).per(5)
+    # @events = Event.paginate("start_time").page(params[:page])
+    # @events = Event.paginate(page: params[:page], per_page: 4)
   end
 
   def show

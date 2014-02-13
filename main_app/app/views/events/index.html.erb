@@ -6,7 +6,6 @@
   <h4 style='text-align: center; margin-top: 20px;'><em>There are no playdates currently scheduled.</em></h4>
 <% else %>
   <div class='playdate-timeline-container col-lg-11'>
-
     <% @events.each do |event| %>
       <% if event.creator.empty? %>
 
@@ -68,5 +67,6 @@
         </div>
       <% end %>
     <% end %>
+    <%= paginate @events %>
   </div>
 <% end %>

@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
     if current_user
       user = UserClient.get_all_friend_data(current_user.id)
       @friends = user.friends.take(3)
-      @friends_of_friends = user.friends_of_friends.take(3)
+      @friends_of_friends = user.friends_of_friends.uniq.reject {|f| f.id == user.id}.take(3)
       @general_public = []
     else
       if Rails.env.production?

@@ -102,6 +102,9 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
+    kaminari (0.15.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     koala (1.8.0)
       addressable
       faraday
@@ -261,6 +264,7 @@ DEPENDENCIES
   guard-rspec
   i18n
   jquery-rails
+  kaminari
   koala (~> 1.8.0rc1)
   launchy
   newrelic_rpm

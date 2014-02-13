@@ -15,6 +15,7 @@ gem 'omniauth-facebook'
 gem 'pg'
 gem 'i18n'
 gem 'yaml_db'
+gem 'kaminari'
 
 group :production do
   gem 'rails_12factor'
