@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
     if current_user
       user_data = current_user.get_all_friend_data
       @friends = user_data["friends"].take(3)
-      @friends_of_friends = user_data["friends of friends"].take(3)
+      @friends_of_friends = current_user.friends_of_friends[0..2]
 
       @general_public = []
     else
