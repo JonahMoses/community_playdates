@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, :through => :friendships
 
-   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
   def self.from_omniauth(auth)
@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
   def find_large_avatar
     avatar_path = facebook.get_picture( uid, :type => 'large')
     self.update_attributes(large_avatar: avatar_path)
+  end
+
+  def new_friends_of_friends
+    friends.collect {|f| f.friends}
   end
 
 end

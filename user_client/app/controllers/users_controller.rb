@@ -4,8 +4,11 @@ class UsersController < ApplicationController
     if user.persisted?
       user.find_avatar
       user.find_large_avatar
+      user.friends = user.friends_on_community_playdates
+      send_json(user, 201)
+    else
+      send_json("There was an error", 500)
     end
-    send_json(user, 201)
   end
 
   def show
@@ -23,8 +26,9 @@ class UsersController < ApplicationController
 
   def all_friend_data
     user = User.find(params[:id])
-    package = {friends: user.friends_on_community_playdates,
-              friends_of_friends: user.friends_of_friends}
+    friends = user.friends
+    friends_of_friends = user.friends.map(&:friends)
+    package = {"user" => user, "friends" => friends, "friends_of_friends" => friends_of_friends}
     send_json(package, 200)
   end
 

@@ -9,7 +9,11 @@ class UserClient
 
     if response.status == 201
       user_params = JSON.parse(response.body)
-      User.new(user_params)
+      user = User.new(user_params)
+      user.friends = user.friends.collect do |f|
+        User.new(f)
+      end
+      user
     else
       false
     end
@@ -65,12 +69,17 @@ class UserClient
     end
 
     if response.status == 200
+      # return response
       user_params = JSON.parse(response.body)
       package = {}
-      user_params.each do |type, params|
-        package[type] = params.collect{|individual| User.new(individual)}
+      user = User.new(user_params["user"])
+      user.friends = user_params["friends"].collect do |f|
+        User.new(f)
       end
-      return package
+      user_params["friends_of_friends"].each do |n|
+        user.friends_of_friends += n.collect {|data| User.new(data)}
+      end.flatten!
+      user
     else
       false
     end

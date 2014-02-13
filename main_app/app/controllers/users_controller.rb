@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if params[:id] == current_user.id
       @user = current_user
     else
-      @user = UserClient.get_user(params[:id])
+      @user = UserClient.get_all_friend_data(params[:id])
     end
 
     @large_avatar = @user.large_avatar

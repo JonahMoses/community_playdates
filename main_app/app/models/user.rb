@@ -11,6 +11,8 @@ class User
     :large_avatar,
     :created_at
 
+    attr_accessor :friends, :friends_of_friends
+
   def initialize(auth)
     @provider         = auth["provider"]
     @uid              = auth["uid"]
@@ -22,6 +24,8 @@ class User
     @avatar           = auth["avatar"]
     @large_avatar     = auth["large_avatar"]
     @created_at       = Time.parse(auth["created_at"])
+    @friends          = []
+    @friends_of_friends = []
   end
 
   def registrations
@@ -44,13 +48,13 @@ class User
     r.map(&:event)
   end
 
-  def friends
-    @friends ||= UserClient.get_friends(id)
-  end
+  # def friends
+  #   @friends ||= UserClient.get_friends(id)
+  # end
 
-  def friends_of_friends
-    @friends_of_friends ||= something_friends_of_friends
-  end
+  # def friends_of_friends
+  #   @friends_of_friends ||= something_friends_of_friends
+  # end
 
   def something_friends_of_friends
     friends_of_friends = friends.map(&:friends).flatten
