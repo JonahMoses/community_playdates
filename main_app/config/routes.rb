@@ -5,7 +5,7 @@ CommunityPlaydates::Application.routes.draw do
   get "/logout" => "sessions#destroy"
   get "/welcome" => "landing#index"
   root :to => "dashboard#index"
-  # get '/auth/facebook/callback' => root_path
+  get '/auth/facebook' => "dashboard#index"
 
   resources :users, only: [:index, :show]
   resources :events
