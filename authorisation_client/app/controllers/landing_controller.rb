@@ -4,7 +4,7 @@ class LandingController < ApplicationController
       if Rails.env.development?
         redirect_to "http://localhost:3000"
       else
-        redirect_to "http://communityplaydates.com:3000"
+        redirect_to "http://communityplaydates.com"
       end
     end
   end
