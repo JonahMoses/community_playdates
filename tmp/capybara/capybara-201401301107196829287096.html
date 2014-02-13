@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CommunityPlaydates</title>
+    <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+    <script data-turbolinks-track="true" src="/assets/application.js"></script>
+    
+  </head>
+  <body>
+    <p class="notice"></p>
+    <p class="alert"></p>
+
+    <div id="user_nav">
+      <img alt="/" src="/" />
+      ben@horne.com
+      Signed in as <strong>Ben Horne</strong>!
+      <a data-method="delete" href="/users/logout" rel="nofollow">Logout</a>
+    </div>
+
+    <header id="content-header">
+  <h2>Make a New Playdate</h2>
+</header>
+
+<form accept-charset="UTF-8" action="/events" class="new_event" id="new_event" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  </li>
+
+  </li>
+
+
+  <fieldset>
+    <ol>
+      <li class="required">
+        <label for="event_playdate_name">Playdate name</label>
+        <input autofocus="autofocus" id="event_name" name="event[name]" type="text" />
+      </li>
+      <li class="required">
+        <label for="event_description">Description</label>
+        <textarea cols="40" id="event_description" name="event[description]" rows="7">
+</textarea>
+      </li>
+
+      
+        <li class="required">
+          <label for="location_venue">Venue</label>
+          <input id="location_venue" name="location[venue]" size="30" type="text" />
+        </li>
+
+        <li class="required">
+          <label for="location_street_address">Street address</label>
+          <input id="location_street_address" name="location[street_address]" size="30" type="text" />
+        </li>
+
+        <li class="required">
+          <label for="location_city">City</label>
+          <input id="location_city" name="location[city]" size="30" type="text" />
+        </li>
+
+        <li class="required">
+          <label for="location_state">State</label>
+          <input id="location_state" name="location[state]" size="2" type="text" />
+        </li>
+
+        <li class="required">
+          <label for="location_zipcode">Zipcode</label>
+          <input id="location_zipcode" name="location[zipcode]" size="10" type="text" />
+        </li>
+
+      <li class="required">
+        <label for="event_date">Date</label>
+        <input id="datepicker" name="event[date]" type="text" value="2014-01-30" />
+      </li>
+
+      <li class="required">
+        <label for="event_start_time">Start time</label>
+        <input id="start" name="event[start_time]" type="text" />
+      </li>
+
+      <li class="required">
+        <label for="event_end_time">End time</label>
+        <input id="end" name="event[end_time]" type="text" />
+      </li>
+      </ol>
+      <p>
+        <input name="commit" type="submit" value="Create Playdate" />
+        <a class="button" href="/events">Cancel</a>
+      </p>
+    </fieldset>
+</form>
+<script>
+  $(document).ready(function() {
+    // create DatePicker from input HTML element
+    $("#datepicker").kendoDatePicker({
+
+    });
+  });
+
+  $(document).ready(function() {
+    function startChange() {
+    var startTime = start.value();
+
+    if (startTime) {
+      startTime = new Date(startTime);
+
+      end.max(startTime);
+
+      startTime.setMinutes(startTime.getMinutes() + this.options.interval);
+
+      end.min(startTime);
+      end.value(startTime);
+      }
+    }
+
+    //init start timepicker
+    var start = $("#start").kendoTimePicker({
+      change: startChange
+    }).data("kendoTimePicker");
+
+    //init end timepicker
+    var end = $("#end").kendoTimePicker().data("kendoTimePicker");
+
+    //define min/max range
+    start.min("8:00 AM");
+    start.max("6:00 PM");
+
+    //define min/max range
+    end.min("8:00 AM");
+    end.max("7:30 AM");
+  });
+</script>
+
+
+
+      <script type="text/javascript">
+        if (window.location.hash && window.location.hash == '#_=_') {
+          if (window.history && history.pushState) {
+            window.history.pushState("", document.title, window.location.pathname);
+          } else {
+            // Prevent scrolling by storing the page's current scroll offset
+            var scroll = {
+              top: document.body.scrollTop,
+              left: document.body.scrollLeft
+            };
+            window.location.hash = '';
+            // Restore the scroll offset, should be flicker free
+            document.body.scrollTop = scroll.top;
+            document.body.scrollLeft = scroll.left;
+          }
+        }
+      </script>
+
+  </body>
+</html>
+

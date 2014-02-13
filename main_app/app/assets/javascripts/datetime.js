@@ -31,7 +31,7 @@ setup = function() {
 
   //define min/max range
   end.min("8:00 AM");
-  end.max("7:30 AM");
+  end.max("7:30 PM");
 };
 
 $(document).ready(setup);

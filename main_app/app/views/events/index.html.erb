@@ -11,7 +11,7 @@
         <li>
           <div class="cbp_tmicon cbp_tmicon-phone"></div>
           <% if date %>
-          <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
+          <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time>
           <% end %>
           <% events.each do |event| %>
             <div class="cbp_tmlabel" >
@@ -30,12 +30,12 @@
               State: <%= event.location.state %></br>
               Zipcode: <%= event.location.zipcode %></br>
               <% if event.creator.first.id != current_user.id %>
-                <%= playdate_action_link(event, event.creator.first) %>
+                <%= playdate_action_link(event, current_user) %>
               <% end %>
             </div>
           <% end %>
         </li>
-      </div>  
+      </div>
     <% end %>
   </div>
 <% end %>

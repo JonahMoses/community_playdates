@@ -27,7 +27,7 @@
     <div class='image-container'>
       <%= image_tag event.creator.first.large_avatar, class:'cbp-vm-image circular'  %>
     </div>
-    
+
     <h3 class="cbp-vm-title"><%= event.creator.first.name %></h3>
     <div class="cbp-vm-price">
       Joined on: </strong><%= event.creator.first.created_at.strftime("%m/%d/%Y") %>
