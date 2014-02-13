@@ -23,6 +23,10 @@ class SessionsController < ApplicationController
     cookies.signed[:oauth_token]      = nil
     cookies.signed[:oauth_expires_at] = nil
     cookies.signed[:email]            = nil
-    redirect_to root_path
+    if Rails.env.production?
+      redirect_to "http://communityplaydates.com/welcome"
+    else
+      redirect_to "http://localhost:3000"
+    end
   end
 end

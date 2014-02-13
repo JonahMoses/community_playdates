@@ -19,7 +19,7 @@ private
     else
       # cookies.delete
       if Rails.env.production?
-        redirect_to "http://communityplaydates.com:3002"
+        redirect_to "http://communityplaydates.com/welcome"
       else
         redirect_to "http://localhost:3002"
       end
