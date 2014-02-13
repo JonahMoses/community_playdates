@@ -4662,10 +4662,6 @@ textarea.input-group-sm > .input-group-btn > .btn {
   text-decoration: none;
 }
 
-.nav
-
-.cbp_tmlabel 
-
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
