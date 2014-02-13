@@ -54,8 +54,9 @@
                 <br>
                 <h2><%= link_to event.name, event_path(event), class:'event-name' %></h2>
                 <p><%= event.description %></p>
-                <p>Created By: <%= link_to event.creator.first.name, user_path(event.creator.first.id) %></p>
-
+                <% unless event.creator.empty? %>
+                  <p>Created By: <%= link_to event.creator.first.name, user_path(event.creator.first.id) %></p>
+                <% end %>
                 Location Name: <%= event.location.venue %></br>
                 Street Address: <%= event.location.street_address %></br>
                 City: <%= event.location.city %></br>
