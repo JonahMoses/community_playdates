@@ -1,12 +1,18 @@
 class UsersController < ApplicationController
 
   def show
-    @user = UserClient.get_user(params[:id])
+    if params[:id] == current_user.id
+      @user = current_user
+    else
+      @user = UserClient.get_user(params[:id])
+    end
+
     @large_avatar = @user.large_avatar
     @date = @user.events.map(&:date)
     @events = Event.sorted_by_day(@user)
-    @friends = @user.friends
-    @friends_of_friends = @user.friends_of_friends
+    user_data = current_user.get_all_friend_data
+    @friends = user_data["friends"]
+    @friends_of_friends = user_data["friends"]
   end
 
   def friends

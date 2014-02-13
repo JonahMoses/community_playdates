@@ -21,6 +21,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def all_friend_data
+    user = User.find(params[:id])
+    package = {friends: user.friends_on_community_playdates,
+              friends_of_friends: user.friends_of_friends}
+    send_json(package, 200)
+  end
+
   def friends
     user = User.find(params[:id])
     send_json(user.friends_on_community_playdates)

@@ -14,7 +14,6 @@
 
   <div id='user-friend-icons' class='col-lg-8'>
     <h4>Friends in the Community</h4>
-
     <% if @friends.empty? %>
       <h4><em>There are no friends currently enrolled for <%= @user.name %>.</em></h4>
     <% else %>
@@ -22,7 +21,6 @@
         <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
       <% end %>
     <% end %>
-    
     <h4>Friends of Friends in the Community</h4>
     <% if @friends_of_friends.empty? %>
       <h4><em>There are no friends of friends currently enrolled for <%= @user.name %>.</em></h4>
@@ -43,7 +41,9 @@
         <div class="cbp_tmtimeline">
           <li>
             <div class="cbp_tmicon cbp_tmicon-phone"></div>
+            <% if date %>
             <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
+            <% end %>
             <% events.each do |event| %>
               <div class="cbp_tmlabel" >
                 <div class='hour'>

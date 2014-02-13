@@ -25,7 +25,7 @@ class User
   end
 
   def registrations
-    RegistrationClient.for_user(id)
+    @registrations ||= RegistrationClient.for_user(id)
   end
 
   def events
@@ -45,11 +45,19 @@ class User
   end
 
   def friends
-    UserClient.get_friends(id)
+    @friends ||= UserClient.get_friends(id)
   end
 
   def friends_of_friends
+    @friends_of_friends ||= something_friends_of_friends
+  end
+
+  def something_friends_of_friends
     friends_of_friends = friends.map(&:friends).flatten
     friends_of_friends.reject {|friend| friend.id == id}
+  end
+
+  def get_all_friend_data
+    @friend_data ||= UserClient.get_all_friend_data(id)
   end
 end

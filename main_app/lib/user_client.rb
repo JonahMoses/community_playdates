@@ -59,4 +59,21 @@ class UserClient
     end
   end
 
+  def self.get_all_friend_data(id)
+    response = connection.get do |req|
+      req.url("/users/#{id}/all-friend-data?auth_id=#{ENV['APP_CONFIRMATION']}")
+    end
+
+    if response.status == 200
+      user_params = JSON.parse(response.body)
+      package = {}
+      user_params.each do |type, params|
+        package[type] = params.collect{|individual| User.new(individual)}
+      end
+      return package
+    else
+      false
+    end
+  end
+
 end

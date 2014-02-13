@@ -2,10 +2,10 @@ class DashboardController < ApplicationController
 
   def index
     if current_user
-      @friends = current_user.friends
+      user_data = current_user.get_all_friend_data
+      @friends = user_data["friends"]
+      @friends_of_friends = user_data["friends"]
 
-      friends_of_friends = current_user.friends.map(&:friends).flatten
-      @friends_of_friends = current_user.friends_of_friends
       @general_public = []
     else
       if Rails.env.production?

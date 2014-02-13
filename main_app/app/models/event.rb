@@ -35,7 +35,8 @@ class Event < ActiveRecord::Base
   end
 
   def registrations(role_id)
-    RegistrationClient.event_role_registrations(role_id, self.id)
+    @registrations ||= {}
+    @registrations[role_id] ||= RegistrationClient.event_role_registrations(role_id, self.id)
   end
 
 #  def friend_events
