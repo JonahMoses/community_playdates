@@ -1,10 +1,11 @@
-<div id='create-playdate-form' >
+<div id='cbp-mc-form' >
   <%= form_for(@event) do |f| %>
     <%= render "shared/errors", object: @event %>
     <%= render "shared/errors", object: @location %>
 
     <fieldset>
       <ol>
+        <div class="cbp-mc-column">
         <li>
           <%= f.label :playdate_name %>
           <%= f.text_field :name, {autofocus: true, required: true} %>
@@ -13,7 +14,8 @@
           <%= f.label :description %>
           <%= f.text_area :description, {cols: 40, rows: 7, required: true} %>
         </li>
-
+      </div>
+      <div class="cbp-mc-column">
         <%= fields_for :location, @location do |k| %>
           <li>
             <%= k.label :location_name %>
@@ -31,34 +33,37 @@
           </li>
 
           <li>
-            <%= k.label :state%>
+            <%= k.label :state %>
             <%= k.text_field :state, {size: 2, id:'event-state', required: true} %>
           </li>
-
-          <li>
+          <li id='zipcode'>
             <%= k.label :zipcode %>
             <%= k.text_field :zipcode, {size: 10, id:'event-zipcode', required: true} %>
           </li>
         <% end %>
-
+      </div>
+        <div class="cbp-mc-column">
         <li>
-          <%= f.label :date %>
+          <%= f.label :date %><br />
           <%= f.text_field :date, {id: 'datepicker', value: Date.today, required: true} %>
         </li>
 
         <li>
-          <%= f.label :start_time %>
+          <%= f.label :start_time %><br />
           <%= f.text_field :start_time, {id: 'start', required: true}  %>
         </li>
 
         <li>
-          <%= f.label :end_time %>
+          <%= f.label :end_time %><br />
           <%= f.text_field :end_time, {id: 'end', required: true}  %>
         </li>
         </ol>
         <p>
-          <%= f.submit 'Submit Playdate' %>
-          <%= link_to "Cancel", events_path, class: 'button' %>
+          <div class="playdate-submit-button">
+            <%= f.submit 'Submit Playdate' %>
+          </div>
+      </div>
+
         </p>
       </fieldset>
     <% end %>

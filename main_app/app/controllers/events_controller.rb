@@ -1,11 +1,18 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    events = Event.all.group_by{|event| event.date }
+    @events = {}
+    events.each do |key, value|
+      @events[key] = value.sort_by { |e| e.start_time }
+    end
   end
 
   def show
     @event = Event.find(params[:id])
+    attendees = @event.attendees
+    @friends = current_user.friends & attendees
+    @friends_of_friends = current_user.friends_of_friends & attendees
   end
 
   def new

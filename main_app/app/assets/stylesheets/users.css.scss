@@ -283,6 +283,7 @@
   border-radius: 15px;
 }
 
+
 .user-timeline-container h3 {
   text-align: center;
   margin: 5%;
@@ -292,4 +293,66 @@
 .user-timeline-container h4 {
   margin: -10px 0 25px 0;
   text-align: center;
+}
+
+.playdate-timeline-container {
+  border: 3px;
+  float: right;
+  margin: 3% 4% 0 0;
+  border: 3px solid #47a3da;
+  background-color: white;
+  border-radius: 15px;
+}
+
+
+.playdate-timeline-container h3 {
+  text-align: center;
+  margin: 5%;
+  font-size: 2em;
+}
+
+.playdate-timeline-container h4 {
+  margin: -10px 0 25px 0;
+  text-align: center;
+}
+
+.cbp_tmtimeline.all-playdates {
+margin: 5% 4% 0 0;
+}
+
+#playdate-content-header {
+  text-align: center;
+}
+
+.col-lg-3.user-profile-well.playdate-creator {
+  margin: 3% -5% 0 5%;
+}
+
+#playdate_show_date {
+  font-size: 1.5em;
+}
+
+.playdate_cbp_tmtimeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background: #afdcf8;
+  left: 20%;
+  margin-left: -10px;
+}
+
+#playdate_cbp_tmtimeline {
+  .playdate_cbp_tmlabel {
+  margin: 0 0 15px 25%;
+  background: #3594cb;
+  color: #fff;
+  padding: 2em;
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 1.4;
+  position: relative;
+  border-radius: 5px;
+  }
 }

@@ -1,6 +1,37 @@
 <header id="content-header">
-  <h2>Playdates</h2>
+  <h2 id='all-playdates'>Playdates</h2>
 </header>
 
-<%= render partial: 'event', collection: @events %>
+<div class='playdate-timeline-container col-lg-11'>
+  <% @events.each do |date, events| %>
+    <div class="cbp_tmtimeline all-playdates">
+      <li>
+        <div class="cbp_tmicon cbp_tmicon-phone"></div>
+        <% if date %>
+        <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
+        <% end %>
+        <% events.each do |event| %>
+          <div class="cbp_tmlabel" >
+            <div class='hour'>
+              <%= event.start_time.strftime("%I:%M%p") %> - <%= event.end_time.strftime("%I:%M%p") %>
+            </div>
+            <span class='user-icon'><%= image_tag 'user_icon.png' %><%= event.attendee_and_creator_count %></span>
+            <br>
+            <h2><%= link_to event.name, event_path(event), class:'event-name' %></h2>
+            <p><%= event.description %></p>
+            <p>Created By: <%= link_to event.creator.first.name, user_path(event.creator.first.id) %></p>
 
+            Location Name: <%= event.location.venue %></br>
+            Street Address: <%= event.location.street_address %></br>
+            City: <%= event.location.city %></br>
+            State: <%= event.location.state %></br>
+            Zipcode: <%= event.location.zipcode %></br>
+            <% if event.creator.first.id != current_user.id %>
+              <%= playdate_action_link(event, event.creator.first) %>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+    </div>  
+  <% end %>
+</div>

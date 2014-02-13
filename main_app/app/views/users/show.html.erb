@@ -1,3 +1,6 @@
+<header id="playdate-content-header">
+  <h2>Profile for <em><%= @user.name %></em></h2>
+</header>
 <div id='user-profile'>
   <div class="col-lg-3 profile-info user-profile-well" >
     <div class='span3'>
@@ -15,7 +18,7 @@
   <div id='user-friend-icons' class='col-lg-8'>
     <h4>Friends in the Community</h4>
     <% if @friends.empty? %>
-      <h4><em>There are no friends currently enrolled for <%= @user.name %>.</em></h4>
+      <h5><em>There are no friends currently enrolled for <%= @user.name %>.</em></h5>
     <% else %>
       <% @friends.each do |friend| %>
         <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
@@ -23,7 +26,7 @@
     <% end %>
     <h4>Friends of Friends in the Community</h4>
     <% if @friends_of_friends.empty? %>
-      <h4><em>There are no friends of friends currently enrolled for <%= @user.name %>.</em></h4>
+      <h5><em>There are no friends of friends currently enrolled for <%= @user.name %>.</em></h5>
     <% else %>
       <% @friends_of_friends.flatten.each do |friend| %>
         <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
