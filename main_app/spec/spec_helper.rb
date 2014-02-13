@@ -5,6 +5,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'database_cleaner'
+require 'vcr'
+require 'webmock/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -98,7 +100,25 @@ end
 def login
   Koala::Facebook::API.any_instance.stub(:get_picture).and_return('/')
   Koala::Facebook::API.any_instance.stub(:get_connection).and_return('/')
-  visit root_path
+  # visit root_path
   click_on "Sign in with Facebook"
 end
+
+WebMock.allow_net_connect!
+
+  VCR.configure do |c|
+    c.cassette_library_dir = 'spec/vcr_cassettes'
+    # webmock needed for HTTPClient testing
+    c.hook_into :webmock
+  end
+
+  if ! defined? VCR
+
+    module VCR
+      def self.use_cassette(*args)
+        yield
+      end
+    end
+
+  end
 

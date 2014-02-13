@@ -2,35 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#headline {
-  margin-left: 14%;
+#headline  {
+  margin-left: 10%;
+  margin-right: auto;
   margin-top: 3%;
   color: #75c46b;
-  text-shadow: 3px 3px 3px #bce2b3;
-  font-family: 'Concert One', serif;
+  -webkit-text-stroke: 2px #47a3da;
+  text-shadow: 3px 3px 3px #47a3da;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 4em;
 }
 
 
 #bigHalfCircle {
   fill: #75c46b;
-  stroke: #75c46b;
+  stroke: #47a3da;
   margin-bottom: -5px;
   margin-top: 9.15%;
   display: inline-block;
+
 }
 
 #learn-more {
   text-align: center;
   color: white;
-  font-size: 1.3em;
-  margin-top: 2%;
-  margin-bottom: -16%;
+  letter-spacing:2px;
+  font-size: 1.4em;
+  margin-top: 3%;
+  margin-bottom: -17.95%;
   z-index: 1;
   position: relative;
 }
 
-#learn-more a:hover, a:visited, 
+#learn-more a:hover, a:visited,
             a:link, a:active {
   color: white;
   text-decoration: none;

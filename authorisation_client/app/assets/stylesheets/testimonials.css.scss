@@ -36,7 +36,7 @@ ul.stage {
 Transform and style the two planes
 **************************************/
 
-.movie .poster, 
+.movie .poster,
 .movie .info {
   position: absolute;
   width: 260px;
@@ -142,12 +142,12 @@ Generate "lighting" using box shadows
   box-shadow: inset 300px 0px 40px rgba(255,255,255,0.8);
 }
 
-.csstransforms3d .movie .info, 
+.csstransforms3d .movie .info,
 .csstransforms3d .movie .info header {
   box-shadow: inset -300px 0px 40px rgba(0,0,0,0.5);
 }
 
-.csstransforms3d .movie:hover .info, 
+.csstransforms3d .movie:hover .info,
 .csstransforms3d .movie:hover .info header {
   box-shadow: inset 0px 0px 40px rgba(0,0,0,0);
 }
@@ -187,33 +187,36 @@ Posters and still images
 }
 
 .scene:nth-child(2) .movie .poster {
-  background-image: url(http://placekitten.com/g/260/260);
+  background-image: url();
 }
 
 .scene:nth-child(2) .poster {
-  background-image: url(http://placekitten.com/g/260/260);
+  background-image: url();
 }
 
 .scene:nth-child(3) .poster {
-  background-image: url(../img/poster03.jpg);
+  background-image: url();
 }
 
-.scene:nth-child(1) .info header {
-  background-image: url(http://placekitten.com/g/260/195);
+.scene-one:nth-child(1) .info header {
+  background-image: url(http://www.wright-oncoaching.com/files/images/FamilyPlaying.jpg);
+  background-size: cover;
 }
 
-.scene:nth-child(2) .info header {
-  background-image: url(http://placekitten.com/g/260/195);
+.scene-two:nth-child(1) .info header {
+  background-image: url(http://www.airquality.dli.mlsi.gov.cy/Images/Articles/Kids_corner/kids_playing.jpg);
+  background-size: cover;
 }
 
-.scene:nth-child(3) .info header {
-  background-image: url(../img/still03.jpg);
+.scene-three:nth-child(1) .info header {
+  background-image: url(http://cdn.thedailymeal.com/sites/default/files/imagecache/homepage_promos_image_670/splashnewstop.jpg);
+  background-size: cover;
 }
 
 /*************************************
 Fallback
 **************************************/
-.no-csstransforms3d .movie .poster, 
+.no-csstransforms3d .movie .poster,
 .no-csstransforms3d .movie .info {
   position: relative;
 }
