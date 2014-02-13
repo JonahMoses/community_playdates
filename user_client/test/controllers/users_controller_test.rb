@@ -4,7 +4,7 @@ class UsersControllerTest < ActionController::TestCase
   def test_should_get_create
     VCR.use_cassette('user_create') do
       assert_difference('User.count') do
-        post :create, user: {name: 'John Doe'}
+        post :create, {user: {name: 'John Doe'}, auth_id: ENV['APP_CONFIRMATION']}
       end
       assert_response :success
     end
@@ -12,7 +12,7 @@ class UsersControllerTest < ActionController::TestCase
 
   def test_it_shows_a_user
     User.create!(id: 1)
-    get :show, :id => 1
+    get :show, {:id => 1, auth_id: ENV['APP_CONFIRMATION']}
     assert_response :success
   end
 
@@ -28,7 +28,7 @@ class UsersControllerTest < ActionController::TestCase
             oauth_expires_at: "2014-04-12 04:18:51",
             avatar: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/t5/186388_536753365_1031627958_q.jpg"
             )
-      get :friends, :id => user.id
+      get :friends, {:id => user.id, auth_id: ENV['APP_CONFIRMATION']}
       assert_response :success
     end
   end

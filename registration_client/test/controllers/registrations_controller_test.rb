@@ -8,7 +8,7 @@ class RegistrationsControllerTest < ActionController::TestCase
     post :create, {user_id: registration.user_id,
                    role_id: registration.role_id,
                    event_id: registration.event_id,
-                   auth_id: "hello"}
+                   auth_id: ENV['APP_CONFIRMATION']}
 
     assert_response :success
   end

@@ -7,53 +7,53 @@
       <ol>
         <li>
           <%= f.label :playdate_name %>
-          <%= f.text_field :name, autofocus: true %>
+          <%= f.text_field :name, {autofocus: true, required: true} %>
         </li>
         <li>
           <%= f.label :description %>
-          <%= f.text_area :description, cols: 40, rows: 7 %>
+          <%= f.text_area :description, {cols: 40, rows: 7, required: true} %>
         </li>
 
         <%= fields_for :location, @location do |k| %>
           <li>
             <%= k.label :location_name %>
-            <%= k.text_field :venue, size: 30, id:'venue-name' %>
+            <%= k.text_field :venue, {size: 30, id:'venue-name', required: true} %>
           </li>
 
           <li>
             <%= k.label :street_address %>
-            <%= k.text_field :street_address, size: 30, id:'street-address' %>
+            <%= k.text_field :street_address, {size: 30, id:'street-address', required: true} %>
           </li>
 
           <li>
             <%= k.label :city %>
-            <%= k.text_field :city, size: 30, id:'event-city' %>
+            <%= k.text_field :city, {size: 30, id:'event-city', required: true} %>
           </li>
 
           <li>
             <%= k.label :state%>
-            <%= k.text_field :state, size: 2, id:'event-state' %>
+            <%= k.text_field :state, {size: 2, id:'event-state', required: true} %>
           </li>
 
           <li>
             <%= k.label :zipcode %>
-            <%= k.text_field :zipcode, size: 10, id:'event-zipcode' %>
+            <%= k.text_field :zipcode, {size: 10, id:'event-zipcode', required: true} %>
           </li>
         <% end %>
 
         <li>
           <%= f.label :date %>
-          <%= f.text_field :date, id: 'datepicker', value: Date.today %>
+          <%= f.text_field :date, {id: 'datepicker', value: Date.today, required: true} %>
         </li>
 
         <li>
           <%= f.label :start_time %>
-          <%= f.text_field :start_time, id: 'start'  %>
+          <%= f.text_field :start_time, {id: 'start', required: true}  %>
         </li>
 
         <li>
           <%= f.label :end_time %>
-          <%= f.text_field :end_time, id: 'end'  %>
+          <%= f.text_field :end_time, {id: 'end', required: true}  %>
         </li>
         </ol>
         <p>

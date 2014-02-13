@@ -2,7 +2,7 @@ class UserClient
 
   def self.login(auth)
     response = connection.post do |req|
-      req.url('/users')
+      req.url("/users?auth_id=#{ENV['APP_CONFIRMATION']}")
       req.headers['Content-Type'] = 'application/json'
       req.body = auth.to_json
     end
@@ -17,7 +17,7 @@ class UserClient
 
   def self.get_friends(id)
     response = connection.get do |req|
-      req.url("/users/#{id}/friends")
+      req.url("/users/#{id}/friends?auth_id=#{ENV['APP_CONFIRMATION']}")
     end
 
     if response.status == 200
@@ -48,7 +48,7 @@ class UserClient
 
   def self.get_user(id)
     response = connection.get do |req|
-      req.url("/users/#{id}")
+      req.url("/users/#{id}?auth_id=#{ENV['APP_CONFIRMATION']}")
     end
 
     if response.status == 200
