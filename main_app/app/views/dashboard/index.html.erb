@@ -1,7 +1,13 @@
+<header id="playdate-community-header">
+  <h2>Playdate Community Members</h2>
+</header>
+
 <div class='friend-portal col-lg-12'>
   <div class='community friends'>
-    <% unless @friends.empty? %>
-      <h2>Friends</h2>
+    <h2>Friends</h2>
+    <% if @friends.empty? %>
+      <h4><em>There are no friends currently enrolled.</em></h4>
+    <% else %>
       <%= render partial: "users/user", collection: @friends %>
     <% end %>
   </div>
@@ -11,8 +17,10 @@
   <br/>
 
   <div class='community friends-of-friends'>
-    <% unless @friends_of_friends.empty? %>
-      <h2>Friends of Friends</h2>
+    <h2>Friends of Friends</h2>
+    <% if @friends_of_friends.empty? %>
+      <h4><em>There are no friends of friends currently enrolled.</em></h4>
+    <% else %>
       <%= render partial: "users/user", collection: @friends_of_friends %>
     <% end %>
   </div>
