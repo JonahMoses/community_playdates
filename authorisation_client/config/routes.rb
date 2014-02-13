@@ -5,6 +5,6 @@ AuthorisationClient::Application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   resources :sessions
   root :to => "landing#index"
-  get '/welcome', to: 'landing#index'
+  get '/welcome', to: redirect('/')
 
 end
