@@ -14,14 +14,13 @@
 
   </div>
 
-<% cache do %>
   <div id='user-friend-icons' class='col-lg-8'>
     <h4>Friends in the Community</h4>
     <% if @friends.empty? %>
       <h5><em>There are no friends currently enrolled for <%= @user.name %>.</em></h5>
     <% else %>
       <% @friends.each do |friend| %>
-        <%= link_to image_tag(friend["large_avatar"]), user_path(friend["id"]), class:'user-friend-image' %>
+        <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
       <% end %>
     <% end %>
     <h4>Friends of Friends in the Community</h4>
@@ -29,13 +28,10 @@
       <h5><em>There are no friends of friends currently enrolled for <%= @user.name %>.</em></h5>
     <% else %>
       <% @friends_of_friends.flatten.each do |friend| %>
-        <%= link_to image_tag(friend["large_avatar"]), user_path(friend["id"]), class:'user-friend-image' %>
+        <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
       <% end %>
     <% end %>
   </div>
-
-  <% end %>
-  <% cache do %>
   <div class='user-timeline-container col-lg-8'>
 
     <h3>Playdate Timeline</h3>
@@ -72,7 +68,6 @@
           </li>
         </div>  
       <% end %>
-    <% end %>
     <% end %>
   </div> 
 </div> 
