@@ -14,7 +14,6 @@
 
 body
 {
-  background-image:url('playground.jpg');
   background-repeat:no-repeat;
   background-position:center top;
   background-repeat:repeat-y;
@@ -50,10 +49,7 @@ body
   border-radius: 20px;
   padding: 5px 8px;
   color: white;
-  box-shadow:
-    inset 0 2px 0 rgba(0,0,0,.2),
-        0 0 4px rgba(0,0,0,0.1),
-        0 0 5px 1px #51CBEE;
+
   width: 60%;
   background-color: rgba(71,163,218,0.95);
   font-size: 2em;
