@@ -12,6 +12,24 @@
  *= require_tree .
  */
 
+ #facebook-link {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 6px;
+  position: relative;
+  width: 300px;
+  font-size: 1.8em;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #63B8EB;
+  text-align: center;
+  margin-top: 130px;
+}
+
+#facebook-link-text {
+  margin-top: 5px;
+}
+
 body
 {
   background-repeat:no-repeat;
@@ -20,6 +38,7 @@ body
   background-attachment:fixed;
   background-color:#e4f3f8;
   background-size: cover;
+  background-color: #0090C3;
 }
 
  .event
@@ -41,7 +60,7 @@ body
 
 .site_description
 {
-  margin-top: 22.5%;
+  margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -51,7 +70,7 @@ body
   color: white;
 
   width: 60%;
-  background-color: rgba(71,163,218,0.95);
+  background-color: #2980b9;
   font-size: 2em;
 }
 
@@ -142,4 +161,6 @@ body
 #example4{
   margin-top: 120px;
 }
+
+
 

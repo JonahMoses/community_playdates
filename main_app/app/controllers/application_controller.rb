@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 private
 
   def authenticate_user_info
-    return true if cookies.signed[:user_id]
+    # return true if cookies.signed[:user_id]
     if (cookies.signed[:provider] &&
         cookies.signed[:uid] &&
         cookies.signed[:name] &&

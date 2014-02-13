@@ -1,25 +1,10 @@
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="/">Community Playdates</a>
-  </div>
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav pull-right">
-      <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"  %></li>
-    </ul>
-  </div>
-</div>
-<br />
-
 <h1 class="center-block" id="headline">Welcome To Community Playdates!</h1>
 
 
   <%= @cookies %>
+<div id='facebook-link'>
+  <span id='facebook-link-text'><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"  %></span>
+</div>
 <div class="site_description text-center">
    Join the Community. Find Playdates. Get Up, Get Out and Play!
 </div>
