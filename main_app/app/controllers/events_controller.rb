@@ -1,11 +1,8 @@
 class EventsController < ApplicationController
 
   def index
-    events = Event.all.group_by{|event| event.date }
-    @events = {}
-    events.each do |key, value|
-      @events[key] = value.sort_by { |e| e.start_time }
-    end
+
+    @events = Event.all.sort_by { |e| e.start_time}
   end
 
   def show

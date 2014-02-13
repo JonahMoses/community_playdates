@@ -14,7 +14,6 @@
 
   </div>
 
-
   <div id='user-friend-icons' class='col-lg-8'>
     <h4>Friends in the Community</h4>
     <% if @friends.empty? %>
@@ -40,14 +39,13 @@
     <% if @events.empty? %>
       <h4><em>There are no playdates currently scheduled for <%= @user.name %>.</em></h4>
     <% else %>
-      <% @events.each do |date, events| %>
+      <% @events.each do |event| %>
         <div class="cbp_tmtimeline">
           <li>
             <div class="cbp_tmicon cbp_tmicon-phone"></div>
-            <% if date %>
-            <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
+            <% if event.date %>
+            <time class="cbp_tmtime"><span><%= event.date.strftime("%D") %></span></time> 
             <% end %>
-            <% events.each do |event| %>
               <div class="cbp_tmlabel" >
                 <div class='hour'>
                   <%= event.start_time.strftime("%I:%M%p") %> - <%= event.end_time.strftime("%I:%M%p") %>
@@ -67,7 +65,6 @@
                   <%= playdate_action_link(event, @user) %>
                 <% end %>
               </div>
-            <% end %>
           </li>
         </div>  
       <% end %>

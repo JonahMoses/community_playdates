@@ -7,17 +7,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.sorted_by_day(user)
-    events = user.events.each_with_object({}) do |event, hash|
-      if hash[event.date]
-        hash[event.date] << event
-      else
-        hash[event.date] = [event]
-      end
-    end
-    h = {}
-    events.each do |key, value|
-      h[key] = value.sort_by { |e| e.start_time }
-    end
+    user.events.sort_by { |event| event.start_time }
   end
 
   def attendees
