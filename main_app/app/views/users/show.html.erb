@@ -14,14 +14,14 @@
 
   </div>
 
-
+<% cache do %>
   <div id='user-friend-icons' class='col-lg-8'>
     <h4>Friends in the Community</h4>
     <% if @friends.empty? %>
       <h5><em>There are no friends currently enrolled for <%= @user.name %>.</em></h5>
     <% else %>
       <% @friends.each do |friend| %>
-        <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
+        <%= link_to image_tag(friend["large_avatar"]), user_path(friend["id"]), class:'user-friend-image' %>
       <% end %>
     <% end %>
     <h4>Friends of Friends in the Community</h4>
@@ -29,10 +29,13 @@
       <h5><em>There are no friends of friends currently enrolled for <%= @user.name %>.</em></h5>
     <% else %>
       <% @friends_of_friends.flatten.each do |friend| %>
-        <%= link_to image_tag(friend.large_avatar), user_path(friend.id), class:'user-friend-image' %>
+        <%= link_to image_tag(friend["large_avatar"]), user_path(friend["id"]), class:'user-friend-image' %>
       <% end %>
     <% end %>
   </div>
+
+  <% end %>
+  <% cache do %>
   <div class='user-timeline-container col-lg-8'>
 
     <h3>Playdate Timeline</h3>
@@ -40,14 +43,13 @@
     <% if @events.empty? %>
       <h4><em>There are no playdates currently scheduled for <%= @user.name %>.</em></h4>
     <% else %>
-      <% @events.each do |date, events| %>
+      <% @events.each do |event| %>
         <div class="cbp_tmtimeline">
           <li>
             <div class="cbp_tmicon cbp_tmicon-phone"></div>
-            <% if date %>
-            <time class="cbp_tmtime"><span><%= date.strftime("%D") %></span></time> 
+            <% if event.date %>
+            <time class="cbp_tmtime"><span><%= event.date.strftime("%D") %></span></time> 
             <% end %>
-            <% events.each do |event| %>
               <div class="cbp_tmlabel" >
                 <div class='hour'>
                   <%= event.start_time.strftime("%I:%M%p") %> - <%= event.end_time.strftime("%I:%M%p") %>
@@ -67,10 +69,10 @@
                   <%= playdate_action_link(event, @user) %>
                 <% end %>
               </div>
-            <% end %>
           </li>
         </div>  
       <% end %>
+    <% end %>
     <% end %>
   </div> 
 </div> 

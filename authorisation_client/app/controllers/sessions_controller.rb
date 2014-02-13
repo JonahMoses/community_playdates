@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies[:user_id]                 = nil
+    cookies.signed[:user_id]          = nil
     cookies.signed[:provider]         = nil
     cookies.signed[:uid]              = nil
     cookies.signed[:name]             = nil
